@@ -1,0 +1,105 @@
+
+/* styles section servicios */
+.card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    
+    .card-hover i {
+        transition: color 0.3s ease;
+    }
+
+    .card-hover:hover i {
+        color: #006eff !important; /* Azul corporativo */
+    }
+
+      .rating-stars input:checked ~ label i {
+    color: #ccc;
+  }
+
+  .rating-stars input:checked + label i,
+  .rating-stars label:hover i,
+  .rating-stars label:hover ~ label i {
+    color: #007bff !important;
+  }
+
+  .star-label i {
+    transition: color 0.3s ease;
+    color: #ccc;
+  }
+
+  .rating-stars input:checked + label ~ label i {
+    color: #ccc !important;
+  }
+
+
+/* styles section contactos */
+
+/* styles section  navegtion*/
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  text-decoration: underline;
+  color: #ffc107 !important; /* Color amarillo dorado para contraste */
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f0f0f0;
+  color: #0d6efd;
+}
+
+
+/* Fondo del dropdown */
+.dropdown-menu {
+    background-color: #002855; /* Azul oscuro */
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+/* Enlaces blancos con hover */
+
+.dropdown-menu .dropdown-item {
+    color: #ffffff;
+    padding: 8px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #0056b3; /* Azul claro */
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/* El menú principal alineado a la derecha */
+.navbar-nav {
+    justify-content: flex-end;
+}
+
+
+
+/* styles section nosotros */
+
+/* styles section home */
+
+.btn-orange {
+    background-color: #ff6f00; /* Naranja vibrante */
+    color: white;
+    border: none;
+}
+
+.btn-orange:hover {
+    background-color: #e65100; /* Más oscuro al pasar mouse */
+    color: white;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+
+
