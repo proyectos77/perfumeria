@@ -27,7 +27,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Animaciones de Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 </head>
 
         <!--Start of Tawk.to Script-->
@@ -92,7 +94,7 @@
 
     @include('layouts.footer')
 
-        <!-- Botón flotante de Teléfono -->
+
         <!-- Botón flotante de Teléfono -->
 <a href="tel:+573001234567"
    class="position-fixed end-0 me-3 btn btn-primary rounded-circle shadow"

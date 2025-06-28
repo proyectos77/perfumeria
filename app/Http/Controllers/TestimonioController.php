@@ -27,7 +27,7 @@ class TestimonioController extends Controller
         // $testimonios = Testimonio::latest()->take(8)->get();
         // return view('home', compact('testimonios'));
 
-        $testimoniosDestacados = Testimonio::latest()->take(8)->get();
+        $testimoniosDestacados = Testimonio::latest()->take(4)->get();
         $testimoniosRestantes = Testimonio::latest()->skip(8)->paginate(8); // para modal
         return view('home', compact('testimoniosDestacados', 'testimoniosRestantes'));
     }

@@ -1,38 +1,50 @@
 
-/* styles section servicios */
-.card-hover:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-    }
-    
-    .card-hover i {
-        transition: color 0.3s ease;
-    }
 
-    .card-hover:hover i {
-        color: #006eff !important; /* Azul corporativo */
-    }
 
-      .rating-stars input:checked ~ label i {
-    color: #ccc;
-  }
+/**/
+.card-servicio {
+  transition: all 0.3s ease;
+  border-bottom: 4px solid;
+  border-image: linear-gradient(to right, #001f4d, #26c6da) 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
 
-  .rating-stars input:checked + label i,
-  .rating-stars label:hover i,
-  .rating-stars label:hover ~ label i {
-    color: #007bff !important;
-  }
+.card-servicio:hover {
+  transform: scale(1.05) translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 
-  .star-label i {
-    transition: color 0.3s ease;
-    color: #ccc;
-  }
+.card-hover i {
+  transition: color 0.3s ease;
+}
 
-  .rating-stars input:checked + label ~ label i {
-    color: #ccc !important;
-  }
+/*css, formualrio testimonio*/
+
+.card-hover:hover i {
+  color: #006eff !important;
+}
+
+/* Estilos para rating stars */
+.rating-stars input:checked ~ label i {
+  color: #ccc;
+}
+
+.rating-stars input:checked + label i,
+.rating-stars label:hover i,
+.rating-stars label:hover ~ label i {
+  color: #007bff !important;
+}
+
+.star-label i {
+  transition: color 0.3s ease;
+  color: #ccc;
+}
+
+.rating-stars input:checked + label ~ label i {
+  color: #ccc !important;
+}
 
 
 /* styles section contactos */
@@ -80,7 +92,77 @@
 
 
 
-/* styles section nosotros */
+/* styles section quines somos <<<<< mision, vision, e historia */
+
+.card-hover {
+  transition: transform 0.3s;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(to right, #001f4d, #26c6da) 1;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  border-bottom: 4px solid;
+  border-image: linear-gradient(to right, #001f4d, #26c6da) 1;
+}
+
+.titulo-hover {
+  transition: transform 0.3s;
+}
+
+.titulo-hover:hover {
+  transform: scale(1.1);
+}
+
+.btn-custom {
+  background-color: #f57c00;
+  border: none;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #e65100;
+}
+
+/*section, quieornes somos, section, equipo de trabajjo, */
+
+equipo-card {
+  border-bottom: 4px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.equipo-card::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(to right, #001f4d, #26c6da);
+  margin-top: 10px;
+}
+
+.equipo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-zoom:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.btn-naranja {
+  background-color: #f57c00;
+  border: none;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.btn-naranja:hover {
+  background-color: #d45500;
+}
+
 
 /* styles section home */
 

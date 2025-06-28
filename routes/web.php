@@ -30,6 +30,10 @@ Route::get('/servicios', function () {
     return view('servicios');
 })->name('servicios');
 
+Route::get('/quienessomos', function () {
+    return view('quienessomos');
+})->name('quienessomos');
+
 Route::get('/privacidad', function () {
     return view('privacidad');
 })->name('privacidad');

@@ -1,16 +1,14 @@
 @extends('layouts.app')
 
-@section('content')
 
-<x-section 
-    title="Nuestros Servicios" 
-    text="Ofrecemos soluciones como desarrollo web, apps móviles, mantenimiento, consultoría y más." 
-    image="images/home/designer.png"
-/>
+
+@section('content')
 
 <div class="position-absolute top-0 start-0 w-100 h-100" 
          style="background: url('{{ asset('images/home/designer.png') }}') center center / cover no-repeat;
-                z-index: 0;"></div>
+                z-index: 0;"></div> 
+
+                
 
 
 <!--  nuestros servicios -->
@@ -23,8 +21,8 @@
 
         <div class="row g-4">
             <!-- 1. Desarrollo Web -->
-            <div class="col-md-4 animate__animated animate__fadeInUp">
-                <div class="card h-100 shadow-sm border-0 card-hover">
+            <div class="col-md-4 animate__animated animate__fadeInUp" >
+                <div class="card h-100 shadow-sm border-0 card-hover" >
                     <div class="card-body text-center">
                         <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
                         <h5 class="card-title" >Desarrollo Web</h5>
@@ -33,7 +31,7 @@
                 </div>
             </div>
             <!-- 2. Apps móviles -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+            <!-- <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
                 <div class="card h-100 shadow-sm border-0 card-hover">
                     <div class="card-body text-center">
                         <i class="bi bi-phone display-4 text-success mb-3"></i>
@@ -41,7 +39,7 @@
                         <p class="card-text">Apps intuitivas para Android y iOS, rápidas y seguras.</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- 3. Mantenimiento -->
             <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
                 <div class="card h-100 shadow-sm border-0 card-hover">
@@ -148,5 +146,7 @@
     </form>
   </div>
 </section>
+
+
 
 @endsection

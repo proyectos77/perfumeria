@@ -61,7 +61,7 @@
         <div class="row g-4">
             <!-- 1. Desarrollo Web -->
             <div class="col-md-4 animate__animated animate__fadeInUp">
-                <div class="card h-100 shadow-sm border-0 card-hover">
+          <div class="card h-100 shadow-sm border-0 card-servicio">
                     <div class="card-body text-center">
                         <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
                         <h5 class="card-title">Desarrollo Web</h5>
@@ -72,7 +72,7 @@
 
             <!-- 2. Apps móviles -->
             <!-- <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
+          <div class="card h-100 shadow-sm border-0 card-servicio">
                     <div class="card-body text-center">
                         <i class="bi bi-phone display-4 text-success mb-3"></i>
                         <h5 class="card-title">Aplicaciones Móviles</h5>
@@ -83,7 +83,7 @@
 
             <!-- 3. Mantenimiento -->
             <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
+               <div class="card h-100 shadow-sm border-0 card-servicio">
                     <div class="card-body text-center">
                         <i class="bi bi-gear display-4 text-warning mb-3"></i>
                         <h5 class="card-title">Mantenimiento de Software</h5>
@@ -94,7 +94,7 @@
 
             <!-- 4. Consultoría -->
             <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
+               <div class="card h-100 shadow-sm border-0 card-servicio">
                     <div class="card-body text-center">
                         <i class="bi bi-people-fill display-4 text-info mb-3"></i>
                         <h5 class="card-title">Consultoría TI</h5>
@@ -105,7 +105,7 @@
 
             <!-- 5. Desarrollo a medida -->
             <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
+               <div class="card h-100 shadow-sm border-0 card-servicio">
                     <div class="card-body text-center">
                         <i class="bi bi-file-code-fill display-4 text-secondary mb-3"></i>
                         <h5 class="card-title">Software a Medida</h5>
@@ -116,7 +116,7 @@
 
             <!-- 6. Integraciones API -->
             <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
+               <div class="card h-100 shadow-sm border-0 card-servicio">
                     <div class="card-body text-center">
                         <i class="bi bi-plug display-4 text-danger mb-3"></i>
                         <h5 class="card-title">Integraciones API</h5>
@@ -127,7 +127,7 @@
 
             <!-- 7. Automatización -->
             <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
+          <div class="card h-100 shadow-sm border-0 card-servicio">
                     <div class="card-body text-center">
                         <i class="bi bi-robot display-4 text-dark mb-3"></i>
                         <h5 class="card-title">Automatización de Procesos</h5>
@@ -138,6 +138,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 <section class="py-5 overflow-hidden" 
@@ -156,10 +158,10 @@
           $imagenes = [
             ['src' => asset('images/home/imagen-home1.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
             ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
-            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 3', 'link' => 'https://ejemplo3.com'],
+            ['src' => asset('images/quienes-somos/quienes-somos1.png'), 'alt' => 'Aliado estratégico 3', 'link' => 'https://ejemplo3.com'],
             ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 4', 'link' => 'https://ejemplo4.com'],
             ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
-            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
+           ['src' => asset('images/quienes-somos/quienes-somos2.png'),  'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
           ];
         @endphp
 

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
+
 @section('content')
+  
 <section class="py-4">
     <div class="container">
         <h2 class="text-primary mb-4">Formulario de Contacto</h2>
@@ -30,5 +32,7 @@
         </form>
     </div>
 </section>
+
+
 @endsection
 

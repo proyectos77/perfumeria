@@ -13,14 +13,19 @@
 
             <!-- Botón para móviles con descripción accesible -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Mostrar navegación">
+                    aria-controls="<header role="banner">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
+         style="background: linear-gradient(to right, #001f4d, #26c6da);"
+         role="navigation"
+         aria-label="Menú principal del sitio">
+        <div class="container-fluid">navbarResponsive" aria-expanded="false" aria-label="Mostrar navegación">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Menú colapsable -->
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
                 <!-- Navegación principal izquierda -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                     @auth
                         <li class="nav-item">
@@ -32,7 +37,8 @@
                     @endauth
 
                     <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        <a class="nav-link text-white {{ request()->routeIs('home') ? 'active' : '' }}" 
+                            href="{{ route('home') }}">
                             <strong>Inicio</strong>
                         </a>
                     </li>
@@ -67,7 +73,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
+                        <a class="nav-link text-white" href="quienessomos">
                             <strong>Quiénes somos</strong>
                         </a>
                     </li>
