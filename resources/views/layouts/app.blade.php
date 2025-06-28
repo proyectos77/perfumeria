@@ -4,7 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Crear System</title>
+    <!-- <title>Crear System</title> -->
+    <title>Crear System - Soluciones digitales en desarrollo web</title>
+    <meta name="description" content="Desarrollamos páginas web, aplicaciones y soluciones tecnológicas para empresas. Transformamos ideas en realidad digital.">
+    <meta name="keywords" content="desarrollo web, software, aplicaciones, consultoría TI, Laravel, tecnología">
+    <meta name="author" content="Crear System">
+    <meta name="robots" content="index, follow">
+
+    <!-- Para redes sociales (Open Graph para Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Crear System">
+    <meta property="og:description" content="Soluciones digitales en desarrollo web, apps y consultoría tecnológica.">
+    <meta property="og:image" content="{{ asset('images/logo-crear-system.png') }}">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:type" content="website">
+
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">

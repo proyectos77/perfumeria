@@ -19,30 +19,36 @@
                 z-index: 0;"></div>
 
 
-<section class="hero-section position-relative text-white" style="height: 100vh; margin-top: 0; padding: 0;">
-    <!-- Imagen de fondo -->
-    <!-- <div class="position-absolute top-0 start-0 w-100 h-100" 
+<header class="hero-section position-relative text-white" style="height: 100vh; margin-top: 0; padding: 0;">
+    {{-- Imagen de fondo --}}
+    {{-- 
+    <div class="position-absolute top-0 start-0 w-100 h-100" 
          style="background: url('{{ asset('images/home/imagen-home.png') }}') center center / cover no-repeat;
-                z-index: 0;"></div> -->
+                z-index: 0;"></div> 
+    --}}
 
-    <!-- Capa oscura para contraste -->
-    <!-- <div class="position-absolute top-0 start-0 w-100 h-100" 
-         style="background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div> -->
+    {{-- Capa oscura para contraste --}}
+    {{-- 
+    <div class="position-absolute top-0 start-0 w-100 h-100" 
+         style="background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div> 
+    --}}
 
-    <!-- Contenido centrado -->
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center position-relative" style="z-index: 2;">
-        <h1 class="display-2 fw-bold mb-4 animate__animated animate__fadeInDown">Transformamos tu visión digital</h1>
-        <p class="lead mb-4 animate__animated animate__fadeInUp">Creamos soluciones tecnológicas a medida para que tu empresa crezca.</p>
-      <a href="{{ route('servicios') }}" 
-   class="btn btn-lg text-white" 
-   style="background-color: #f57c00; border: none;">
-   Ver servicios
-</a>
-
+        <article>
+            <h1 class="display-2 fw-bold mb-4 animate__animated animate__fadeInDown">
+                Transformamos tu visión digital
+            </h1>
+            <p class="lead mb-4 animate__animated animate__fadeInUp">
+                Creamos soluciones tecnológicas a medida para que tu empresa crezca.
+            </p>
+            <a href="{{ route('servicios') }}" 
+               class="btn btn-lg text-white" 
+               style="background-color: #f57c00; border: none;">
+               Ver servicios
+            </a>
+        </article>
     </div>
-</section>
-
-
+</header>
 
 <!--  nuestros servicios -->
 <section class="py-5 bg-light">
@@ -65,7 +71,7 @@
             </div>
 
             <!-- 2. Apps móviles -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+            <!-- <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
                 <div class="card h-100 shadow-sm border-0 card-hover">
                     <div class="card-body text-center">
                         <i class="bi bi-phone display-4 text-success mb-3"></i>
@@ -73,7 +79,7 @@
                         <p class="card-text">Apps intuitivas para Android y iOS, rápidas y seguras.</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- 3. Mantenimiento -->
             <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
@@ -133,29 +139,100 @@
     </div>
 </section>
 
-<!-- por que elegirnos -->
-  <section class="py-5 bg-white">
+
+<section class="py-5 overflow-hidden" 
+         style="background: linear-gradient(to bottom, #001f4d, #26c6da);"
+         role="region" 
+         aria-label="Galería de imágenes destacadas">
+
   <div class="container text-center">
-    <h2 class="mb-4 text-primary fw-bold animate__animated animate__fadeInUp">¿Por qué elegir Crear System?</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <i class="bi bi-lightning-charge-fill text-warning display-4 mb-3"></i>
-        <h5 class="fw-semibold">Velocidad & Rendimiento</h5>
-        <p class="text-muted">Webs rápidas, optimizadas y listas para posicionarse en Google.</p>
-      </div>
-      <div class="col-md-4">
-        <i class="bi bi-laptop-fill text-success display-4 mb-3"></i>
-        <h5 class="fw-semibold">Diseño Responsivo</h5>
-        <p class="text-muted">Tu web se adapta perfectamente a móviles, tablets y PCs.</p>
-      </div>
-      <div class="col-md-4">
-        <i class="bi bi-shield-lock-fill text-info display-4 mb-3"></i>
-        <h5 class="fw-semibold">Seguridad</h5>
-        <p class="text-muted">Proyectos seguros con buenas prácticas y cifrado moderno.</p>
+    <!-- <h2 class="text-white fw-bold mb-5 animate__animated animate__fadeInDown">Nuestros aliados y colaboraciones</h2> -->
+
+    <div class="position-relative w-100" style="overflow-x: hidden;">
+      <div id="circularSlider" class="d-flex align-items-center gap-4 py-2" 
+           style="width: max-content; animation: scrollLeft 40s linear infinite;">
+        
+        @php
+          $imagenes = [
+            ['src' => asset('images/home/imagen-home1.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
+            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
+            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 3', 'link' => 'https://ejemplo3.com'],
+            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 4', 'link' => 'https://ejemplo4.com'],
+            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
+            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
+          ];
+        @endphp
+
+        @foreach($imagenes as $img)
+          <a href="{{ $img['link'] }}" target="_blank" class="text-decoration-none" role="listitem">
+            <div class="bg-white rounded-circle overflow-hidden shadow img-hover p-2"
+                 style="width: 230px; height: 230px; transition: all 0.3s;">
+              <img src="{{ $img['src'] }}" alt="{{ $img['alt'] }}" class="img-fluid w-100 h-100 object-fit-cover rounded-circle" loading="lazy">
+            </div>
+          </a>
+        @endforeach
+
       </div>
     </div>
   </div>
 </section>
+
+
+
+
+<!-- por que elegirnos -->
+<section class="py-5 bg-white">
+  <div class="container text-center">
+    <h2 class="mb-4 text-primary fw-bold animate__animated animate__fadeInUp">
+      ¿Por qué elegir <span class="text-gradient">Crear System</span>?
+    </h2>
+
+    <div class="row g-4">
+      <!-- Velocidad & Rendimiento -->
+      <article class="col-md-4">
+        <i class="bi bi-lightning-charge-fill text-warning display-4 mb-3"></i>
+        <h5 class="fw-semibold">Velocidad y Rendimiento Garantizado</h5>
+        <p class="text-muted">Creamos páginas web que cargan rápido, optimizadas para motores de búsqueda como Google.</p>
+      </article>
+
+      <!-- Diseño responsivo -->
+      <article class="col-md-4">
+        <i class="bi bi-laptop-fill text-success display-4 mb-3"></i>
+        <h5 class="fw-semibold">Diseño 100% Adaptable</h5>
+        <p class="text-muted">Tu sitio se verá increíble en computadoras, móviles y tablets, sin perder funcionalidad ni estética.</p>
+      </article>
+
+      <!-- Seguridad -->
+      <article class="col-md-4">
+        <i class="bi bi-shield-lock-fill text-info display-4 mb-3"></i>
+        <h5 class="fw-semibold">Seguridad Profesional</h5>
+        <p class="text-muted">Aplicamos cifrado moderno, buenas prácticas y protección contra ataques para mantener tu información segura.</p>
+      </article>
+
+      <!-- Soporte continuo -->
+      <article class="col-md-4">
+        <i class="bi bi-headset text-primary display-4 mb-3"></i>
+        <h5 class="fw-semibold">Soporte Continuo</h5>
+        <p class="text-muted">No solo desarrollamos, te acompañamos. Brindamos soporte técnico eficiente cuando más lo necesitas.</p>
+      </article>
+
+      <!-- Desarrollo a medida -->
+      <article class="col-md-4">
+        <i class="bi bi-sliders2-vertical text-danger display-4 mb-3"></i>
+        <h5 class="fw-semibold">Soluciones a la Medida</h5>
+        <p class="text-muted">Nos adaptamos a tus necesidades. Desde startups hasta empresas consolidadas.</p>
+      </article>
+
+      <!-- Resultados medibles -->
+      <article class="col-md-4">
+        <i class="bi bi-bar-chart-line-fill text-secondary display-4 mb-3"></i>
+        <h5 class="fw-semibold">Resultados Reales</h5>
+        <p class="text-muted">Creamos proyectos orientados a generar leads, ventas o posicionamiento real para tu empresa.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 
 <!-- section trabajo con nosotros -->
 <section class="py-5 bg-primary text-white text-center">
@@ -183,11 +260,8 @@
   </div>
 </section>
 <br><br>
-
-
 <!-- section tesnimonios -->
-
-<section class="py-5" style="background-color:rgb(183, 225, 241);">
+<section class="py-5" >
   <div class="container text-center text-white">
     <h2 class="fw-bold mb-5 text-info">Lo que opinan nuestros clientes</h2>
     
@@ -222,9 +296,8 @@
         </a>
     </div>
   </div>
-</section>
 
-<!-- Modal testimonios -->
+  <!-- Modal testimonios -->
 <div class="modal fade" id="modalTestimonios" tabindex="-1" aria-labelledby="modalTestimoniosLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
@@ -264,13 +337,11 @@
     </div>
   </div>
 </div>
-
-
-
+</section>
 
 
 <!-- section imganes empresas colaoradores-->
-<section class="py-5 bg-light">
+<!-- <section class="py-5 bg-light">
   <div class="container text-center">
     <h2 class="fw-bold text-primary mb-5 animate__fadeInUp">Proyectos Recientes</h2>
     <div class="row g-4">
@@ -285,34 +356,39 @@
       </div>
     </div>
   </div>
-</section>
-
-
-<section class="py-5 animate__animated animate__fadeInUp" style="background: linear-gradient(to bottom, #001f4d, #26c6da);">
+</section> -->
+<br><br>
+<!-- <section class="py-5" style="background: linear-gradient(to bottom, #001f4d, #26c6da);">
   <div class="container-fluid text-center">
     <h2 class="text-white fw-bold mb-5">Aliados que respaldan nuestros servicios</h2>
 
-    <div class="w-100 overflow-hidden position-relative">
-      <div id="slider-track" class="d-flex align-items-center gap-5" style="width: max-content; animation: scrollLeft 35s linear infinite;">
-        <!-- Aliados SVG -->
+    <article class="mx-auto px-3 py-3 rounded-pill bg-white shadow-lg position-relative overflow-hidden" style="max-width: 95%; height: 100px;">
+      <div id="slider-track" class="d-flex align-items-center gap-5" style="width: max-content; animation: scrollLeft 40s linear infinite;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Red_Hat_logo.svg" alt="Red Hat" style="height: 60px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Vmware.svg" alt="VMWare" style="height: 60px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Dell_logo_2016.svg" alt="Dell" style="height: 60px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Microsoft_logo.svg" alt="Microsoft" style="height: 60px;">
+        <img src="images/logo-crear-system-4.png" alt="Microsoft" style="height: 60px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Google_2015_logo.svg" alt="Google" style="height: 60px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/SolarWinds_logo.svg" alt="SolarWinds" style="height: 60px;">
         
-        <!-- Duplicados para scroll continuo -->
+         Duplicados
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Red_Hat_logo.svg" alt="Red Hat" style="height: 60px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Vmware.svg" alt="VMWare" style="height: 60px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Dell_logo_2016.svg" alt="Dell" style="height: 60px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Microsoft_logo.svg" alt="Microsoft" style="height: 60px;">
+        <img src="images/logo-crear-system-4.png" alt="Microsoft" style="height: 60px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Google_2015_logo.svg" alt="Google" style="height: 60px;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/SolarWinds_logo.svg" alt="SolarWinds" style="height: 60px;">
       </div>
-    </div>
+    </article>
   </div>
-</section>
+
+
+  CTA final -->
+    <!-- <div class="mt-5">
+      <a href="{{ route('contacto') }}" class="btn btn-light btn-lg text-primary fw-bold shadow-sm">
+        ¿Quieres ser nuestro aliado?
+</section> -->
+
 @endsection
 
 
