@@ -262,6 +262,8 @@
   </div>
 </section>
 <br><br>
+
+
 <!-- section tesnimonios -->
 <section class="py-5" >
   <div class="container text-center text-white">
@@ -284,7 +286,7 @@
           </div>
         </div>
       @empty
-        <p class="text-light">Aún no hay testimonios registrados.</p>
+        <p class="text-light">Aún no hay comentarios registrados.</p>
       @endforelse
     </div>
 
@@ -304,7 +306,7 @@
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="modalTestimoniosLabel">Todos los testimonios</h5>
+        <h5 class="modal-title" id="modalTestimoniosLabel">Todos los comentarios</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">

@@ -14,16 +14,17 @@
             <!-- Botón para móviles con descripción accesible -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                     aria-controls="<header role="banner">
+                        
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
          style="background: linear-gradient(to right, #001f4d, #26c6da);"
          role="navigation"
          aria-label="Menú principal del sitio">
-        <div class="container-fluid">navbarResponsive" aria-expanded="false" aria-label="Mostrar navegación">
+        <div class="container-fluid"> 
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Menú colapsable -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <!-- Navegación principal izquierda -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 

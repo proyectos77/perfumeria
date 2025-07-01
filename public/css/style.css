@@ -1,7 +1,7 @@
 
 
 
-/**/
+/* style servciios*/
 .card-servicio {
   transition: all 0.3s ease;
   border-bottom: 4px solid;
@@ -20,34 +20,77 @@
   transition: color 0.3s ease;
 }
 
-/*css, formualrio testimonio*/
-
-.card-hover:hover i {
-  color: #006eff !important;
+/* Sección del formulario de testimonio con fondo degradado elegante */
+#testimonio-form {
+  background: linear-gradient(135deg, #001f4d, #26c6da);
+  padding: 60px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Estilos para rating stars */
-.rating-stars input:checked ~ label i {
-  color: #ccc;
+#testimonio-form h2 {
+  color: #fff;
+}
+
+#testimonio-form .form-control {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#testimonio-form .form-label {
+  color: #fff;
+}
+
+#testimonio-form .btn-primary {
+  background: #f57c00;
+  border: none;
+}
+
+#testimonio-form .btn-primary:hover {
+  background: #d45500;
+}
+
+/* Estilos para las estrellas */
+.rating-stars label i {
+  transition: transform 0.3s, color 0.3s;
+}
+
+.rating-stars label:hover i {
+  transform: scale(1.2);
 }
 
 .rating-stars input:checked + label i,
 .rating-stars label:hover i,
 .rating-stars label:hover ~ label i {
-  color: #007bff !important;
-}
-
-.star-label i {
-  transition: color 0.3s ease;
-  color: #ccc;
-}
-
-.rating-stars input:checked + label ~ label i {
-  color: #ccc !important;
+  color: #ffd700 !important;
 }
 
 
 /* styles section contactos */
+
+
+/* Sección personalizada */
+.contacto-section {
+  background-color: #f9f9f9;
+}
+
+/* Fondo degradado formulario */
+.bg-formulario {
+  background: linear-gradient(to bottom right, #001f4d,  #1a7b88);
+  color: white;
+  border-radius: 12px;
+}
+
+/* Fondo de las cards */
+.bg-info-card {
+  background: linear-gradient(to right, #001f4d, #1a7b88);
+  border-left: 5px solid #f57c00;
+  border-radius: 12px;
+}
+
+
+
 
 /* styles section  navegtion*/
 

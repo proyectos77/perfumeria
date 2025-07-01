@@ -4,13 +4,14 @@
 
 @section('content')
 
-<div class="position-absolute top-0 start-0 w-100 h-100" 
-         style="background: url('{{ asset('images/home/designer.png') }}') center center / cover no-repeat;
-                z-index: 0;"></div> 
-
-                
+<!-- Imagen de fondo a pantalla completa -->
 
 
+<div class="position-absolute top-0 start-0 w-100 h-45" 
+         style="background: url('{{ asset('images/quienes-somos/quienes-somos2.png') }}') center center / cover no-repeat; width: 100%; height: 50%;
+                z-index: 0;"></div>
+
+            <br><br><br>   <br><br><br>   <br><br><br>   <br><br><br> <br><br><br>
 <!--  nuestros servicios -->
 <section class="py-5 bg-light">
     <div class="container">
@@ -98,7 +99,7 @@
 <!-- section, de vista de testimonio de usuario -->
 <section id="testimonio-form" class="py-5 bg-white">
   <div class="container" style="max-width: 800px;">
-    <h2 class="text-center text-primary fw-bold mb-4">Deja tu testimonio</h2>
+    <h2 class="text-center text-white fw-bold mb-4">Deja tu Comentario</h2>
 
     @if(session('success'))
       <div class="alert alert-success text-center">{{ session('success') }}</div>
@@ -108,22 +109,22 @@
         @csrf
 
         <div class="col-md-6">
-            <label for="nombre" class="form-label">Tu nombre</label>
+            <label for="nombre" class="form-label text-black">Tu nombre</label>
             <input type="text" name="nombre" class="form-control" placeholder="Ej: Juan Pérez" required>
         </div>
 
         <div class="col-md-6">
-            <label for="empresa" class="form-label">Empresa</label>
+            <label for="empresa" class="form-label text-black">Empresa</label>
             <input type="text" name="empresa" class="form-control" placeholder="Ej: SoftTech S.A.S" required>
         </div>
 
         <div class="col-md-12">
-            <label for="cargo" class="form-label">Cargo</label>
+            <label for="cargo" class="form-label text-black">Cargo</label>
             <input type="text" name="cargo" class="form-control" placeholder="Ej: Gerente de Tecnología" required>
         </div>
 
         <div class="col-md-12">
-            <label for="comentario" class="form-label">Comentario</label>
+            <label for="comentario" class="form-label text-black ">Comentario</label>
             <textarea name="comentario" class="form-control" placeholder="¿Qué opinas de nuestro servicio?" rows="4" required></textarea>
         </div>
 
