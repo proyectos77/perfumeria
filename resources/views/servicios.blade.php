@@ -12,88 +12,91 @@
                 z-index: 0;"></div>
 
             <br><br><br>   <br><br><br>   <br><br><br>   <br><br><br> <br><br><br>
-<!--  nuestros servicios -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="text-primary fw-bold">Nuestros Servicios</h2>
-            <p class="text-muted fs-5">Soluciones digitales a la medida para impulsar tu negocio</p>
-        </div>
 
-        <div class="row g-4">
-            <!-- 1. Desarrollo Web -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" >
-                <div class="card h-100 shadow-sm border-0 card-hover" >
-                    <div class="card-body text-center">
-                        <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
-                        <h5 class="card-title" >Desarrollo Web</h5>
-                        <p class="card-text">Sitios modernos, responsivos y optimizados para buscadores.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- 2. Apps móviles -->
-            <!-- <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <div class="card-body text-center">
-                        <i class="bi bi-phone display-4 text-success mb-3"></i>
-                        <h5 class="card-title">Aplicaciones Móviles</h5>
-                        <p class="card-text">Apps intuitivas para Android y iOS, rápidas y seguras.</p>
-                    </div>
-                </div>
-            </div> -->
-            <!-- 3. Mantenimiento -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <div class="card-body text-center">
-                        <i class="bi bi-gear display-4 text-warning mb-3"></i>
-                        <h5 class="card-title">Mantenimiento de Software</h5>
-                        <p class="card-text">Actualización, soporte y mejoras continuas a tus sistemas.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- 4. Consultoría -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <div class="card-body text-center">
-                        <i class="bi bi-people-fill display-4 text-info mb-3"></i>
-                        <h5 class="card-title">Consultoría TI</h5>
-                        <p class="card-text">Asesoría estratégica para transformación digital y procesos.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- 5. Desarrollo a medida -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <div class="card-body text-center">
-                        <i class="bi bi-file-code-fill display-4 text-secondary mb-3"></i>
-                        <h5 class="card-title">Software a Medida</h5>
-                        <p class="card-text">Soluciones hechas desde cero, según tus requerimientos exactos.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- 6. Integraciones API -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <div class="card-body text-center">
-                        <i class="bi bi-plug display-4 text-danger mb-3"></i>
-                        <h5 class="card-title">Integraciones API</h5>
-                        <p class="card-text">Conectamos tu sistema con pasarelas, CRMs y plataformas externas.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- 7. Automatización -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <div class="card-body text-center">
-                        <i class="bi bi-robot display-4 text-dark mb-3"></i>
-                        <h5 class="card-title">Automatización de Procesos</h5>
-                        <p class="card-text">Ahorra tiempo con bots, scripts o flujos automáticos para tu empresa.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- Nuestros Servicios -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-primary fw-bold">Nuestros Servicios</h2>
+      <p class="text-muted fs-5">Soluciones digitales a la medida para impulsar tu negocio</p>
     </div>
+
+    <div class="row g-4">
+      <!-- 1. Desarrollo Web -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
+            <h5 class="fw-semibold">Desarrollo Web</h5>
+            <p class="text-muted">Sitios modernos, responsivos y optimizados para buscadores.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 2. Mantenimiento -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-gear display-4 text-warning mb-3"></i>
+            <h5 class="fw-semibold">Mantenimiento de Software</h5>
+            <p class="text-muted">Actualización, soporte y mejoras continuas a tus sistemas.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 3. Consultoría -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-people-fill display-4 text-info mb-3"></i>
+            <h5 class="fw-semibold">Consultoría TI</h5>
+            <p class="text-muted">Asesoría estratégica para transformación digital y procesos.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 4. Software a Medida -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-file-code-fill display-4 text-secondary mb-3"></i>
+            <h5 class="fw-semibold">Software a Medida</h5>
+            <p class="text-muted">Soluciones hechas desde cero, según tus requerimientos exactos.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 5. Integraciones API -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-plug display-4 text-danger mb-3"></i>
+            <h5 class="fw-semibold">Integraciones API</h5>
+            <p class="text-muted">Conectamos tu sistema con pasarelas, CRMs y plataformas externas.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 6. Automatización -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-robot display-4 text-dark mb-3"></i>
+            <h5 class="fw-semibold">Automatización de Procesos</h5>
+            <p class="text-muted">Ahorra tiempo con bots, scripts o flujos automáticos para tu empresa.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
 
 
 <!-- section, de vista de testimonio de usuario -->

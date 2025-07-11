@@ -87,9 +87,15 @@
             </header>
         @endif
 
+
+        
+
         <main class="container my-4">
             @yield('content')
-        </main>
+        </main> 
+
+        
+
     </div>
 
     @include('layouts.footer')

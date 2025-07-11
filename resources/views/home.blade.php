@@ -36,10 +36,10 @@
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center position-relative" style="z-index: 2;">
         <article>
             <h1 class="display-2 fw-bold mb-4 animate__animated animate__fadeInDown">
-                Transformamos tu visión digital
+                Innovación Digital a tu Medida: Haz Crecer tu Negocio.
             </h1>
             <p class="lead mb-4 animate__animated animate__fadeInUp">
-                Creamos soluciones tecnológicas a medida para que tu empresa crezca.
+                Soluciones tecnológicas a medida para impulsar el crecimiento y la eficiencia de tu empresa.
             </p>
             <a href="{{ route('servicios') }}" 
                class="btn btn-lg text-white" 
@@ -51,96 +51,89 @@
 </header>
 
 <!--  nuestros servicios -->
+<!-- Nuestros Servicios -->
 <section class="py-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="text-primary fw-bold">Nuestros Servicios</h2>
-            <p class="text-muted fs-5">Soluciones digitales a la medida para impulsar tu negocio</p>
-        </div>
-
-        <div class="row g-4">
-            <!-- 1. Desarrollo Web -->
-            <div class="col-md-4 animate__animated animate__fadeInUp">
-          <div class="card h-100 shadow-sm border-0 card-servicio">
-                    <div class="card-body text-center">
-                        <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
-                        <h5 class="card-title">Desarrollo Web</h5>
-                        <p class="card-text">Sitios modernos, responsivos y optimizados para buscadores.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Apps móviles -->
-            <!-- <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
-          <div class="card h-100 shadow-sm border-0 card-servicio">
-                    <div class="card-body text-center">
-                        <i class="bi bi-phone display-4 text-success mb-3"></i>
-                        <h5 class="card-title">Aplicaciones Móviles</h5>
-                        <p class="card-text">Apps intuitivas para Android y iOS, rápidas y seguras.</p>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- 3. Mantenimiento -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-               <div class="card h-100 shadow-sm border-0 card-servicio">
-                    <div class="card-body text-center">
-                        <i class="bi bi-gear display-4 text-warning mb-3"></i>
-                        <h5 class="card-title">Mantenimiento de Software</h5>
-                        <p class="card-text">Actualización, soporte y mejoras continuas a tus sistemas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. Consultoría -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
-               <div class="card h-100 shadow-sm border-0 card-servicio">
-                    <div class="card-body text-center">
-                        <i class="bi bi-people-fill display-4 text-info mb-3"></i>
-                        <h5 class="card-title">Consultoría TI</h5>
-                        <p class="card-text">Asesoría estratégica para transformación digital y procesos.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. Desarrollo a medida -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-               <div class="card h-100 shadow-sm border-0 card-servicio">
-                    <div class="card-body text-center">
-                        <i class="bi bi-file-code-fill display-4 text-secondary mb-3"></i>
-                        <h5 class="card-title">Software a Medida</h5>
-                        <p class="card-text">Soluciones hechas desde cero, según tus requerimientos exactos.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. Integraciones API -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
-               <div class="card h-100 shadow-sm border-0 card-servicio">
-                    <div class="card-body text-center">
-                        <i class="bi bi-plug display-4 text-danger mb-3"></i>
-                        <h5 class="card-title">Integraciones API</h5>
-                        <p class="card-text">Conectamos tu sistema con pasarelas, CRMs y plataformas externas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 7. Automatización -->
-            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-          <div class="card h-100 shadow-sm border-0 card-servicio">
-                    <div class="card-body text-center">
-                        <i class="bi bi-robot display-4 text-dark mb-3"></i>
-                        <h5 class="card-title">Automatización de Procesos</h5>
-                        <p class="card-text">Ahorra tiempo con bots, scripts o flujos automáticos para tu empresa.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-primary fw-bold">Nuestros Servicios</h2>
+      <p class="text-muted fs-5">Soluciones digitales a la medida para impulsar tu negocio</p>
     </div>
+
+    <div class="row g-4">
+      <!-- 1. Desarrollo Web -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
+            <h5 class="fw-semibold">Desarrollo Web</h5>
+            <p class="text-muted">Sitios modernos, responsivos y optimizados para buscadores.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 2. Mantenimiento -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-gear display-4 text-warning mb-3"></i>
+            <h5 class="fw-semibold">Mantenimiento de Software</h5>
+            <p class="text-muted">Actualización, soporte y mejoras continuas a tus sistemas.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 3. Consultoría -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-people-fill display-4 text-info mb-3"></i>
+            <h5 class="fw-semibold">Consultoría TI</h5>
+            <p class="text-muted">Asesoría estratégica para transformación digital y procesos.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 4. Software a Medida -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-file-code-fill display-4 text-secondary mb-3"></i>
+            <h5 class="fw-semibold">Software a Medida</h5>
+            <p class="text-muted">Soluciones hechas desde cero, según tus requerimientos exactos.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 5. Integraciones API -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-plug display-4 text-danger mb-3"></i>
+            <h5 class="fw-semibold">Integraciones API</h5>
+            <p class="text-muted">Conectamos tu sistema con pasarelas, CRMs y plataformas externas.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+
+      <!-- 6. Automatización -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-servicio">
+          <div class="card-servicio-body text-center p-4">
+            <i class="bi bi-robot display-4 text-dark mb-3"></i>
+            <h5 class="fw-semibold">Automatización de Procesos</h5>
+            <p class="text-muted">Ahorra tiempo con bots, scripts o flujos automáticos para tu empresa.</p>
+          </div>
+          <div class="card-servicio-barra"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-
 
 <section class="py-5 overflow-hidden" 
          style="background: linear-gradient(to bottom, #001f4d, #26c6da);"
@@ -159,7 +152,7 @@
             ['src' => asset('images/home/imagen-home1.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
             ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
             ['src' => asset('images/quienes-somos/quienes-somos1.png'), 'alt' => 'Aliado estratégico 3', 'link' => 'https://ejemplo3.com'],
-            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 4', 'link' => 'https://ejemplo4.com'],
+            ['src' => asset('images/home/imagen-home3.png'), 'alt' => 'Aliado estratégico 4', 'link' => 'https://ejemplo4.com'],
             ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
            ['src' => asset('images/quienes-somos/quienes-somos2.png'),  'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
           ];
@@ -182,76 +175,129 @@
 
 
 
-<!-- por que elegirnos -->
+<!-- ¿Por qué elegir Crear System? -->
 <section class="py-5 bg-white">
   <div class="container text-center">
-    <h2 class="mb-4 text-primary fw-bold animate__animated animate__fadeInUp">
+    <h2 class="mb-5 text-primary fw-bold animate__animated animate__fadeInUp">
       ¿Por qué elegir <span class="text-gradient">Crear System</span>?
     </h2>
 
     <div class="row g-4">
-      <!-- Velocidad & Rendimiento -->
-      <article class="col-md-4">
-        <i class="bi bi-lightning-charge-fill text-warning display-4 mb-3"></i>
-        <h5 class="fw-semibold">Velocidad y Rendimiento Garantizado</h5>
-        <p class="text-muted">Creamos páginas web que cargan rápido, optimizadas para motores de búsqueda como Google.</p>
-      </article>
+      <!-- 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp">
+          <div class="card-cuerpo text-center p-4">
+            <i class="bi bi-lightning-charge-fill display-4 text-warning mb-3"></i>
+            <h5 class="fw-semibold">Velocidad y Rendimiento</h5>
+            <p class="text-muted">Creamos páginas web que cargan rápido, optimizadas para motores de búsqueda como Google.</p>
+          </div>
+          <div class="card-borde-inferior"></div>
+        </div>
+      </div>
 
-      <!-- Diseño responsivo -->
-      <article class="col-md-4">
-        <i class="bi bi-laptop-fill text-success display-4 mb-3"></i>
-        <h5 class="fw-semibold">Diseño 100% Adaptable</h5>
-        <p class="text-muted">Tu sitio se verá increíble en computadoras, móviles y tablets, sin perder funcionalidad ni estética.</p>
-      </article>
+      <!-- 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+          <div class="card-cuerpo text-center p-4">
+            <i class="bi bi-laptop-fill display-4 text-success mb-3"></i>
+            <h5 class="fw-semibold">Diseño 100% Adaptable</h5>
+            <p class="text-muted">Tu sitio se verá increíble en computadoras, móviles y tablets, sin perder funcionalidad ni estética.</p>
+          </div>
+          <div class="card-borde-inferior"></div>
+        </div>
+      </div>
 
-      <!-- Seguridad -->
-      <article class="col-md-4">
-        <i class="bi bi-shield-lock-fill text-info display-4 mb-3"></i>
-        <h5 class="fw-semibold">Seguridad Profesional</h5>
-        <p class="text-muted">Aplicamos cifrado moderno, buenas prácticas y protección contra ataques para mantener tu información segura.</p>
-      </article>
+      <!-- 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+          <div class="card-cuerpo text-center p-4">
+            <i class="bi bi-shield-lock-fill display-4 text-info mb-3"></i>
+            <h5 class="fw-semibold">Seguridad Profesional</h5>
+            <p class="text-muted">Cifrado moderno, buenas prácticas y protección contra ataques para mantener tu información segura.</p>
+          </div>
+          <div class="card-borde-inferior"></div>
+        </div>
+      </div>
 
-      <!-- Soporte continuo -->
-      <article class="col-md-4">
-        <i class="bi bi-headset text-primary display-4 mb-3"></i>
-        <h5 class="fw-semibold">Soporte Continuo</h5>
-        <p class="text-muted">No solo desarrollamos, te acompañamos. Brindamos soporte técnico eficiente cuando más lo necesitas.</p>
-      </article>
+      <!-- 4 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+          <div class="card-cuerpo text-center p-4">
+            <i class="bi bi-headset display-4 text-primary mb-3"></i>
+            <h5 class="fw-semibold">Soporte Continuo</h5>
+            <p class="text-muted">Te acompañamos. Brindamos soporte técnico eficiente cuando más lo necesitas.</p>
+          </div>
+          <div class="card-borde-inferior"></div>
+        </div>
+      </div>
 
-      <!-- Desarrollo a medida -->
-      <article class="col-md-4">
-        <i class="bi bi-sliders2-vertical text-danger display-4 mb-3"></i>
-        <h5 class="fw-semibold">Soluciones a la Medida</h5>
-        <p class="text-muted">Nos adaptamos a tus necesidades. Desde startups hasta empresas consolidadas.</p>
-      </article>
+      <!-- 5 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+          <div class="card-cuerpo text-center p-4">
+            <i class="bi bi-sliders2-vertical display-4 text-danger mb-3"></i>
+            <h5 class="fw-semibold">Soluciones a la Medida</h5>
+            <p class="text-muted">Nos adaptamos a tus necesidades. Desde startups hasta empresas consolidadas.</p>
+          </div>
+          <div class="card-borde-inferior"></div>
+        </div>
+      </div>
 
-      <!-- Resultados medibles -->
-      <article class="col-md-4">
-        <i class="bi bi-bar-chart-line-fill text-secondary display-4 mb-3"></i>
-        <h5 class="fw-semibold">Resultados Reales</h5>
-        <p class="text-muted">Creamos proyectos orientados a generar leads, ventas o posicionamiento real para tu empresa.</p>
-      </article>
+      <!-- 6 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+          <div class="card-cuerpo text-center p-4">
+            <i class="bi bi-bar-chart-line-fill display-4 text-secondary mb-3"></i>
+            <h5 class="fw-semibold">Resultados Reales</h5>
+            <p class="text-muted">Creamos proyectos orientados a generar leads, ventas o posicionamiento real para tu empresa.</p>
+          </div>
+          <div class="card-borde-inferior"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Sección: Trabaja con nosotros -->
 
-<!-- section trabajo con nosotros -->
-<section class="py-5 bg-primary text-white text-center">
+<div class="fullscreen-wrapper">
+  <section class="seccion-hero text-white position-relative">
+    <div class="hero-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+
+    <div class="caja-llamada text-center position-relative z-1">
+      <h2 class="mb-4 fw-bold animate__animated animate__pulse">¿Listo para impulsar tu proyecto?</h2>
+      <p class="mb-4">Hablemos de cómo transformar tu idea en una solución real.</p>
+
+      <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+        <a href="{{ route('contacto') }}" class="btn btn-lg text-white px-4" style="background-color: #f57c00; border: none;">
+          Contáctanos ahora
+        </a>
+        <a href="https://wa.me/573124926898" target="_blank" class="btn btn-outline-light btn-lg d-flex align-items-center">
+          <i class="bi bi-whatsapp me-2 fs-4" style="color: #f57c00;"></i> Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+<!-- section trabajo con nosotros 
+<!-- <section class="py-5 bg-primary text-white text-center">
   <div class="container">
     <h2 class="mb-4 fw-bold animate__animated animate__pulse">¿Listo para impulsar tu proyecto?</h2>
     <p class="mb-4">Hablemos de cómo transformar tu idea en una solución real.</p>
 
     <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
       
-      <!-- Botón principal -->
+      <!-- Botón principal 
       <a href="{{ route('contacto') }}" 
          class="btn btn-lg text-white" 
          style="background-color: #f57c00; border: none;">
         Contáctanos ahora
       </a>
       
-      <!-- WhatsApp -->
+      <!-- WhatsApp 
       <a href="https://wa.me/573124926898" target="_blank" 
          class="btn btn-outline-light btn-lg d-flex align-items-center">
         <i class="bi bi-whatsapp me-2 fs-4" style="color: #f57c00;"></i> 
@@ -260,7 +306,7 @@
 
     </div>
   </div>
-</section>
+</section> -->
 <br><br>
 
 

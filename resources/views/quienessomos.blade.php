@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="position-absolute top-0 start-0 w-100 h-45" 
+         style="background: url('{{ asset('images/quienes-somos/imagne.gemeni1.png') }}') center center / cover no-repeat; width: 100%; height: 50%;
+                z-index: 0;"></div>
+            
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- Sección de Misión, Visión, Historia -->
 <section class="py-5 bg-light">
   <div class="container">
@@ -9,25 +14,30 @@
       <div class="col-md-4">
         <article class="p-4 bg-white shadow rounded h-100 animate__animated animate__fadeInUp card-hover">
           <h3 class="text-primary fw-bold text-center titulo-hover">Misión</h3>
-          <p>Nuestra misión es impulsar empresas con soluciones digitales innovadoras y a la medida.</p>
+          <p>Nuestra misión es impulsar empresas con soluciones digitales innovadoras y a la medida, optimizando sus operaciones 
+            y potenciando su crecimiento en el entorno digital.</p>
         </article>
       </div>
       <div class="col-md-4">
         <article class="p-4 bg-white shadow rounded h-100 animate__animated animate__fadeInUp card-hover" style="animation-delay: 0.1s;">
           <h3 class="text-primary fw-bold text-center titulo-hover">Visión</h3>
-          <p>Ser líderes en tecnología brindando calidad, confianza y resultados excepcionales a nuestros clientes.</p>
+          <p>Ser líderes en tecnología, brindando calidad, confianza y resultados excepcionales a nuestros clientes,
+            transformando sus ideas en realidades 
+            digitales a través de soluciones estratégicas y personalizadas.</p>
         </article>
       </div>
       <div class="col-md-4">
         <article class="p-4 bg-white shadow rounded h-100 animate__animated animate__fadeInUp card-hover" style="animation-delay: 0.2s;">
           <h3 class="text-primary fw-bold text-center titulo-hover">Nuestra Historia</h3>
-          <p>Crear System nació con la pasión de transformar ideas en realidades digitales. Descubre cómo hemos crecido contigo.</p>
+          <p> Crear System nació con la pasión de transformar ideas en realidades digitales. Desde nuestros inicios, 
+            nos hemos dedicado a ofrecer un abanico de servicios tecnológicos, desde el desarrollo web y software a medida hasta 
+            la automatización de procesos, creciendo junto a nuestros clientes y adaptándonos a sus necesidades para impulsarlos hacia el éxito. 
+            Descubre cómo hemos crecido contigo.</p>
         </article>
       </div>
     </div>
   </div>
 </section>
-
 
 
 <!-- <section class="full-screen-img">

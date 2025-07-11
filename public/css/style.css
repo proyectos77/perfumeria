@@ -1,28 +1,57 @@
 
 
 
+
+
 /* style servciios*/
+
 .card-servicio {
-  transition: all 0.3s ease;
-  border-bottom: 4px solid;
-  border-image: linear-gradient(to right, #001f4d, #26c6da) 1;
-  border-radius: 12px;
+  background: #fefefe;
+  border-radius: 16px;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  position: relative;
 }
 
 .card-servicio:hover {
-  transform: scale(1.05) translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.card-hover i {
+.card-servicio-barra {
+  height: 6px;
+  background: linear-gradient(to right, #f57c00, #26c6da);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.card-servicio-body i {
   transition: color 0.3s ease;
 }
 
+.card-servicio:hover i {
+  color: #006eff !important;
+}
+
+/* Responsive fix */
+@media (max-width: 767px) {
+  .card-servicio {
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+
+
+
+
 /* Sección del formulario de testimonio con fondo degradado elegante */
 #testimonio-form {
-  background: linear-gradient(135deg, #001f4d, #26c6da);
+  /* background: linear-gradient(135deg, #001f4d, #26c6da); */
+  background: linear-gradient(to right, #f57c00, #26c6da);
   padding: 60px 20px;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -229,6 +258,86 @@ equipo-card {
   transform: scale(1.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
+
+
+
+/*stiles section, llamado a la accion :*/
+
+.card-cascada {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card-cascada:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-borde-inferior {
+  height: 6px;
+  /* background: linear-gradient(to right, #f57c00, #ff9800); */
+  background: linear-gradient(to right, #f57c00, #26c6da);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.card-cuerpo {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+@media (max-width: 767px) {
+  .card-cascada {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/*estilo trabajo con nosostros  vista home*/
+
+
+/* --- Sección a pantalla completa dentro de un container limitado --- */
+.fullscreen-wrapper {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
+
+.seccion-hero {
+  /* height: 100vh; */
+  height: 400px;
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.caja-llamada {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  z-index: 2;
+  color: #fff;
+  max-width: 800px;
+}
+
+
+
+
+
+
+
 
 
 
