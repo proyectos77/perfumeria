@@ -6,6 +6,7 @@
                 <div class="d-flex align-items-center mb-2">
                     <img src="{{ asset('images/logo-crear-system-4.png') }}" alt="Logo Crear System" style="height: 60px;" class="me-2">
                     <h4 class="fw-bold mb-0">Crear System</h4>
+                   
                 </div>
                 <p class="small mt-2 text-center text-md-start">
                     Soluciones digitales en desarrollo web, apps, mantenimiento y consultoría TI. Ayudamos a empresas a crecer con tecnología.
@@ -27,8 +28,8 @@
             <!-- Información de contacto -->
             <div class="col-md-4 mb-4">
                 <h6 class="text-uppercase fw-bold">Contacto</h6>
-                <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i> +57 300 123 4567</p>
-                <p class="mb-1"><i class="bi bi-whatsapp me-2"></i> +57 300 765 4321</p>
+                <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i> +57 312496898</p>
+                <p class="mb-1"><i class="bi bi-whatsapp me-2"></i> +57 3124926898</p>
                 <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i> contacto@crearsystem.com</p>
                 <div class="mt-3">
                     <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
@@ -38,6 +39,8 @@
                 </div>
             </div>
         </div>  
+
+
 
         <hr class="bg-light">
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\TestimonioController;
+use App\Http\Controllers\ImageGeneratorController;
 
 
 
@@ -38,17 +39,17 @@ Route::get('/privacidad', function () {
     return view('privacidad');
 })->name('privacidad');
 
+Route::get('/terminos', function () {
+    return view('terminos');
+})->name('terminos');
+
 
 //ruta de testimonios usuarios
 Route::post('/testimonios', [TestimonioController::class, 'store'])->name('testimonios.store');
 Route::get('/', [TestimonioController::class, 'home'])->name('home');
 
 
-
 Route::view('/terminos-y-condiciones', 'terminos')->name('terminos');
-
-
-
 
 
 // rutas de administracion para panel de control y envio de correo electronico
@@ -59,7 +60,6 @@ Route::post('/contacto', [ContactoController::class, 'enviar'])->name('contacto.
 Route::get('/dashboard', function () {
     return view('admin.contactos'); // o simplemente view('dashboard')
 })->middleware(['auth'])->name('dashboard');
-
 
 
 require __DIR__.'/auth.php';

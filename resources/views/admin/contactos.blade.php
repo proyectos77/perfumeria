@@ -11,23 +11,9 @@
 
 
 
-<div class="container mt-4">
+<div class="container py-4">
 
-    <!-- Título + notificación -->
-    <!-- <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="text-primary">Panel de Contactos</h2>
-        <div class="position-relative">
-            <i class="bi bi-bell" style="font-size: 1.5rem;"></i>
-            @if($nuevos > 0)
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    {{ $nuevos }}
-                </span>
-            @endif
-        </div>
-    </div> -->
-
-    <!-- Tarjetas resumen -->
-    <div class="row mb-4">
+    <div class="row g-4 mb-4">
         <div class="col-md-4">
             <div class="card text-white bg-primary mb-3 shadow">
                 <div class="card-body">
@@ -54,47 +40,88 @@
         </div>
     </div>
 
-        <!-- Tabla de mensajes -->
-    <div class="card shadow">
-        <div class="card-body">
-            <h5 class="card-title">Mensajes recibidos</h5>
-            <table class="table table-hover table-striped mt-3">
-                <thead class="table-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Mensaje</th>
-                        <th>Fecha</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($mensajes as $item)
+    <div class="card shadow rounded-3">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Mensajes recibidos</h5>
+            </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped mb-0">
+                    <thead class="table-light">
                         <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->nombre }}</td>
-                            <td>{{ $item->correo }}</td>
-                            <td>{{ Str::limit($item->mensaje, 50) }}</td>
-                            <td>{{ $item->created_at->format('d M Y H:i') }}</td>
-                            <td>
-                                <form action="{{ route('admin.contactos.eliminar', $item->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este mensaje?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-outline-danger" title="Eliminar">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Mensaje</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="6" class="text-center">No hay mensajes.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse($mensajes as $item)
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->nombre }}</td>
+                                <td>{{ $item->correo }}</td>
+                                <td>{{ Str::limit($item->mensaje, 50) }}</td>
+                                <td>{{ $item->created_at->format('d M Y H:i') }}</td>
+                                <td>
+                                    <form action="{{ route('admin.contactos.eliminar', $item->id) }}" method="POST" class="form-eliminar">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-outline-danger" title="Eliminar">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center p-4">No hay mensajes.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
+        
+        @if ($mensajes->hasPages())
+            <div class="card-footer bg-light border-top">
+                <div class="d-flex justify-content-center">
+                    {{ $mensajes->links('pagination::bootstrap-5') }}
+                </div>
+            </div>
+        @endif
+        
     </div>
 </div>
+
+<script>
+    // Selecciona todos los formularios con la clase 'form-eliminar'
+    const forms = document.querySelectorAll('.form-eliminar');
+
+    forms.forEach(form => {
+        form.addEventListener('submit', (e) => {
+            // Evita que el formulario se envíe de inmediato
+            e.preventDefault();
+
+            // Muestra la ventana de SweetAlert2
+            Swal.fire({
+                title: '¿Estás seguro de hacer esta acciòn?',
+                text: "No podrás revertir esto.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, ¡eliminar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                // Si el usuario confirma, envía el formulario
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
 @endsection

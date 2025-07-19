@@ -1,8 +1,4 @@
 
-
-
-
-
 /* style servciios*/
 
 .card-servicio {
@@ -329,8 +325,158 @@ equipo-card {
   border-radius: 20px;
   z-index: 2;
   color: #fff;
-  max-width: 800px;
+  max-width: 1200px;
 }
+
+@media (max-width: 768px) {
+  .caja-llamada {
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+  }
+
+  .caja-llamada .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .caja-llamada .d-flex.align-items-end {
+    align-items: center !important;
+  }
+}
+
+.form-check-input:checked {
+        background-color: #0dcaf0;
+        border-color: #0dcaf0;
+    }
+/* stylos, terminos y condiciones,  */
+
+/* Estilos para el Acordeón de Política Legal */
+/* Estilos para el Acordeón de Política Legal (Actualizado con degradado) */
+.accordion-item {
+    border: 1px solid #e9ecef;
+    border-radius: .375rem !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.accordion-item:first-of-type,
+.accordion-item:last-of-type {
+    border-radius: .375rem !important;
+}
+
+.accordion-button {
+    font-size: 1.1rem;
+    color: #343a40;
+    background-color: #fff;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--bs-primary);
+    background-color: #f8f9fa;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.accordion-body {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    /* Degradado sutil de izquierda a derecha */
+    background: linear-gradient(to right, #f57c00, #26c6da); /* Un blanco suave a un azul muy claro */
+    border-left: 5px solid var(--bs-primary); /* Línea vertical del color primario como acento */
+}
+
+/* stils de l apolictica de provasidad, */
+
+/* --- Estilos para la Sección de Resumen de Privacidad --- */
+.privacy-feature .privacy-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    color: var(--bs-primary);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.privacy-feature:hover .privacy-icon-wrapper {
+    transform: scale(1.1);
+    background-color: rgba(var(--bs-primary-rgb), 0.2);
+}
+
+/* --- Estilos para el Modal Personalizado --- */
+@media (min-width: 992px) {
+    .modal-dialog.modal-custom-width {
+        max-width: 80%; /* Ocupa el 80% del ancho en pantallas grandes */
+    }
+}
+
+.modal-content {
+    border-radius: .75rem;
+    border: none;
+}
+
+.modal-header {
+    padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.modal-body {
+    padding: 1rem 1.5rem;
+}
+
+.modal-footer {
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+/* --- Estilos para el Acordeón DENTRO del Modal --- */
+/* (Es el mismo estilo que te gustó de la sección anterior) */
+#acordeonPrivacidad .accordion-item {
+    border: 1px solid #e9ecef;
+    border-radius: .375rem !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+#acordeonPrivacidad .accordion-item:first-of-type,
+#acordeonPrivacidad .accordion-item:last-of-type {
+    border-radius: .375rem !important;
+}
+
+#acordeonPrivacidad .accordion-button {
+    font-size: 1.1rem;
+    color: #343a40;
+    background-color: #fff;
+}
+
+#acordeonPrivacidad .accordion-button:not(.collapsed) {
+    color: var(--bs-primary);
+    background-color: #f8f9fa;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+#acordeonPrivacidad .accordion-button:focus {
+    box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+#acordeonPrivacidad .accordion-body {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    background: linear-gradient(to right, #f57c00, #26c6da); /* Degradado suave */
+    border-left: 5px solid var(--bs-primary); /* Acento de color */
+    padding: 1.5rem;
+}
+
+
+
+
 
 
 

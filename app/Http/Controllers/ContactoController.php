@@ -22,6 +22,7 @@ class ContactoController extends Controller
             'nombre' => 'required',
             'correo' => 'required|email',
             'mensaje' => 'required|min:10',
+            'acepta_terminos' => 'accepted',
         ]);
 
         // Guardar en la base de datos

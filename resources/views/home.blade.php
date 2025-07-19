@@ -50,7 +50,6 @@
     </div>
 </header>
 
-<!--  nuestros servicios -->
 <!-- Nuestros Servicios -->
 <section class="py-5 bg-light">
   <div class="container">
@@ -134,47 +133,46 @@
     </div>
   </div>
 </section>
+<br><br><br><br><br>
+<div class="fullscreen-wrapper">
+  <section class="py-5 overflow-hidden" 
+          style="background: linear-gradient(to bottom, #001f4d, #26c6da);"
+          role="region" 
+          aria-label="Galería de imágenes destacadas">
 
-<section class="py-5 overflow-hidden" 
-         style="background: linear-gradient(to bottom, #001f4d, #26c6da);"
-         role="region" 
-         aria-label="Galería de imágenes destacadas">
+    <div class="container text-center">
+      <div class="position-relative w-100" style="overflow-x: hidden;">
+        <div id="circularSlider" class="d-flex align-items-center gap-4 py-2" 
+            style="width: max-content; animation: scrollLeft 40s linear infinite;">
+          
+          @php
+            $imagenes = [
+              ['src' => asset('images/home/imagen-home1.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
+              ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
+              ['src' => asset('images/quienes-somos/quienes-somos1.png'), 'alt' => 'Aliado estratégico 3', 'link' => 'https://ejemplo3.com'],
+              ['src' => asset('images/home/imagen-home3.png'), 'alt' => 'Aliado estratégico 4', 'link' => 'https://ejemplo4.com'],
+              ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
+            ['src' => asset('images/quienes-somos/quienes-somos2.png'),  'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
+            ];
+          @endphp
 
-  <div class="container text-center">
-    <!-- <h2 class="text-white fw-bold mb-5 animate__animated animate__fadeInDown">Nuestros aliados y colaboraciones</h2> -->
+          @foreach($imagenes as $img)
+            <a href="{{ $img['link'] }}" target="_blank" class="text-decoration-none" role="listitem">
+              <div class="bg-white rounded-circle overflow-hidden shadow img-hover p-2"
+                  style="width: 230px; height: 230px; transition: all 0.3s;">
+                <img src="{{ $img['src'] }}" alt="{{ $img['alt'] }}" class="img-fluid w-100 h-100 object-fit-cover rounded-circle" loading="lazy">
+              </div>
+            </a>
+          @endforeach
 
-    <div class="position-relative w-100" style="overflow-x: hidden;">
-      <div id="circularSlider" class="d-flex align-items-center gap-4 py-2" 
-           style="width: max-content; animation: scrollLeft 40s linear infinite;">
-        
-        @php
-          $imagenes = [
-            ['src' => asset('images/home/imagen-home1.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
-            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
-            ['src' => asset('images/quienes-somos/quienes-somos1.png'), 'alt' => 'Aliado estratégico 3', 'link' => 'https://ejemplo3.com'],
-            ['src' => asset('images/home/imagen-home3.png'), 'alt' => 'Aliado estratégico 4', 'link' => 'https://ejemplo4.com'],
-            ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
-           ['src' => asset('images/quienes-somos/quienes-somos2.png'),  'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
-          ];
-        @endphp
-
-        @foreach($imagenes as $img)
-          <a href="{{ $img['link'] }}" target="_blank" class="text-decoration-none" role="listitem">
-            <div class="bg-white rounded-circle overflow-hidden shadow img-hover p-2"
-                 style="width: 230px; height: 230px; transition: all 0.3s;">
-              <img src="{{ $img['src'] }}" alt="{{ $img['alt'] }}" class="img-fluid w-100 h-100 object-fit-cover rounded-circle" loading="lazy">
-            </div>
-          </a>
-        @endforeach
-
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 
-
-
+<br><br><br><br><br>
 <!-- ¿Por qué elegir Crear System? -->
 <section class="py-5 bg-white">
   <div class="container text-center">
@@ -258,62 +256,46 @@
   </div>
 </section>
 
+
+<br><br><b><br><br>
+
 <!-- Sección: Trabaja con nosotros -->
 
 <div class="fullscreen-wrapper">
-  <section class="seccion-hero text-white position-relative">
-    <div class="hero-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+  <section class="seccion-hero text-white position-relative d-flex justify-content-end align-items-end"
+           style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('{{ asset('images/home/imagen-trabaja-nosotros.png') }}') center center / cover no-repeat;
+                  height: 80vh;">
 
-    <div class="caja-llamada text-center position-relative z-1">
-      <h2 class="mb-4 fw-bold animate__animated animate__pulse">¿Listo para impulsar tu proyecto?</h2>
-      <p class="mb-4">Hablemos de cómo transformar tu idea en una solución real.</p>
+    <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 w-100">
+    <h2 class="mb-4 fw-bold animate__animated animate__pulse">¿Listo para impulsar tu proyecto?</h2>
+    <p class="mb-4">Hablemos de cómo transformar tu idea en una solución real.</p>
 
-      <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
-        <a href="{{ route('contacto') }}" class="btn btn-lg text-white px-4" style="background-color: #f57c00; border: none;">
-          Contáctanos ahora
-        </a>
-        <a href="https://wa.me/573124926898" target="_blank" class="btn btn-outline-light btn-lg d-flex align-items-center">
-          <i class="bi bi-whatsapp me-2 fs-4" style="color: #f57c00;"></i> Escríbenos por WhatsApp
-        </a>
-      </div>
+    <div class="d-flex flex-column gap-3 align-items-center">
+      <a href="{{ route('contacto') }}" class="btn btn-lg text-white px-4" style="background-color: #f57c00; border: none;">
+        Contáctanos ahora
+      </a>
+      <a href="https://wa.me/573124926898" target="_blank" class="btn btn-outline-light btn-lg d-flex align-items-center">
+        <i class="bi bi-whatsapp me-2 fs-4" style="color: #f57c00;"></i> Escríbenos por WhatsApp
+      </a>
     </div>
+</div>
+
   </section>
 </div>
 
 
 
-<!-- section trabajo con nosotros 
-<!-- <section class="py-5 bg-primary text-white text-center">
-  <div class="container">
-    <h2 class="mb-4 fw-bold animate__animated animate__pulse">¿Listo para impulsar tu proyecto?</h2>
-    <p class="mb-4">Hablemos de cómo transformar tu idea en una solución real.</p>
 
-    <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
-      
-      <!-- Botón principal 
-      <a href="{{ route('contacto') }}" 
-         class="btn btn-lg text-white" 
-         style="background-color: #f57c00; border: none;">
-        Contáctanos ahora
-      </a>
-      
-      <!-- WhatsApp 
-      <a href="https://wa.me/573124926898" target="_blank" 
-         class="btn btn-outline-light btn-lg d-flex align-items-center">
-        <i class="bi bi-whatsapp me-2 fs-4" style="color: #f57c00;"></i> 
-        Escríbenos por WhatsApp
-      </a>
 
-    </div>
-  </div>
-</section> -->
-<br><br>
-
+<br><br><br><br>
 
 <!-- section tesnimonios -->
 <section class="py-5" >
-  <div class="container text-center text-white">
-    <h2 class="fw-bold mb-5 text-info">Lo que opinan nuestros clientes</h2>
+  <div class="container text-center text-black">
+    <h2 class="mb-5 text-primary fw-bold animate__animated animate__fadeInUp">
+     <span class="text-gradient">Lo que opinan nuestros clientes</span>
+    </h2>
     
     <div class="row g-3 justify-content-center">
       @forelse($testimoniosDestacados as $item)
@@ -388,6 +370,8 @@
   </div>
 </div>
 </section>
+
+
 
 
 <!-- section imganes empresas colaoradores-->

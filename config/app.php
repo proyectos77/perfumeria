@@ -123,8 +123,12 @@ return [
     */
 
     'key' => env('APP_KEY'),
+    // 'google_gemini_api_key' => env('GOOGLE_GEMINI_API_KEY'),
 
     'cipher' => 'AES-256-CBC',
+
+ 
+
 
     /*
     |--------------------------------------------------------------------------
@@ -184,5 +188,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
+    'google_gemini_api_key' => env('GOOGLE_GEMINI_API_KEY'),
 
 ];

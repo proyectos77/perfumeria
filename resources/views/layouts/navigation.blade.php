@@ -8,12 +8,14 @@
             <!-- Logo + Marca -->
             <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
                 <img src="{{ asset('images/logo-crear-system-4.png') }}" alt="Logo de Crear System" height="65" class="me-2">
-                <span class="fw-bold text-white">Crear System</span>
+                <div class="d-flex flex-column text-white">
+                    <span class="fw-bold">Crear System</span>
+                    <small class="text-white">Soluciones Tecnológicas Personalizadas</small>
+                </div>
             </a>
 
             <!-- Botón para móviles con descripción accesible -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                    aria-controls="<header role="banner">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="<header role="banner">
                         
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
          style="background: linear-gradient(to right, #001f4d, #26c6da);"
@@ -76,12 +78,6 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="quienessomos">
                             <strong>Quiénes somos</strong>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
-                            <strong>Portafolio</strong>
                         </a>
                     </li>
                 </ul>
