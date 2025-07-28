@@ -14,25 +14,9 @@
 
 @section('content')
 
-<div class="position-absolute top-0 start-0 w-100 h-100" 
-         style="background: url('{{ asset('images/home/imagen-home1.png') }}') center center / cover no-repeat;
-                z-index: 0;"></div>
-
+<div class="position-absolute top-0 start-0 w-100 h-100" style="background: url({{ asset("images/home/imagen-home1.png") }}) center center / cover no-repeat; z-index: 0;"></div>
 
 <header class="hero-section position-relative text-white" style="height: 100vh; margin-top: 0; padding: 0;">
-    {{-- Imagen de fondo --}}
-    {{-- 
-    <div class="position-absolute top-0 start-0 w-100 h-100" 
-         style="background: url('{{ asset('images/home/imagen-home.png') }}') center center / cover no-repeat;
-                z-index: 0;"></div> 
-    --}}
-
-    {{-- Capa oscura para contraste --}}
-    {{-- 
-    <div class="position-absolute top-0 start-0 w-100 h-100" 
-         style="background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div> 
-    --}}
-
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center position-relative" style="z-index: 2;">
         <article>
             <h1 class="display-2 fw-bold mb-4 animate__animated animate__fadeInDown">
@@ -151,7 +135,7 @@
               ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
               ['src' => asset('images/quienes-somos/quienes-somos1.png'), 'alt' => 'Aliado estratégico 3', 'link' => 'https://ejemplo3.com'],
               ['src' => asset('images/home/imagen-home3.png'), 'alt' => 'Aliado estratégico 4', 'link' => 'https://ejemplo4.com'],
-              ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
+              ['src' => asset('images/quienes-somos/imagne.gemeni1.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
             ['src' => asset('images/quienes-somos/quienes-somos2.png'),  'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
             ];
           @endphp

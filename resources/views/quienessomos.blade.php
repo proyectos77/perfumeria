@@ -116,7 +116,7 @@
           <div class="card-body">
             <h5 class="fw-bold text-primary titulo-zoom">{{ $miembro['nombre'] }}</h5>
             <p class="text-muted">{{ $miembro['perfil'] }}</p>
-            <button class="btn btn-naranja ver-cv" data-cv="{{ $miembro['cv'] }}">Ver Hoja de Vida</button>
+            <button class="btn btn-naranja ver-cv" data-cv="{{ $miembro['cv'] }}">Conoce de mí</button>
             <button class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalHistoria">¿Quieres conocer mi historia?</button>
           </div>
         </div>

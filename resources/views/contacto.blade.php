@@ -3,11 +3,11 @@
 
 @section('content')
 
-<div class="position-absolute top-0 start-0 w-100 h-45" 
-         style="background: url('{{ asset('images/quienes-somos/quienes-somos2.png') }}') center center / cover no-repeat; width: 100%; height: 40%;
-                z-index: 0;"></div>
-
-            <br><br><br>   <br><br><br>   <br><br><br>   <br><br><br> <br><br><br>
+<!-- <div class="position-absolute top-0 start-0 w-100 h-45" 
+         style="background: url('{{ asset('images/quienes-somos/quienes-somos2.png') }}') center center / cover no-repeat; width 100%; height 40%
+                z-index">
+      
+</div> -->
   
 <section class="py-5 contacto-section">
   <div class="container">
