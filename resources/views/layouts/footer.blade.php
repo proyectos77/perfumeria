@@ -30,12 +30,12 @@
                 <h6 class="text-uppercase fw-bold">Contacto</h6>
                 <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i> +57 312496898</p>
                 <p class="mb-1"><i class="bi bi-whatsapp me-2"></i> +57 3124926898</p>
-                <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i> contacto@crearsystem.com</p>
+                <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i>crearsystem@gmail.com</p>
                 <div class="mt-3">
                     <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-5"></i></a>
+                    <!-- <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-5"></i></a> -->
                     <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
-                    <a href="#" class="text-white"><i class="bi bi-linkedin fs-5"></i></a>
+                    <a href="www.linkedin.com/in/geovanni-perez-polo-b88b63147" class="text-white"><i class="bi bi-linkedin fs-5"></i></a>
                 </div>
             </div>
         </div>  

@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contacto;
 use Illuminate\Support\Facades\Mail; 
-use App\Mail\ContactoRecibido; 
-use App\Http\Controllers\ContactoController;      
+use App\Mail\ContactoRecibido;      
 
 
 class ContactoController extends Controller

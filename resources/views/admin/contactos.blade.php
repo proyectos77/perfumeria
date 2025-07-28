@@ -87,7 +87,7 @@
         
         @if ($mensajes->hasPages())
             <div class="card-footer bg-light border-top">
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center mt-3">
                     {{ $mensajes->links('pagination::bootstrap-5') }}
                 </div>
             </div>

@@ -19,7 +19,7 @@ class TestimonioController extends Controller
 
         Testimonio::create($validated);
 
-        return redirect()->route('servicios')->with('success', '¡Gracias por tu testimonio!');
+        return redirect()->route('servicios')->with('success', '¡Gracias por tu Comentario!');
     }
 
     public function home()

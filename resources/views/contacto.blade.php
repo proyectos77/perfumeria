@@ -67,7 +67,7 @@
 
         <div class="p-4 bg-info-card rounded shadow text-white">
           <h5><i class="bi bi-envelope-fill me-2"></i> Correo</h5>
-          <p class="mb-0">contacto@crear-system.com</p>
+          <p class="mb-0">crearsystem@gmail.com</p>
         </div>
 
         <!-- Botón de WhatsApp -->
