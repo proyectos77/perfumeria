@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="position-absolute top-0 start-0 w-100 h-45" 
-         style="background: url('{{ asset('images/quienes-somos/imagne.gemeni1.png') }}') center center / cover no-repeat; width: 100%; height: 50%;
+<div class="position-absolute top-0 start-0 w-100 h-45"
+         style="background: url('{{ asset('images/quienes-somos/imagen-gemeni1.png') }}') center center / cover no-repeat; width: 100%; height: 50%;
                 z-index: 0;"></div>
-            
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!-- Sección de Misión, Visión, Historia -->
 <section class="py-5 bg-light">
@@ -14,24 +14,24 @@
       <div class="col-md-4">
         <article class="p-4 bg-white shadow rounded h-100 animate__animated animate__fadeInUp card-hover">
           <h3 class="text-primary fw-bold text-center titulo-hover">Misión</h3>
-          <p>Nuestra misión es impulsar empresas con soluciones digitales innovadoras y a la medida, optimizando sus operaciones 
+          <p style="text-align: justify;">Nuestra misión es impulsar empresas con soluciones digitales innovadoras y a la medida, optimizando sus operaciones
             y potenciando su crecimiento en el entorno digital.</p>
         </article>
       </div>
       <div class="col-md-4">
         <article class="p-4 bg-white shadow rounded h-100 animate__animated animate__fadeInUp card-hover" style="animation-delay: 0.1s;">
           <h3 class="text-primary fw-bold text-center titulo-hover">Visión</h3>
-          <p>Ser líderes en tecnología, brindando calidad, confianza y resultados excepcionales a nuestros clientes,
-            transformando sus ideas en realidades 
+          <p style="text-align: justify;">Ser líderes en tecnología, brindando calidad, confianza y resultados excepcionales a nuestros clientes,
+            transformando sus ideas en realidades
             digitales a través de soluciones estratégicas y personalizadas.</p>
         </article>
       </div>
       <div class="col-md-4">
         <article class="p-4 bg-white shadow rounded h-100 animate__animated animate__fadeInUp card-hover" style="animation-delay: 0.2s;">
           <h3 class="text-primary fw-bold text-center titulo-hover">Nuestra Historia</h3>
-          <p> Crear System nació con la pasión de transformar ideas en realidades digitales. Desde nuestros inicios, 
-            nos hemos dedicado a ofrecer un abanico de servicios tecnológicos, desde el desarrollo web y software a medida hasta 
-            la automatización de procesos, creciendo junto a nuestros clientes y adaptándonos a sus necesidades para impulsarlos hacia el éxito. 
+          <p style="text-align: justify;"> Crear System nació con la pasión de transformar ideas en realidades digitales. Desde nuestros inicios,
+            nos hemos dedicado a ofrecer un abanico de servicios tecnológicos, desde el desarrollo web y software a medida hasta
+            la automatización de procesos, creciendo junto a nuestros clientes y adaptándonos a sus necesidades para impulsarlos hacia el éxito.
             Descubre cómo hemos crecido contigo.</p>
         </article>
       </div>
@@ -117,7 +117,7 @@
             <h5 class="fw-bold text-primary titulo-zoom">{{ $miembro['nombre'] }}</h5>
             <p class="text-muted">{{ $miembro['perfil'] }}</p>
             <button class="btn btn-naranja ver-cv" data-cv="{{ $miembro['cv'] }}">Conoce de mí</button>
-            <button class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalHistoria">¿Quieres conocer mi historia?</button>
+            <button class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalHistoria">¿Conocer mi historia?</button>
           </div>
         </div>
       </div>
@@ -127,42 +127,115 @@
 </section>
 
 <!-- Modal: Ver Hoja de Vida -->
-<!-- Modal: Ver Hoja de Vida -->
-<div class="modal fade" id="modalCV" tabindex="-1" aria-hidden="true">
+<div class="modal fade modal-elegante" id="modalCV" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content border-0 shadow-lg">
-      <div class="modal-header">
-        <h5 class="modal-title">Conoce de mí</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body py-4">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-4 text-center mb-4">
-              <img src="{{ asset('images/equipo/geovanni.png') }}" class="img-fluid rounded-circle shadow" style="max-width: 200px;" alt="Geovanni Pérez">
-              <h4 class="mt-3 text-primary">Geovanni Pérez</h4>
-              <p class="text-muted">Fundador & Desarrollador de Software</p>
-            </div>
-            <div class="col-md-8">
-              <h5 class="text-primary">Resumen Profesional</h5>
-              <p>
-                Estudiante de Ingeniería de Sistemas con experiencia administrativa y habilidades emergentes en desarrollo web, automatización y soluciones a medida. Comprometido con la transformación digital y la mejora continua.
-              </p>
-              <h5 class="text-primary mt-4">Habilidades Técnicas</h5>
-              <ul class="list-group list-group-flush mb-4">
-                <li class="list-group-item">✔ Desarrollo Web moderno, responsivo y optimizado</li>
-                <li class="list-group-item">✔ Mantenimiento de software y soporte técnico</li>
-                <li class="list-group-item">✔ Consultoría en transformación digital</li>
-                <li class="list-group-item">✔ Integraciones API con CRMs y plataformas externas</li>
-                <li class="list-group-item">✔ Automatización de procesos con bots y scripts</li>
-              </ul>
-              <h5 class="text-primary">Formación Académica</h5>
-              <p><strong>Ingeniería de Sistemas</strong> – UNAD (en curso)<br>Formación técnica – SENA</p>
-              <!-- <h5 class="text-primary mt-4">Experiencia</h5>
-              <p><strong>Ejército Nacional de Colombia</strong><br>Auxiliar Administrativo – Gestión de documentación y procesos internos.</p> -->
-            </div>
-          </div>
+    <div class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
+
+      <!-- ENCABEZADO CON FOTO CENTRADA -->
+      <div class="modal-header border-0 position-relative p-4 bg-gradient-primary text-white">
+
+        <div class="w-100 text-center">
+            <br><br><br>
+          <img src="{{ asset('images/equipo/geovanni.png') }}"
+               class="foto-modal shadow-lg">
+          <h3 class="fw-bold mt-4">Geovanni Pérez</h3>
+          <p class="mb-0 opacity-75">Fundador & Desarrollador de Software</p>
         </div>
+
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- CONTENIDO -->
+      <div class="modal-body p-5">
+
+        <h4 class="titulo-seccion">Resumen Profesional</h4>
+        <p class="texto-seccion">
+          Estudiante de Ingeniería de Sistemas con experiencia administrativa y habilidades emergentes
+          en desarrollo web, automatización y soluciones a medida. Comprometido con la transformación
+          digital y la mejora continua.
+        </p>
+
+        <h4 class="titulo-seccion mt-4">Habilidades Técnicas</h4>
+        <ul class="list-group list-group-flush tarjeta-lista mb-4">
+          <li class="list-group-item">✔ Desarrollo Web moderno, responsivo y optimizado</li>
+          <li class="list-group-item">✔ Mantenimiento de software y soporte técnico</li>
+          <li class="list-group-item">✔ Consultoría en transformación digital</li>
+          <li class="list-group-item">✔ Integraciones API con CRMs y plataformas externas</li>
+          <li class="list-group-item">✔ Automatización de procesos con bots y scripts</li>
+        </ul>
+
+        <h4 class="titulo-seccion mb-3">Formación Académica</h4>
+
+<div class="accordion accordion-flush acordeon-elegante" id="acordeonFormacion">
+
+  <!-- ITEM 1 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed acordeon-titulo" type="button"
+              data-bs-toggle="collapse" data-bs-target="#formacion1">
+        🎓 Ingeniería de Sistemas – UNAD
+      </button>
+    </h2>
+    <div id="formacion1" class="accordion-collapse collapse" data-bs-parent="#acordeonFormacion">
+      <div class="accordion-body">
+        Actualmente cursando Ingeniería de Sistemas en la UNAD, desarrollando habilidades en
+        programación, arquitectura de software, análisis de datos y proyectos tecnológicos reales.
+      </div>
+    </div>
+  </div>
+
+  <!-- ITEM 2 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed acordeon-titulo" type="button"
+        data-bs-toggle="collapse" data-bs-target="#formacion2">
+        📘 Diplomado en Gerencia de Proyectos – Universidad del Rosario
+      </button>
+    </h2>
+    <div id="formacion2" class="accordion-collapse collapse" data-bs-parent="#acordeonFormacion">
+      <div class="accordion-body">
+        Formación en planeación estratégica, riesgos, cronogramas, metodologías PMI
+        y liderazgo de equipos en proyectos corporativos.
+      </div>
+    </div>
+  </div>
+
+  <!-- ITEM 3 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed acordeon-titulo" type="button"
+              data-bs-toggle="collapse" data-bs-target="#formacion3">
+        🔐Diplomado Seguridad de la Información & Ciberseguridad – Universidad del Rosario
+      </button>
+    </h2>
+    <div id="formacion3" class="accordion-collapse collapse" data-bs-parent="#acordeonFormacion">
+      <div class="accordion-body">
+        Auditor Líder en SGSI, con formación en ISO 27001, gestión de riesgos, medidas de
+        seguridad, ciberdefensa y análisis de vulnerabilidades.
+      </div>
+    </div>
+  </div>
+
+  <!-- ITEM 4 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed acordeon-titulo" type="button"
+              data-bs-toggle="collapse" data-bs-target="#formacion4">
+        💻 Diplomado PHP & JAVA – Politécnico Colombiano
+      </button>
+    </h2>
+    <div id="formacion4" class="accordion-collapse collapse" data-bs-parent="#acordeonFormacion">
+      <div class="accordion-body">
+        Formación técnica en programación backend, estructura de datos, programación orientada
+        a objetos y desarrollo web con tecnologías modernas.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
       </div>
     </div>
   </div>
@@ -170,37 +243,52 @@
 
 
 <!-- Modal: Historia Personal -->
-<div class="modal fade" id="modalHistoria" tabindex="-1" aria-hidden="true">
+<div class="modal fade modal-elegante" id="modalHistoria" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content border-0 shadow-lg">
+    <div class="modal-content shadow-lg border-0 rounded-4 overflow-hidden">
+
+      <!-- HEADER -->
+      <div class="modal-header border-0 position-relative p-4 bg-gradient-success text-white">
+
+        <div class="w-100 text-center">
+            <br><br><br>
+          <img src="{{ asset('images/equipo/geovanni.png') }}"
+               class="foto-modal shadow-lg">
+          <h3 class="fw-bold mt-4">Geovanni Pérez</h3>
+          <p class="mb-0 opacity-75">Fundador & Desarrollador de Software</p>
+        </div>
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- BODY -->
       <div class="modal-body p-5">
-        <div class="text-center">
-          <img src="{{ asset('images/equipo/geovanni.png') }}" class="rounded-circle shadow mb-4" style="width: 150px;" alt="Geovanni Pérez">
-          <h3 class="fw-bold text-primary">Geovanni Pérez</h3>
-          <p class="text-muted mb-4">Fundador & Desarrollador de Software</p>
-        </div>
-        <div class="px-md-4">
-          <h5 class="fw-bold text-secondary mb-3">💡 Una historia de propósito, esfuerzo y visión</h5>
-          <p>
-            Mi camino comenzó sirviendo con compromiso en el <strong>Ejército Nacional de Colombia</strong>, donde desarrollé disciplina, liderazgo y resiliencia. Sin embargo, dentro de mí crecía una pasión: la tecnología.
-          </p>
-          <p>
-            Sin experiencia previa y con recursos limitados, decidí dar el salto: estudié en el <strong>SENA</strong>, aprendiendo fundamentos administrativos y técnicos, y más adelante inicié la carrera de <strong>Ingeniería de Sistemas</strong> en la <strong>UNAD</strong>, que actualmente curso.
-          </p>
-          <p>
-            Compaginé jornadas laborales con noches de aprendizaje, venciendo obstáculos personales y profesionales, siempre impulsado por una meta: <em>convertirme en un desarrollador que transforme realidades</em>.
-          </p>
-          <p>
-            Hoy creo soluciones digitales, integro sistemas, automatizo procesos y acompaño a empresas en su transformación. Lo que empezó como un sueño, es hoy un proyecto de vida con visión, propósito y ambición.
-          </p>
-          <blockquote class="blockquote text-center my-4">
-            <p class="mb-0 fst-italic">“No importa de dónde vienes, sino hasta dónde estás dispuesto a llegar.”</p>
-          </blockquote>
-        </div>
+
+        <h4 class="titulo-seccion">Una historia de propósito</h4>
+
+        <p class="texto-seccion">
+          Mi camino comenzó sirviendo en el
+          <strong>Ejército Nacional de Colombia</strong>, donde desarrollé disciplina y liderazgo.
+        </p>
+
+        <p class="texto-seccion">
+          A pesar de los desafíos, decidí seguir mi pasión: la tecnología. Estudié en el
+          <strong>SENA</strong>, luego inicié <strong>Ingeniería de Sistemas</strong> en la UNAD.
+        </p>
+
+        <p class="texto-seccion">
+          Entre noches de estudio y trabajo constante, descubrí que podía transformar ideas en soluciones reales.
+        </p>
+
+        <blockquote class="blockquote text-center mt-4">
+          <p class="fst-italic" style="color: red"> <strong>“No importa de dónde vienes, sino hasta dónde estás dispuesto a llegar.”</strong></p>
+        </blockquote>
+
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- Script para cargar CV PDF -->
 <script>
@@ -210,6 +298,7 @@
     });
   });
 </script>
+
 
 
 @endsection

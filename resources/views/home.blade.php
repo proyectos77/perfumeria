@@ -14,7 +14,7 @@
 
 @section('content')
 
-<div class="position-absolute top-0 start-0 w-100 h-100" style="background: url({{ asset("images/home/imagen-home1.png") }}) center center / cover no-repeat; z-index: 0;"></div>
+<div class="position-absolute top-0 start-0 w-100 h-100" style="background: url({{ asset('images/home/imagen-home1.png') }}) center center / cover no-repeat; z-index: 0;"></div>
 
 <header class="hero-section position-relative text-white" style="height: 100vh; margin-top: 0; padding: 0;">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center position-relative" style="z-index: 2;">
@@ -45,8 +45,8 @@
     <div class="row g-4">
       <!-- 1. Desarrollo Web -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
             <h5 class="fw-semibold">Desarrollo Web</h5>
             <p class="text-muted">Sitios modernos, responsivos y optimizados para buscadores.</p>
@@ -57,8 +57,8 @@
 
       <!-- 2. Mantenimiento -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-gear display-4 text-warning mb-3"></i>
             <h5 class="fw-semibold">Mantenimiento de Software</h5>
             <p class="text-muted">Actualización, soporte y mejoras continuas a tus sistemas.</p>
@@ -69,8 +69,8 @@
 
       <!-- 3. Consultoría -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-people-fill display-4 text-info mb-3"></i>
             <h5 class="fw-semibold">Consultoría TI</h5>
             <p class="text-muted">Asesoría estratégica para transformación digital y procesos.</p>
@@ -81,8 +81,8 @@
 
       <!-- 4. Software a Medida -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-file-code-fill display-4 text-secondary mb-3"></i>
             <h5 class="fw-semibold">Software a Medida</h5>
             <p class="text-muted">Soluciones hechas desde cero, según tus requerimientos exactos.</p>
@@ -93,8 +93,8 @@
 
       <!-- 5. Integraciones API -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-plug display-4 text-danger mb-3"></i>
             <h5 class="fw-semibold">Integraciones API</h5>
             <p class="text-muted">Conectamos tu sistema con pasarelas, CRMs y plataformas externas.</p>
@@ -105,8 +105,8 @@
 
       <!-- 6. Automatización -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-robot display-4 text-dark mb-3"></i>
             <h5 class="fw-semibold">Automatización de Procesos</h5>
             <p class="text-muted">Ahorra tiempo con bots, scripts o flujos automáticos para tu empresa.</p>
@@ -117,6 +117,8 @@
     </div>
   </div>
 </section>
+
+
 <br><br><br><br><br>
 <div class="fullscreen-wrapper">
   <section class="py-5 overflow-hidden" 
@@ -135,7 +137,7 @@
               ['src' => asset('images/home/imagen-home2.png'), 'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
               ['src' => asset('images/quienes-somos/quienes-somos1.png'), 'alt' => 'Aliado estratégico 3', 'link' => 'https://ejemplo3.com'],
               ['src' => asset('images/home/imagen-home3.png'), 'alt' => 'Aliado estratégico 4', 'link' => 'https://ejemplo4.com'],
-              ['src' => asset('images/quienes-somos/imagne.gemeni1.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
+              ['src' => asset('images/quienes-somos/imagen-gemeni1.png'), 'alt' => 'Aliado estratégico 1', 'link' => 'https://ejemplo1.com'],
             ['src' => asset('images/quienes-somos/quienes-somos2.png'),  'alt' => 'Aliado estratégico 2', 'link' => 'https://ejemplo2.com'],
             ];
           @endphp
@@ -167,7 +169,7 @@
     <div class="row g-4">
       <!-- 1 -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp h-100 d-flex flex-column">
           <div class="card-cuerpo text-center p-4">
             <i class="bi bi-lightning-charge-fill display-4 text-warning mb-3"></i>
             <h5 class="fw-semibold">Velocidad y Rendimiento</h5>
@@ -179,7 +181,7 @@
 
       <!-- 2 -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp h-100 d-flex flex-column" style="animation-delay: 0.1s;">
           <div class="card-cuerpo text-center p-4">
             <i class="bi bi-laptop-fill display-4 text-success mb-3"></i>
             <h5 class="fw-semibold">Diseño 100% Adaptable</h5>
@@ -191,7 +193,7 @@
 
       <!-- 3 -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp h-100 d-flex flex-column" style="animation-delay: 0.2s;">
           <div class="card-cuerpo text-center p-4">
             <i class="bi bi-shield-lock-fill display-4 text-info mb-3"></i>
             <h5 class="fw-semibold">Seguridad Profesional</h5>
@@ -203,7 +205,7 @@
 
       <!-- 4 -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp h-100 d-flex flex-column" style="animation-delay: 0.3s;">
           <div class="card-cuerpo text-center p-4">
             <i class="bi bi-headset display-4 text-primary mb-3"></i>
             <h5 class="fw-semibold">Soporte Continuo</h5>
@@ -215,7 +217,7 @@
 
       <!-- 5 -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp h-100 d-flex flex-column" style="animation-delay: 0.4s;">
           <div class="card-cuerpo text-center p-4">
             <i class="bi bi-sliders2-vertical display-4 text-danger mb-3"></i>
             <h5 class="fw-semibold">Soluciones a la Medida</h5>
@@ -227,7 +229,7 @@
 
       <!-- 6 -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+        <div class="card-cascada shadow-sm animate__animated animate__fadeInUp h-100 d-flex flex-column" style="animation-delay: 0.5s;">
           <div class="card-cuerpo text-center p-4">
             <i class="bi bi-bar-chart-line-fill display-4 text-secondary mb-3"></i>
             <h5 class="fw-semibold">Resultados Reales</h5>
@@ -246,10 +248,7 @@
 <!-- Sección: Trabaja con nosotros -->
 
 <div class="fullscreen-wrapper">
-  <section class="seccion-hero text-white position-relative d-flex justify-content-end align-items-end"
-           style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                  url('{{ asset('images/home/imagen-trabaja-nosotros.png') }}') center center / cover no-repeat;
-                  height: 80vh;">
+  <section class="seccion-hero text-white position-relative d-flex justify-content-end align-items-end" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ asset('images/home/imagen-trabaja-nosotros.png') }}') center center / cover no-repeat;height: 80vh;">
 
     <div class="d-flex flex-column justify-content-center align-items-center text-center h-100 w-100">
     <h2 class="mb-4 fw-bold animate__animated animate__pulse">¿Listo para impulsar tu proyecto?</h2>

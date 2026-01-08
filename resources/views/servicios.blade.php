@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
-
-
 @section('content')
 
 <!-- Imagen de fondo a pantalla completa -->
 
 
-<div class="position-absolute top-0 start-0 w-100 h-45" 
-         style="background: url('{{ asset('images/quienes-somos/quienes-somos2.png') }}') center center / cover no-repeat; width: 100%; height: 50%;
-                z-index: 0;"></div>
+<div class="position-absolute top-0 start-0 w-100"
+     style="background: url('{{ asset('images/quienes-somos/quienes-somos2.png') }}') center center / cover no-repeat; height: 50vh; z-index: 0;">
+</div>
 
-            <br><br><br>   <br><br><br>   <br><br><br>   <br><br><br> <br><br><br>
+
+<br><br><br>   <br><br><br>   <br><br><br>   <br><br><br> <br><br><br>
 
 <!-- Nuestros Servicios -->
 <section class="py-5 bg-light">
@@ -24,8 +23,8 @@
     <div class="row g-4">
       <!-- 1. Desarrollo Web -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
             <h5 class="fw-semibold">Desarrollo Web</h5>
             <p class="text-muted">Sitios modernos, responsivos y optimizados para buscadores.</p>
@@ -36,8 +35,8 @@
 
       <!-- 2. Mantenimiento -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-gear display-4 text-warning mb-3"></i>
             <h5 class="fw-semibold">Mantenimiento de Software</h5>
             <p class="text-muted">Actualización, soporte y mejoras continuas a tus sistemas.</p>
@@ -48,8 +47,8 @@
 
       <!-- 3. Consultoría -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-people-fill display-4 text-info mb-3"></i>
             <h5 class="fw-semibold">Consultoría TI</h5>
             <p class="text-muted">Asesoría estratégica para transformación digital y procesos.</p>
@@ -60,8 +59,8 @@
 
       <!-- 4. Software a Medida -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-file-code-fill display-4 text-secondary mb-3"></i>
             <h5 class="fw-semibold">Software a Medida</h5>
             <p class="text-muted">Soluciones hechas desde cero, según tus requerimientos exactos.</p>
@@ -72,8 +71,8 @@
 
       <!-- 5. Integraciones API -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-plug display-4 text-danger mb-3"></i>
             <h5 class="fw-semibold">Integraciones API</h5>
             <p class="text-muted">Conectamos tu sistema con pasarelas, CRMs y plataformas externas.</p>
@@ -84,8 +83,8 @@
 
       <!-- 6. Automatización -->
       <div class="col-md-4 col-sm-6">
-        <div class="card-servicio">
-          <div class="card-servicio-body text-center p-4">
+        <div class="card-servicio h-100 d-flex flex-column">
+          <div class="card-servicio-body text-center p-4 flex-fill">
             <i class="bi bi-robot display-4 text-dark mb-3"></i>
             <h5 class="fw-semibold">Automatización de Procesos</h5>
             <p class="text-muted">Ahorra tiempo con bots, scripts o flujos automáticos para tu empresa.</p>
@@ -96,7 +95,6 @@
     </div>
   </div>
 </section>
-
 
 
 <!-- section, de vista de testimonio de usuario -->

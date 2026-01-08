@@ -131,4 +131,7 @@ return [
         ],
     ],
 
+     // 👇 aquí agregas tu correo admin
+    'admin_address' => env('MAIL_ADMIN', 'tu_correo@ejemplo.com'),
+
 ];

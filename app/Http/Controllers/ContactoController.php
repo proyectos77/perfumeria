@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contacto;
 use Illuminate\Support\Facades\Mail; 
-use App\Mail\ContactoRecibido;      
+use App\Mail\ContactoRecibido; 
+use App\Mail\NuevoContacto;     
 
 
 class ContactoController extends Controller
@@ -28,8 +29,17 @@ class ContactoController extends Controller
         Contacto::create($request->all());
 
         // Enviar correo al visitante
-        Mail::to($request->correo)->send(new ContactoRecibido($request->nombre, $request->mensaje));
+        Mail::to($request->correo)->send(
+            new ContactoRecibido($request->nombre, $request->mensaje)
+        );
 
-        return redirect()->route('contacto')->with('success', 'Tu mensaje fue enviado y guardado correctamente.');
+        // Enviar correo al admin (tú mismo)
+        Mail::to("pjhovanysperezpolo@gmail.com")->send(
+            new NuevoContacto($request->nombre, $request->correo, $request->mensaje)
+        );
+
+        return redirect()->route('contacto')
+            ->with('success', 'Tu mensaje fue enviado y guardado correctamente.');
     }
 }
+

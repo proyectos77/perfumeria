@@ -231,6 +231,63 @@ equipo-card {
   background-color: #d45500;
 }
 
+  /* EFECTO PREMIUM */
+  .modal-elegante .modal-content {
+    animation: zoomIn .3s ease;
+    border-radius: 20px !important;
+    backdrop-filter: blur(6px);
+  }
+
+  /* FOTO DEL MODAL */
+  .foto-modal {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    margin-top: -90px;
+    background: white;
+  }
+
+  /* FONDOS GRADIENT MODERNOS */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+  }
+  .bg-gradient-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+
+  /* TITULOS */
+  .titulo-seccion {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #1e40af;
+  }
+
+  /* TEXTO */
+  .texto-seccion {
+    font-size: 1.05rem;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+
+  /* CARDS INTERNAS */
+  .tarjeta-info {
+    background: #f9fafb;
+    border-left: 5px solid #2563eb;
+  }
+
+  .tarjeta-lista .list-group-item {
+    background: transparent;
+    border: none;
+    padding-left: 0;
+  }
+
+  /* ANIMACIÓN */
+  @keyframes zoomIn {
+    0% { transform: scale(.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
 
 /* styles section home */
 
@@ -254,6 +311,39 @@ equipo-card {
   transform: scale(1.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
+
+.acordeon-elegante .accordion-item {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: #f8fafc;
+    border: none;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .acordeon-elegante .accordion-button {
+    background: #eef2ff;
+    font-weight: bold;
+    color: #1e3a8a;
+    transition: .3s ease;
+  }
+
+  .acordeon-elegante .accordion-button:not(.collapsed) {
+    background: #dbeafe;
+    color: #1e40af;
+    box-shadow: inset 0 -1px 5px rgba(0,0,0,0.1);
+  }
+
+  .acordeon-elegante .accordion-button::after {
+    filter: hue-rotate(30deg) brightness(0.7);
+  }
+
+  .accordion-body {
+    background: white;
+    padding: 20px;
+    color: #374151;
+    line-height: 1.7;
+  }
 
 
 
