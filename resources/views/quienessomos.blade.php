@@ -233,6 +233,23 @@
     </div>
   </div>
 
+
+  <!-- ITEM 5 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed acordeon-titulo" type="button"
+              data-bs-toggle="collapse" data-bs-target="#formacion5">
+        💻 He participado en programas de emprendimiento e innovación de la UNAD,
+        enfocados en acelerar proyectos
+      </button>
+    </h2>
+    <div id="formacion5" class="accordion-collapse collapse" data-bs-parent="#acordeonFormacion">
+      <div class="accordion-body">
+        Soy emprendedor en desarrollo de soluciones, con formación en innovación y aceleración de emprendimientos por la UNAD.
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
