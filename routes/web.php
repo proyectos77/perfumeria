@@ -17,7 +17,10 @@ Route::middleware(['auth'])->group(function () {
 
     // ✅ Panel de administración
     Route::get('/admin/contactos', [AdminController::class, 'index'])->name('admin.contactos');
+    Route::get('/admin/contactos/listado', [AdminController::class, 'listadoMensajes'])->name('admin.contactos.listado');
     Route::delete('/admin/contactos/{id}', [AdminController::class, 'eliminar'])->name('admin.contactos.eliminar');
+    Route::get('/admin/testimonios', [AdminController::class, 'testimonios'])->name('admin.testimonios');
+    Route::delete('/admin/testimonios/{id}', [AdminController::class, 'eliminarTestimonio'])->name('admin.testimonios.eliminar');
 });
 
 
@@ -58,9 +61,8 @@ Route::post('/contacto', [ContactoController::class, 'enviar'])->name('contacto.
 
 
 Route::get('/dashboard', function () {
-    return view('admin.contactos'); // o simplemente view('dashboard')
+    return redirect()->route('admin.contactos');
 })->middleware(['auth'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';
-

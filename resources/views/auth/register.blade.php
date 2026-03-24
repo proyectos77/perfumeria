@@ -1,88 +1,171 @@
 @extends('layouts.app')
 
+@section('body_class', 'auth-body')
+@section('main_class', 'site-main auth-main')
+
 @section('content')
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="card shadow-lg border-0 rounded-4">
-                <div class="card-body p-4 p-md-5">
-                    
-                    <!-- Título -->
-                    <h2 class="text-center mb-4 fw-bold text-primary">
-                        <i class="fas fa-user-plus me-2"></i> Registro
-                    </h2>
+<section class="auth-shell">
+    <div class="container auth-shell__container">
+        <div class="row g-4 align-items-stretch justify-content-center">
+            <div class="col-lg-5">
+                <aside class="auth-showcase">
+                    <span class="auth-badge">
+                        <i class="bi bi-person-plus"></i>
+                        Nuevo acceso
+                    </span>
+                    <h1 class="auth-showcase__title">Crea una cuenta administrativa con la misma linea visual del proyecto.</h1>
+                    <p class="auth-showcase__text">
+                        Registra un nuevo usuario para gestionar mensajes, comentarios y el rendimiento del sitio con un acceso controlado.
+                    </p>
+
+                    <ul class="auth-showcase__list">
+                        <li>
+                            <i class="bi bi-person-vcard fs-5"></i>
+                            <span>Configura un acceso claro para el equipo que administra contenidos y oportunidades.</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-ui-checks-grid fs-5"></i>
+                            <span>Mantiene el flujo de autenticacion limpio, consistente y alineado con la marca.</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-shield-check fs-5"></i>
+                            <span>Protege el acceso al panel con credenciales y verificacion del correo.</span>
+                        </li>
+                    </ul>
+
+                    <div class="auth-showcase__stats">
+                        <div>
+                            <strong>1 cuenta</strong>
+                            <span>Alta rapida</span>
+                        </div>
+                        <div>
+                            <strong>Panel</strong>
+                            <span>Gestion central</span>
+                        </div>
+                        <div>
+                            <strong>Control</strong>
+                            <span>Acceso autorizado</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="col-lg-7 col-xl-6">
+                <div class="auth-panel">
+                    <span class="auth-panel__eyebrow">
+                        <i class="bi bi-person-badge"></i>
+                        Registro
+                    </span>
+                    <h2 class="auth-panel__title">Crear cuenta</h2>
+                    <p class="auth-panel__text">
+                        Completa los datos del usuario para habilitar un nuevo acceso administrativo.
+                    </p>
 
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <!-- Nombre -->
-                        <div class="mb-3">
-                            <label for="name" class="form-label fw-semibold">
-                                <i class="fas fa-user me-1 text-secondary"></i> Nombre
+                        <div class="auth-field">
+                            <label for="name" class="auth-field__label">
+                                <i class="bi bi-person"></i>
+                                Nombre
                             </label>
-                            <input id="name" type="text" 
-                                class="form-control form-control-lg rounded-3 @error('name') is-invalid @enderror"
-                                name="name" value="{{ old('name') }}" required autofocus>
-                            @error('name')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div class="auth-field__control">
+                                <span class="auth-field__icon"><i class="bi bi-person-fill"></i></span>
+                                <input
+                                    id="name"
+                                    type="text"
+                                    class="form-control auth-control @error('name') is-invalid @enderror"
+                                    name="name"
+                                    value="{{ old('name') }}"
+                                    placeholder="Nombre del administrador"
+                                    required
+                                    autofocus
+                                >
+                                @error('name')
+                                    <div class="invalid-feedback d-block mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <!-- Correo -->
-                        <div class="mb-3">
-                            <label for="email" class="form-label fw-semibold">
-                                <i class="fas fa-envelope me-1 text-secondary"></i> Correo electrónico
+                        <div class="auth-field">
+                            <label for="email" class="auth-field__label">
+                                <i class="bi bi-envelope"></i>
+                                Correo electronico
                             </label>
-                            <input id="email" type="email" 
-                                class="form-control form-control-lg rounded-3 @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required>
-                            @error('email')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div class="auth-field__control">
+                                <span class="auth-field__icon"><i class="bi bi-at"></i></span>
+                                <input
+                                    id="email"
+                                    type="email"
+                                    class="form-control auth-control @error('email') is-invalid @enderror"
+                                    name="email"
+                                    value="{{ old('email') }}"
+                                    placeholder="usuario@crearsystem.com"
+                                    required
+                                    autocomplete="username"
+                                >
+                                @error('email')
+                                    <div class="invalid-feedback d-block mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <!-- Contraseña -->
-                        <div class="mb-3">
-                            <label for="password" class="form-label fw-semibold">
-                                <i class="fas fa-lock me-1 text-secondary"></i> Contraseña
+                        <div class="auth-field">
+                            <label for="password" class="auth-field__label">
+                                <i class="bi bi-lock"></i>
+                                Contrasena
                             </label>
-                            <input id="password" type="password" 
-                                class="form-control form-control-lg rounded-3 @error('password') is-invalid @enderror"
-                                name="password" required>
-                            @error('password')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div class="auth-field__control">
+                                <span class="auth-field__icon"><i class="bi bi-key"></i></span>
+                                <input
+                                    id="password"
+                                    type="password"
+                                    class="form-control auth-control @error('password') is-invalid @enderror"
+                                    name="password"
+                                    placeholder="Crea una contrasena segura"
+                                    required
+                                    autocomplete="new-password"
+                                >
+                                @error('password')
+                                    <div class="invalid-feedback d-block mt-2">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <!-- Confirmar Contraseña -->
-                        <div class="mb-4">
-                            <label for="password_confirmation" class="form-label fw-semibold">
-                                <i class="fas fa-lock me-1 text-secondary"></i> Confirmar Contraseña
+                        <div class="auth-field">
+                            <label for="password_confirmation" class="auth-field__label">
+                                <i class="bi bi-shield-check"></i>
+                                Confirmar contrasena
                             </label>
-                            <input id="password_confirmation" type="password" 
-                                class="form-control form-control-lg rounded-3"
-                                name="password_confirmation" required>
+                            <div class="auth-field__control">
+                                <span class="auth-field__icon"><i class="bi bi-check2-circle"></i></span>
+                                <input
+                                    id="password_confirmation"
+                                    type="password"
+                                    class="form-control auth-control"
+                                    name="password_confirmation"
+                                    placeholder="Repite la contrasena"
+                                    required
+                                    autocomplete="new-password"
+                                >
+                            </div>
                         </div>
 
-                        <!-- Botones -->
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a class="text-decoration-none small" href="{{ route('login') }}">
-                                <i class="fas fa-arrow-left me-1"></i> ¿Ya tienes cuenta?
-                            </a>
-                            <button type="submit" class="btn btn-primary btn-lg px-4 shadow-sm">
-                                <i class="fas fa-user-check me-1"></i> Registrarse
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="auth-submit">
+                                <i class="bi bi-person-check"></i>
+                                Registrar usuario
                             </button>
                         </div>
                     </form>
+
+                    <p class="auth-helper">
+                        Ya tienes una cuenta?
+                        <a href="{{ route('login') }}" class="auth-link">Inicia sesion aqui</a>.
+                    </p>
                 </div>
             </div>
-
-            <!-- Texto inferior -->
-            <p class="text-center text-muted mt-4 small">
-                Al registrarte aceptas nuestros 
-                <a href="{{ route('terminos') }}" class="text-decoration-none">Términos y Condiciones</a>.
-            </p>
         </div>
     </div>
-</div>
+</section>
 @endsection

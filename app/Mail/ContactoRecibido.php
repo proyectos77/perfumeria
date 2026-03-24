@@ -21,13 +21,13 @@ class ContactoRecibido extends Mailable
      */
     public function __construct($nombre, $mensaje)
     {
-        $this->nonbre = $nombre;
+        $this->nombre = $nombre;
         $this->mensaje = $mensaje;
     }
 
    public function build()
     {
-        return $this->subject('Gracias por contactarnos')
+        return $this->subject('Hemos recibido tu mensaje - Crear System')
                     ->view('emails.contacto_recibido');
     }
 
@@ -37,7 +37,7 @@ class ContactoRecibido extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contacto Recibido',
+            subject: 'Hemos recibido tu mensaje - Crear System',
         );
     }
 

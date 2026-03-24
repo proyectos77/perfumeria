@@ -26,7 +26,7 @@ class NuevoContacto extends Mailable
 
     public function build()
     {
-        return $this->subject('Nuevo mensaje desde el formulario de contacto')
+        return $this->subject('Nuevo lead desde el sitio web - Crear System')
                     ->view('emails.nuevo-contacto');
     }
 }

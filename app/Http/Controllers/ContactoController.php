@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Throwable;
 use Illuminate\Http\Request;
 use App\Models\Contacto;
-use Illuminate\Support\Facades\Mail; 
-use App\Mail\ContactoRecibido; 
-use App\Mail\NuevoContacto;     
-
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactoRecibido;
+use App\Mail\NuevoContacto;
 
 class ContactoController extends Controller
 {
@@ -25,21 +26,28 @@ class ContactoController extends Controller
             'acepta_terminos' => 'accepted',
         ]);
 
-        // Guardar en la base de datos
-        Contacto::create($request->all());
+        Contacto::create($request->only([
+            'nombre',
+            'correo',
+            'mensaje',
+        ]));
 
-        // Enviar correo al visitante
-        Mail::to($request->correo)->send(
-            new ContactoRecibido($request->nombre, $request->mensaje)
-        );
+        try {
+            Mail::to($request->correo)->send(
+                new ContactoRecibido($request->nombre, $request->mensaje)
+            );
 
-        // Enviar correo al admin (tú mismo)
-        Mail::to("pjhovanysperezpolo@gmail.com")->send(
-            new NuevoContacto($request->nombre, $request->correo, $request->mensaje)
-        );
+            Mail::to(config('mail.admin_address'))->send(
+                new NuevoContacto($request->nombre, $request->correo, $request->mensaje)
+            );
+        } catch (Throwable $exception) {
+            Log::warning('No fue posible enviar los correos del formulario de contacto.', [
+                'correo' => $request->correo,
+                'error' => $exception->getMessage(),
+            ]);
+        }
 
         return redirect()->route('contacto')
-            ->with('success', 'Tu mensaje fue enviado y guardado correctamente.');
+            ->with('success', 'Recibimos tu mensaje correctamente. Nuestro equipo te respondera muy pronto.');
     }
 }
-

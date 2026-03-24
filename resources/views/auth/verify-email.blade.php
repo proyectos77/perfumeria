@@ -1,53 +1,78 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="card shadow-lg border-0 rounded-4">
-                <div class="card-body p-4 p-md-5 text-center">
+@section('body_class', 'auth-body')
+@section('main_class', 'site-main auth-main')
 
-                    <!-- Mensaje principal -->
-                    <h2 class="fw-bold text-primary mb-3">
-                        <i class="fas fa-envelope-open-text me-2"></i> Verifica tu correo
-                    </h2>
-                    <p class="text-muted mb-4">
-                        Gracias por registrarte. Antes de comenzar, por favor confirma tu correo haciendo clic en el enlace que te enviamos.  
-                        <br>Si no lo recibiste, podemos enviarte uno nuevo.
+@section('content')
+<section class="auth-shell">
+    <div class="container auth-shell__container">
+        <div class="row g-4 align-items-stretch justify-content-center">
+            <div class="col-lg-5">
+                <aside class="auth-showcase">
+                    <span class="auth-badge">
+                        <i class="bi bi-envelope-check"></i>
+                        Verificacion
+                    </span>
+                    <h1 class="auth-showcase__title">Activa el acceso con una verificacion de correo clara y elegante.</h1>
+                    <p class="auth-showcase__text">
+                        Confirma tu direccion de correo para completar el alta del usuario y asegurar el acceso administrativo.
                     </p>
 
-                    <!-- Mensaje de éxito -->
+                    <ul class="auth-showcase__list">
+                        <li>
+                            <i class="bi bi-send-check fs-5"></i>
+                            <span>Recibes un enlace de verificacion para activar correctamente la cuenta creada.</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-incognito fs-5"></i>
+                            <span>Evita accesos incompletos o correos registrados sin validacion real.</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-ui-checks fs-5"></i>
+                            <span>Todo el flujo mantiene el mismo tono visual premium del proyecto.</span>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+
+            <div class="col-lg-7 col-xl-6">
+                <div class="auth-panel">
+                    <span class="auth-panel__eyebrow">
+                        <i class="bi bi-envelope-open"></i>
+                        Verificar correo
+                    </span>
+                    <h2 class="auth-panel__title">Confirma tu email</h2>
+                    <p class="auth-panel__text">
+                        Antes de empezar, revisa tu correo y haz clic en el enlace de verificacion que te enviamos.
+                    </p>
+
                     @if (session('status') == 'verification-link-sent')
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <i class="fas fa-check-circle me-2"></i>
-                            Se ha enviado un nuevo enlace de verificación a tu correo electrónico.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        <div class="auth-alert mb-4">
+                            Se envio un nuevo enlace de verificacion a tu correo electronico.
                         </div>
                     @endif
 
-                    <!-- Botones -->
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-
-                        <!-- Reenviar verificación -->
+                    <div class="auth-inline-actions">
                         <form method="POST" action="{{ route('verification.send') }}">
                             @csrf
-                            <button type="submit" class="btn btn-primary shadow-sm">
-                                <i class="fas fa-paper-plane me-1"></i> Reenviar correo
+                            <button type="submit" class="auth-submit">
+                                <i class="bi bi-send"></i>
+                                Reenviar correo
                             </button>
                         </form>
 
-                        <!-- Cerrar sesión -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="btn btn-outline-secondary">
-                                <i class="fas fa-sign-out-alt me-1"></i> Cerrar sesión
-                            </button>
+                            <button type="submit" class="btn btn-outline-secondary rounded-pill px-4 fw-semibold">Cerrar sesion</button>
                         </form>
                     </div>
 
+                    <p class="auth-helper">
+                        Cuando completes la verificacion, podras entrar normalmente al panel.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

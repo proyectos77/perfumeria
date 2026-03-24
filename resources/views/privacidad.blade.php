@@ -2,165 +2,212 @@
 
 @section('content')
 
+@include('partials.page-hero', [
+    'class' => 'page-hero--privacy',
+    'image' => 'images/home/imagen-home3.png',
+    'badge' => [
+        'icon' => 'bi bi-shield-lock',
+        'text' => 'Privacidad y proteccion de datos',
+    ],
+    'title' => 'Tratamos tu informacion con <span class="text-warning">claridad, respeto y responsabilidad</span>',
+    'description' => 'Esta politica explica que datos recopilamos, para que los usamos y como los protegemos cuando te comunicas con Crear System o solicitas nuestros servicios.',
+    'actions' => [
+        [
+            'href' => '#resumen-privacidad',
+            'label' => 'Ver resumen',
+            'icon' => 'bi bi-arrow-down-circle',
+            'class' => 'btn btn-warning btn-lg px-5 fw-bold shadow-lg',
+        ],
+        [
+            'href' => route('contacto'),
+            'label' => 'Hablar con nosotros',
+            'icon' => 'bi bi-chat-dots',
+            'class' => 'btn btn-outline-light btn-lg px-5 fw-semibold',
+        ],
+    ],
+    'highlights' => [
+        ['value' => '7', 'label' => 'Puntos clave'],
+        ['value' => '100%', 'label' => 'Compromiso con la confidencialidad'],
+        ['value' => '2026', 'label' => 'Actualizacion vigente'],
+    ],
+])
 
-<!-- Contenido -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="text-primary fw-bold display-5">Tu Privacidad es Importante</h2>
-            <p class="text-muted fs-5">Conoce cómo protegemos y usamos tu información personal.</p>
+@php
+    $privacyFeatures = [
+        [
+            'icon' => 'bi bi-database-check',
+            'title' => 'Recopilacion responsable',
+            'text' => 'Solo pedimos la informacion necesaria para responder consultas, evaluar proyectos y prestar nuestros servicios.',
+            'accent' => 'brand',
+        ],
+        [
+            'icon' => 'bi bi-shield-check',
+            'title' => 'Proteccion de datos',
+            'text' => 'Aplicamos medidas tecnicas y organizativas razonables para resguardar la informacion personal que recibimos.',
+            'accent' => 'sunset',
+        ],
+        [
+            'icon' => 'bi bi-person-check',
+            'title' => 'Control del titular',
+            'text' => 'Puedes solicitar acceso, actualizacion o eliminacion de tus datos por medio de nuestros canales oficiales.',
+            'accent' => 'aqua',
+        ],
+    ];
+
+    $privacySections = [
+        [
+            'id' => 'privacidad-1',
+            'icon' => 'bi bi-person-vcard',
+            'title' => '1. Informacion que recopilamos',
+            'text' => 'Podemos recopilar datos como nombre, correo electronico, numero de contacto y detalles relacionados con tu empresa o proyecto cuando completas formularios, solicitas informacion o te comunicas con nuestro equipo.',
+        ],
+        [
+            'id' => 'privacidad-2',
+            'icon' => 'bi bi-gear-wide-connected',
+            'title' => '2. Uso de la informacion',
+            'text' => 'Usamos la informacion para responder solicitudes, presentar propuestas, prestar servicios, mejorar la experiencia del usuario y mantener comunicaciones relacionadas con nuestros servicios y procesos de atencion.',
+        ],
+        [
+            'id' => 'privacidad-3',
+            'icon' => 'bi bi-shield-lock',
+            'title' => '3. Proteccion de datos',
+            'text' => 'Implementamos medidas razonables para proteger la informacion frente a accesos no autorizados, perdida, alteracion o divulgacion indebida. El acceso se limita a personal autorizado y a terceros necesarios para la prestacion del servicio.',
+        ],
+        [
+            'id' => 'privacidad-4',
+            'icon' => 'bi bi-diagram-3',
+            'title' => '4. Compartir informacion con terceros',
+            'text' => 'No vendemos ni comercializamos informacion personal. Solo podremos compartirla con proveedores o aliados vinculados a la operacion del servicio, bajo compromisos de confidencialidad y cuando exista una necesidad legitima o legal.',
+        ],
+        [
+            'id' => 'privacidad-5',
+            'icon' => 'bi bi-person-lines-fill',
+            'title' => '5. Derechos del titular',
+            'text' => 'Puedes solicitar acceso, rectificacion, actualizacion, supresion o revocatoria de autorizacion conforme a la normativa aplicable. Para ejercer estos derechos, puedes escribirnos por nuestros canales de contacto.',
+        ],
+        [
+            'id' => 'privacidad-6',
+            'icon' => 'bi bi-arrow-repeat',
+            'title' => '6. Cambios a esta politica',
+            'text' => 'Podremos actualizar esta politica cuando sea necesario para reflejar cambios operativos, legales o de servicio. Cualquier ajuste sera publicado en esta misma pagina con su fecha correspondiente.',
+        ],
+        [
+            'id' => 'privacidad-7',
+            'icon' => 'bi bi-envelope-open',
+            'title' => '7. Contacto',
+            'text' => 'Si tienes dudas sobre esta politica o sobre el tratamiento de tus datos personales, puedes escribirnos desde nuestra pagina de contacto y te responderemos a la mayor brevedad posible.',
+        ],
+    ];
+@endphp
+
+<section id="resumen-privacidad" class="section-surface section-surface--muted py-5">
+    <div class="container py-lg-4">
+        <div class="section-heading text-center">
+            <span class="section-heading__eyebrow">Resumen claro</span>
+            <h2 class="section-heading__title">Tu informacion se trata con un criterio serio y profesional</h2>
+            <p class="section-heading__text">
+                Queremos que tengas claridad antes de dejarnos tus datos. Por eso explicamos esta politica de forma directa, comprensible y coherente con una relacion basada en confianza.
+            </p>
         </div>
 
-        <div class="row g-4 text-center">
-            <div class="col-md-4">
-                <div class="privacy-feature">
-                    <div class="privacy-icon-wrapper mb-3">
-                        <i class="fas fa-database fa-2x"></i>
-                    </div>
-                    <h5 class="fw-bold">Recopilación de Datos</h5>
-                    <p class="text-muted">Solo recopilamos la información esencial para brindarte nuestros servicios.</p>
+        <div class="row g-4">
+            @foreach($privacyFeatures as $feature)
+                <div class="col-lg-4">
+                    <article class="premium-card h-100">
+                        <div class="premium-card__icon premium-card__icon--{{ $feature['accent'] }}">
+                            <i class="{{ $feature['icon'] }}"></i>
+                        </div>
+                        <h3 class="premium-card__title">{{ $feature['title'] }}</h3>
+                        <p class="premium-card__text">{{ $feature['text'] }}</p>
+                    </article>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="privacy-feature">
-                    <div class="privacy-icon-wrapper mb-3">
-                        <i class="fas fa-shield-alt fa-2x"></i>
-                    </div>
-                    <h5 class="fw-bold">Máxima Protección</h5>
-                    <p class="text-muted">Implementamos medidas de seguridad robustas para proteger tus datos.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="privacy-feature">
-                    <div class="privacy-icon-wrapper mb-3">
-                        <i class="fas fa-user-check fa-2x"></i>
-                    </div>
-                    <h5 class="fw-bold">Tú Tienes el Control</h5>
-                    <p class="text-muted">Tienes derecho a acceder, corregir o eliminar tu información cuando quieras.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-5">
-            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalPoliticaPrivacidad">
-                <i class="fas fa-file-contract me-2"></i>
-                Ver Política de Privacidad Completa
-            </button>
+            @endforeach
         </div>
     </div>
 </section>
 
-<div class="modal fade" id="modalPoliticaPrivacidad" tabindex="-1" aria-labelledby="modalPoliticaPrivacidadLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-xl modal-custom-width">
-    <div class="modal-content">
-      <div class="modal-header border-0">
-        <h4 class="modal-title text-primary fw-bold" id="modalPoliticaPrivacidadLabel">Política de Privacidad de Crear System</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        
-        <p class="mb-4 text-muted">En <strong>Crear System</strong> nos comprometemos a proteger tu privacidad. Esta política describe en detalle cómo recopilamos, usamos y resguardamos tu información personal. Última actualización: 18 de julio de 2025.</p>
+<section class="py-5">
+    <div class="container py-lg-4">
+        <div class="row g-4 align-items-start">
+            <div class="col-lg-4">
+                <div class="content-panel legal-side-panel">
+                    <span class="section-heading__eyebrow">Compromiso</span>
+                    <h2 class="section-heading__title text-start mb-3">Privacidad explicada sin rodeos</h2>
+                    <p class="section-heading__text text-start mb-4">
+                        Esta pagina resume como tratamos la informacion que recibimos cuando alguien desea conocernos, solicitar una propuesta o iniciar un proyecto con nosotros.
+                    </p>
 
-        <div class="accordion accordion-flush" id="acordeonPrivacidad">
+                    <ul class="premium-list">
+                        <li><i class="bi bi-check-circle-fill"></i><span>Recopilamos solo lo necesario para atender tu solicitud.</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i><span>Protegemos la informacion con medidas razonables y acceso controlado.</span></li>
+                        <li><i class="bi bi-check-circle-fill"></i><span>Respetamos el derecho del titular sobre sus datos.</span></li>
+                    </ul>
 
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePriv1">
-                        <i class="fas fa-user-edit fa-lg me-3 text-primary"></i> 1. Información que Recopilamos
-                    </button>
-                </h2>
-                <div id="collapsePriv1" class="accordion-collapse collapse" data-bs-parent="#acordeonPrivacidad">
-                    <div class="accordion-body">
-                        Podemos recopilar información de identificación personal como nombre, dirección de correo electrónico, número de contacto, y detalles de tu empresa o proyecto. Esto ocurre cuando te registras en nuestro sitio, llenas un formulario, contratas un servicio o te comunicas con nuestro equipo de soporte.
+                    <div class="info-banner mt-4">
+                        <h3>Ultima actualizacion</h3>
+                        <p>23 de marzo de 2026. Si esta politica cambia, la nueva version se publicara en esta misma vista.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePriv2">
-                        <i class="fas fa-cogs fa-lg me-3 text-primary"></i> 2. Uso de la Información
-                    </button>
-                </h2>
-                <div id="collapsePriv2" class="accordion-collapse collapse" data-bs-parent="#acordeonPrivacidad">
-                    <div class="accordion-body">
-                        Utilizamos tu información para los siguientes propósitos: personalizar tu experiencia, mejorar nuestro sitio web, procesar transacciones, brindar los servicios contratados, responder a tus consultas y enviarte comunicaciones de marketing o actualizaciones sobre nuestros productos (siempre con tu consentimiento previo).
+            <div class="col-lg-8">
+                <div class="content-panel legal-shell">
+                    <div class="legal-shell__header">
+                        <span class="section-heading__eyebrow">Politica completa</span>
+                        <h2 class="section-heading__title text-start mb-3">Como cuidamos la informacion que compartes con Crear System</h2>
+                        <p class="section-heading__text text-start mb-0">
+                            El siguiente contenido presenta nuestra politica de privacidad en un formato claro para consulta rapida.
+                        </p>
                     </div>
-                </div>
-            </div>
 
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePriv3">
-                        <i class="fas fa-shield-virus fa-lg me-3 text-primary"></i> 3. Protección de Datos
-                    </button>
-                </h2>
-                <div id="collapsePriv3" class="accordion-collapse collapse" data-bs-parent="#acordeonPrivacidad">
-                    <div class="accordion-body">
-                        Implementamos una variedad de medidas de seguridad técnicas y organizativas para mantener la seguridad de tu información personal. Tus datos se almacenan en redes seguras y solo son accesibles por un número limitado de personas con derechos especiales de acceso, quienes están obligadas a mantener la confidencialidad.
+                    <div class="accordion legal-accordion" id="acordeonPrivacidad">
+                        @foreach($privacySections as $index => $section)
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-{{ $section['id'] }}">
+                                    <button
+                                        class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#{{ $section['id'] }}"
+                                        aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                        aria-controls="{{ $section['id'] }}"
+                                    >
+                                        <span class="legal-accordion__icon"><i class="{{ $section['icon'] }}"></i></span>
+                                        <span>{{ $section['title'] }}</span>
+                                    </button>
+                                </h2>
+                                <div
+                                    id="{{ $section['id'] }}"
+                                    class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
+                                    aria-labelledby="heading-{{ $section['id'] }}"
+                                    data-bs-parent="#acordeonPrivacidad"
+                                >
+                                    <div class="accordion-body">
+                                        {{ $section['text'] }}
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePriv4">
-                        <i class="fas fa-share-nodes fa-lg me-3 text-primary"></i> 4. Compartir Información con Terceros
-                    </button>
-                </h2>
-                <div id="collapsePriv4" class="accordion-collapse collapse" data-bs-parent="#acordeonPrivacidad">
-                    <div class="accordion-body">
-                        No vendemos, intercambiamos ni transferimos de ningún otro modo tu información personal a terceros, excepto a socios de confianza que nos asisten en la operación de nuestro sitio web o en la prestación de nuestros servicios, siempre y cuando dichas partes se comprometan a mantener esta información confidencial. También podemos divulgar tu información cuando creamos que es apropiado para cumplir con la ley.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePriv5">
-                        <i class="fas fa-user-shield fa-lg me-3 text-primary"></i> 5. Tus Derechos
-                    </button>
-                </h2>
-                <div id="collapsePriv5" class="accordion-collapse collapse" data-bs-parent="#acordeonPrivacidad">
-                    <div class="accordion-body">
-                        Tienes derecho a solicitar el Acceso, Rectificación, Cancelación u Oposición (derechos ARCO) sobre el uso de tus datos personales. Para ejercer estos derechos, puedes contactarnos directamente a través de los canales proporcionados en nuestra página de contacto y atenderemos tu solicitud según lo estipulado por la ley.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePriv6">
-                        <i class="fas fa-sync-alt fa-lg me-3 text-primary"></i> 6. Cambios a esta Política
-                    </button>
-                </h2>
-                <div id="collapsePriv6" class="accordion-collapse collapse" data-bs-parent="#acordeonPrivacidad">
-                    <div class="accordion-body">
-                        Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Cualquier cambio será publicado en esta página y la fecha de "Última actualización" en la parte superior del modal será modificada. Te recomendamos revisarla periódicamente para estar informado.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePriv7">
-                        <i class="fas fa-envelope-open-text fa-lg me-3 text-primary"></i> 7. Contacto
-                    </button>
-                </h2>
-                <div id="collapsePriv7" class="accordion-collapse collapse" data-bs-parent="#acordeonPrivacidad">
-                    <div class="accordion-body">
-                        Si tienes alguna pregunta sobre nuestra política de privacidad, no dudes en ponerte en contacto con nosotros desde <a href="{{ route('contacto') }}" class="text-decoration-underline text-primary fw-bold">nuestra página de contacto</a>.
-                    </div>
-                </div>
-            </div>
-            
         </div>
-      </div>
-      <div class="modal-footer border-0">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
     </div>
-  </div>
-</div>
+</section>
+
+<section class="section-surface section-surface--brand py-5">
+    <div class="container py-lg-4">
+        <div class="cta-strip text-center">
+            <span class="section-heading__eyebrow">Atencion directa</span>
+            <h2 class="section-heading__title mb-3">Si necesitas claridad sobre el uso de tus datos, conversemos</h2>
+            <p class="section-heading__text mb-4">
+                Si tienes preguntas sobre esta politica o quieres gestionar una solicitud relacionada con tus datos, puedes comunicarte con nosotros por los canales oficiales.
+            </p>
+            <a href="{{ route('contacto') }}" class="btn btn-warning btn-lg px-5 fw-bold">
+                <i class="bi bi-envelope-paper me-2"></i>Ir a contacto
+            </a>
+        </div>
+    </div>
+</section>
 
 @endsection
