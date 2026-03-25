@@ -8,4 +8,10 @@
     <a href="{{ route('admin.testimonios') }}" class="btn {{ request()->routeIs('admin.testimonios') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
         <i class="bi bi-chat-square-quote me-2"></i>Ver comentarios
     </a>
+    <a href="{{ route('admin.social-posts.index') }}" class="btn {{ request()->routeIs('admin.social-posts.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
+        <i class="bi bi-share-fill me-2"></i>Publicaciones
+    </a>
+    <a href="{{ route('admin.social-connections.index') }}" class="btn {{ request()->routeIs('admin.social-connections.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
+        <i class="bi bi-diagram-3-fill me-2"></i>Conexiones
+    </a>
 </div>

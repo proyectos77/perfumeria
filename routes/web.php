@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\SocialConnectionController;
+use App\Http\Controllers\SocialPostController;
 use App\Http\Controllers\TestimonioController;
 use App\Http\Controllers\ImageGeneratorController;
 
@@ -21,6 +23,21 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/admin/contactos/{id}', [AdminController::class, 'eliminar'])->name('admin.contactos.eliminar');
     Route::get('/admin/testimonios', [AdminController::class, 'testimonios'])->name('admin.testimonios');
     Route::delete('/admin/testimonios/{id}', [AdminController::class, 'eliminarTestimonio'])->name('admin.testimonios.eliminar');
+    Route::get('/admin/social-posts', [SocialPostController::class, 'index'])->name('admin.social-posts.index');
+    Route::get('/admin/social-posts/crear', [SocialPostController::class, 'create'])->name('admin.social-posts.create');
+    Route::post('/admin/social-posts', [SocialPostController::class, 'store'])->name('admin.social-posts.store');
+    Route::post('/admin/social-posts/generate', [SocialPostController::class, 'generate'])->name('admin.social-posts.generate');
+    Route::get('/admin/social-posts/{socialPost}/editar', [SocialPostController::class, 'edit'])->name('admin.social-posts.edit');
+    Route::put('/admin/social-posts/{socialPost}', [SocialPostController::class, 'update'])->name('admin.social-posts.update');
+    Route::delete('/admin/social-posts/{socialPost}', [SocialPostController::class, 'destroy'])->name('admin.social-posts.destroy');
+    Route::patch('/admin/social-posts/{socialPost}/publicado', [SocialPostController::class, 'markPublished'])->name('admin.social-posts.publish');
+    Route::get('/admin/social-connections', [SocialConnectionController::class, 'index'])->name('admin.social-connections.index');
+    Route::get('/admin/social-connections/meta/redirect', [SocialConnectionController::class, 'redirectMeta'])->name('admin.social-connections.meta.redirect');
+    Route::get('/admin/social-connections/meta/callback', [SocialConnectionController::class, 'handleMetaCallback'])->name('admin.social-connections.meta.callback');
+    Route::patch('/admin/social-connections/{socialPlatformConnection}/meta-page', [SocialConnectionController::class, 'selectMetaPage'])->name('admin.social-connections.meta.page');
+    Route::get('/admin/social-connections/linkedin/redirect', [SocialConnectionController::class, 'redirectLinkedIn'])->name('admin.social-connections.linkedin.redirect');
+    Route::get('/admin/social-connections/linkedin/callback', [SocialConnectionController::class, 'handleLinkedInCallback'])->name('admin.social-connections.linkedin.callback');
+    Route::delete('/admin/social-connections/{socialPlatformConnection}', [SocialConnectionController::class, 'destroy'])->name('admin.social-connections.destroy');
 });
 
 
