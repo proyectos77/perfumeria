@@ -1,0 +1,94 @@
+﻿<svg width="1080" height="1350" viewBox="0 0 1080 1350" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="980" y2="1270" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#031B4E"/>
+      <stop offset="0.55" stop-color="#07296D"/>
+      <stop offset="1" stop-color="#0D4C85"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="202" y1="282" x2="838" y2="1095" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F57C00"/>
+      <stop offset="1" stop-color="#26C6DA"/>
+    </linearGradient>
+    <linearGradient id="card" x1="130" y1="420" x2="640" y2="1040" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.06"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1080" height="1350" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="30" flood-color="#00112D" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1350" rx="0" fill="url(#bg)"/>
+  <circle cx="932" cy="205" r="190" fill="#F57C00" fill-opacity="0.14"/>
+  <circle cx="175" cy="1120" r="230" fill="#26C6DA" fill-opacity="0.14"/>
+  <path d="M0 1063C164 985 310 1030 473 1080C636 1130 796 1189 1080 1086V1350H0V1063Z" fill="#06163D" fill-opacity="0.58"/>
+
+  <rect x="92" y="90" width="276" height="58" rx="29" fill="#F7A63A"/>
+  <text x="230" y="127" text-anchor="middle" fill="#08214D" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1.5">PRESENCIA DIGITAL</text>
+
+  <text x="92" y="238" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">
+    <tspan x="92" dy="0">3 senales de que</tspan>
+    <tspan x="92" dy="82">tu negocio ya</tspan>
+    <tspan x="92" dy="82">necesita una web</tspan>
+  </text>
+
+  <text x="92" y="520" fill="#D5E6FF" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="500">
+    <tspan x="92" dy="0">Si tu negocio depende solo de redes o WhatsApp,</tspan>
+    <tspan x="92" dy="42">estas senales te estan avisando que es hora de</tspan>
+    <tspan x="92" dy="42">ordenar tu presencia online.</tspan>
+  </text>
+
+  <g filter="url(#shadow)">
+    <rect x="86" y="632" width="565" height="466" rx="34" fill="url(#card)" stroke="#FFFFFF" stroke-opacity="0.1"/>
+  </g>
+
+  <g>
+    <rect x="118" y="682" width="501" height="98" rx="26" fill="#FFFFFF" fill-opacity="0.11"/>
+    <rect x="139" y="703" width="54" height="54" rx="18" fill="url(#accent)"/>
+    <text x="166" y="741" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">01</text>
+    <text x="222" y="721" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Te preguntan siempre lo mismo</text>
+    <text x="222" y="751" fill="#C8DBFF" font-family="Arial, Helvetica, sans-serif" font-size="22">Servicios, precios, horario y contacto.</text>
+  </g>
+
+  <g>
+    <rect x="118" y="802" width="501" height="98" rx="26" fill="#FFFFFF" fill-opacity="0.11"/>
+    <rect x="139" y="823" width="54" height="54" rx="18" fill="url(#accent)"/>
+    <text x="166" y="861" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">02</text>
+    <text x="222" y="841" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Tu negocio no transmite confianza</text>
+    <text x="222" y="871" fill="#C8DBFF" font-family="Arial, Helvetica, sans-serif" font-size="22">No hay un sitio claro y profesional que te respalde.</text>
+  </g>
+
+  <g>
+    <rect x="118" y="922" width="501" height="126" rx="26" fill="#FFFFFF" fill-opacity="0.11"/>
+    <rect x="139" y="943" width="54" height="54" rx="18" fill="url(#accent)"/>
+    <text x="166" y="981" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">03</text>
+    <text x="222" y="961" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Dependes solo de Instagram o WhatsApp</text>
+    <text x="222" y="991" fill="#C8DBFF" font-family="Arial, Helvetica, sans-serif" font-size="22">Necesitas un lugar propio para explicar, vender</text>
+    <text x="222" y="1019" fill="#C8DBFF" font-family="Arial, Helvetica, sans-serif" font-size="22">y convertir visitas en clientes.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="702" y="625" width="292" height="378" rx="34" fill="#F5F8FF"/>
+    <rect x="726" y="652" width="244" height="32" rx="16" fill="#E2E9F8"/>
+    <circle cx="750" cy="668" r="6" fill="#F57C00"/>
+    <circle cx="770" cy="668" r="6" fill="#26C6DA"/>
+    <circle cx="790" cy="668" r="6" fill="#001F4D"/>
+    <rect x="726" y="710" width="244" height="118" rx="24" fill="url(#accent)"/>
+    <text x="750" y="762" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Tu pagina web</text>
+    <text x="750" y="792" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">debe explicar, convencer</text>
+    <text x="750" y="822" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">y llevar al contacto.</text>
+    <rect x="726" y="855" width="150" height="16" rx="8" fill="#CCE0FF"/>
+    <rect x="726" y="885" width="194" height="16" rx="8" fill="#CCE0FF"/>
+    <rect x="726" y="915" width="170" height="16" rx="8" fill="#CCE0FF"/>
+    <rect x="726" y="950" width="170" height="38" rx="19" fill="#001F4D"/>
+    <text x="811" y="975" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Solicitar asesoria</text>
+  </g>
+
+  <rect x="92" y="1152" width="472" height="94" rx="28" fill="#FFFFFF"/>
+  <text x="128" y="1203" fill="#092456" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800">Escribeme "WEB"</text>
+  <text x="128" y="1237" fill="#3B567D" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="500">y te digo que deberia tener tu pagina.</text>
+
+  <text x="92" y="1300" fill="#BAD2F7" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">CREAR SYSTEM</text>
+  <text x="988" y="1300" text-anchor="end" fill="#BAD2F7" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500">paginas web para negocios</text>
+</svg>
+

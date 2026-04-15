@@ -47,6 +47,7 @@ return [
         'client_id' => env('LINKEDIN_CLIENT_ID'),
         'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
         'redirect' => env('LINKEDIN_REDIRECT_URI', env('APP_URL') . '/admin/social-connections/linkedin/callback'),
+        'version' => env('LINKEDIN_API_VERSION', '202511'),
         'scopes' => array_filter(array_map('trim', explode(' ', (string) env(
             'LINKEDIN_SCOPES',
             'openid profile email w_member_social'

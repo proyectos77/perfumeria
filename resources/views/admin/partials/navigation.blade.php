@@ -11,6 +11,9 @@
     <a href="{{ route('admin.social-posts.index') }}" class="btn {{ request()->routeIs('admin.social-posts.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
         <i class="bi bi-share-fill me-2"></i>Publicaciones
     </a>
+    <a href="{{ route('admin.social-templates.index') }}" class="btn {{ request()->routeIs('admin.social-templates.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
+        <i class="bi bi-palette-fill me-2"></i>Disenos
+    </a>
     <a href="{{ route('admin.social-connections.index') }}" class="btn {{ request()->routeIs('admin.social-connections.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
         <i class="bi bi-diagram-3-fill me-2"></i>Conexiones
     </a>

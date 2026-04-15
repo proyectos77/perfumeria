@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantillas Sociales | Crear System</title>
+  <style>
+    :root {
+      --navy: #001f4d;
+      --cyan: #26c6da;
+      --orange: #f57c00;
+      --paper: #f5f8ff;
+      --ink: #18304e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(245, 124, 0, 0.15), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(38, 198, 218, 0.18), transparent 24%),
+        linear-gradient(180deg, #eff6ff 0%, #f8fbff 100%);
+      color: var(--ink);
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(36px, 4vw, 62px);
+      line-height: 1.06;
+      color: var(--navy);
+    }
+
+    p {
+      max-width: 760px;
+      font-size: 19px;
+      line-height: 1.7;
+      color: #44607f;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 42px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(0, 31, 77, 0.08);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(4, 29, 83, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .preview {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: linear-gradient(135deg, rgba(245, 124, 0, 0.16), rgba(38, 198, 218, 0.18));
+    }
+
+    .preview.story {
+      aspect-ratio: 9 / 16;
+    }
+
+    .meta {
+      padding: 22px 22px 26px;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: var(--navy);
+    }
+
+    .pill {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0, 31, 77, 0.08);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    code {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #edf4ff;
+      color: #25466b;
+      font-size: 13px;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <span class="eyebrow">PLANTILLAS SOCIALES</span>
+    <h1>Ejemplos visuales listos para vender paginas web</h1>
+    <p>Estas piezas se hicieron con el color y tono de Crear System para que puedas usarlas como base en Instagram, Facebook o LinkedIn. Puedes abrir este archivo en el navegador y editar los SVG en Canva, Figma o Illustrator si quieres sacar mas versiones.</p>
+
+    <section class="grid">
+      <article class="card">
+        <img class="preview" src="./post-01-senales-web.svg" alt="Post vertical sobre senales de que un negocio necesita pagina web">
+        <div class="meta">
+          <h2>Post educativo</h2>
+          <p>Ideal para carrusel o feed vertical. Entra por dolor y termina en llamada a la accion.</p>
+          <span class="pill">1080 x 1350</span><br>
+          <code>public/plantillas-sociales/post-01-senales-web.svg</code>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="preview" src="./post-02-auditoria-gratis.svg" alt="Post cuadrado de auditoria web gratis">
+        <div class="meta">
+          <h2>Post de oferta</h2>
+          <p>Sirve para promocionar auditorias, revisiones o paquetes de pagina web.</p>
+          <span class="pill">1080 x 1080</span><br>
+          <code>public/plantillas-sociales/post-02-auditoria-gratis.svg</code>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="preview story" src="./story-01-whatsapp-web.svg" alt="Story vertical sobre ventas por WhatsApp y pagina web">
+        <div class="meta">
+          <h2>Story o portada de reel</h2>
+          <p>Funciona para historias, reels y anuncios verticales con CTA directo por mensaje.</p>
+          <span class="pill">1080 x 1920</span><br>
+          <code>public/plantillas-sociales/story-01-whatsapp-web.svg</code>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

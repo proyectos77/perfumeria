@@ -6,9 +6,9 @@
         <div class="social-connections-header mb-4">
             <div>
                 <span class="social-connections-header__eyebrow">Conexiones</span>
-                <h1 class="social-connections-header__title">Meta y LinkedIn para pruebas locales</h1>
+                <h1 class="social-connections-header__title">Redes activas, conexiones y publicacion</h1>
                 <p class="social-connections-header__text">
-                    Aqui puedes conectar cuentas reales, revisar si el proyecto ya detecta paginas y activos, y dejar lista la base para publicar despues.
+                    Aqui defines que redes quieres usar desde el panel, conectas cuentas reales y dejas lista la base para publicar desde tu sistema.
                 </p>
             </div>
         </div>
@@ -26,6 +26,52 @@
                 {{ session('error') }}
             </div>
         @endif
+
+        <div class="connection-activation-card mb-4">
+            <div class="connection-activation-card__head">
+                <div>
+                    <span class="connection-pill">Redes activas</span>
+                    <h2>Elige que redes quieres usar desde el panel</h2>
+                    <p>
+                        Activa solo las redes que te interesan. Estas opciones luego apareceran en Disenos y Publicaciones para trabajar con un flujo mas limpio.
+                    </p>
+                </div>
+            </div>
+
+            <form action="{{ route('admin.social-connections.preferences') }}" method="POST">
+                @csrf
+                @method('PATCH')
+
+                <div class="connection-activation-grid">
+                    @foreach($platformPreparation as $item)
+                        @php
+                            $platformKey = strtolower($item['name']);
+                            $isEnabled = (bool) optional($platformPreferences->get($platformKey))->is_enabled;
+                        @endphp
+
+                        <label class="connection-toggle-card">
+                            <div>
+                                <strong>{{ $item['name'] }}</strong>
+                                <small>{{ $item['family'] }}</small>
+                            </div>
+
+                            <div class="connection-toggle-card__meta">
+                                <span class="connection-state {{ $isEnabled ? 'connection-state--ready' : 'connection-state--pending' }}">
+                                    {{ $isEnabled ? 'Activa' : 'Inactiva' }}
+                                </span>
+                                <input type="checkbox" name="enabled_platforms[]" value="{{ $platformKey }}" {{ $isEnabled ? 'checked' : '' }}>
+                            </div>
+                        </label>
+                    @endforeach
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 fw-semibold">
+                        <i class="bi bi-sliders me-2"></i>Guardar redes activas
+                    </button>
+                </div>
+            </form>
+        </div>
 
         <div class="connection-readiness-card mb-4">
             <div class="connection-readiness-card__head">
@@ -46,9 +92,18 @@
                                 <strong>{{ $item['name'] }}</strong>
                                 <small>{{ implode(', ', $item['networks']) }}</small>
                             </div>
-                            <span class="connection-state {{ $item['status'] ? 'connection-state--ready' : 'connection-state--pending' }}">
-                                {{ $item['status'] ? 'Configurado' : 'Pendiente' }}
-                            </span>
+                            <div class="d-flex flex-column align-items-end gap-2">
+                                @php
+                                    $platformKey = strtolower($item['name']);
+                                    $isEnabled = (bool) optional($platformPreferences->get($platformKey))->is_enabled;
+                                @endphp
+                                <span class="connection-state {{ $isEnabled ? 'connection-state--ready' : 'connection-state--pending' }}">
+                                    {{ $isEnabled ? 'Activa en panel' : 'No activa' }}
+                                </span>
+                                <span class="connection-state {{ $item['status'] ? 'connection-state--ready' : 'connection-state--pending' }}">
+                                    {{ $item['status'] ? 'Configurado' : 'Pendiente' }}
+                                </span>
+                            </div>
                         </div>
 
                         <p>{{ $item['description'] }}</p>
@@ -301,6 +356,68 @@
         color: #fee2e2;
     }
 
+    .connection-activation-card {
+        padding: 1.35rem;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(10, 16, 29, 0.96) 0%, rgba(5, 9, 18, 0.98) 100%);
+        box-shadow: 0 24px 65px rgba(0, 0, 0, 0.26);
+    }
+
+    .connection-activation-card__head h2 {
+        margin: 0.9rem 0 0.75rem;
+        color: #f8fafc;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+    }
+
+    .connection-activation-card__head p {
+        margin: 0;
+        color: #8ea3bd;
+        line-height: 1.75;
+    }
+
+    .connection-activation-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.2rem;
+    }
+
+    .connection-toggle-card {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 20px;
+        background: rgba(15, 23, 42, 0.74);
+        border: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .connection-toggle-card strong {
+        display: block;
+        color: #f8fafc;
+        margin-bottom: 0.25rem;
+    }
+
+    .connection-toggle-card small {
+        color: #94a3b8;
+    }
+
+    .connection-toggle-card__meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.7rem;
+    }
+
+    .connection-toggle-card input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        accent-color: #2563eb;
+    }
+
     .connections-setup-grid,
     .connection-data-card,
     .connection-readiness-grid {
@@ -474,6 +591,7 @@
     }
 
     @media (max-width: 991.98px) {
+        .connection-activation-grid,
         .connections-setup-grid,
         .connection-readiness-grid {
             grid-template-columns: 1fr;

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SocialPlatformPreference;
 use App\Models\SocialPlatformConnection;
 use App\Services\Social\LinkedInConnectionService;
 use App\Services\Social\MetaConnectionService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Throwable;
@@ -21,10 +23,16 @@ class SocialConnectionController extends Controller
 
     public function index(): View
     {
+        SocialPlatformPreference::syncDefaults();
+
         $connections = SocialPlatformConnection::query()
             ->latest()
             ->get()
             ->groupBy('platform');
+
+        $preferences = Schema::hasTable('social_platform_preferences')
+            ? SocialPlatformPreference::query()->get()->keyBy('platform')
+            : collect();
 
         return view('admin.social-connections.index', [
             'metaConnections' => $connections->get(SocialPlatformConnection::PLATFORM_META, collect()),
@@ -32,7 +40,40 @@ class SocialConnectionController extends Controller
             'metaCallbackUrl' => route('admin.social-connections.meta.callback'),
             'linkedInCallbackUrl' => route('admin.social-connections.linkedin.callback'),
             'platformPreparation' => $this->platformPreparation(),
+            'platformPreferences' => $preferences,
         ]);
+    }
+
+    public function updatePreferences(Request $request): RedirectResponse
+    {
+        if (!Schema::hasTable('social_platform_preferences')) {
+            return redirect()
+                ->route('admin.social-connections.index')
+                ->with('error', 'Falta ejecutar la migracion de preferencias sociales antes de guardar esta configuracion.');
+        }
+
+        SocialPlatformPreference::syncDefaults();
+
+        $data = $request->validate([
+            'enabled_platforms' => ['nullable', 'array'],
+            'enabled_platforms.*' => ['required', 'string'],
+        ]);
+
+        $selectedPlatforms = collect($data['enabled_platforms'] ?? [])
+            ->intersect(array_keys($this->platformCatalog()))
+            ->values()
+            ->all();
+
+        foreach (array_keys($this->platformCatalog()) as $platform) {
+            SocialPlatformPreference::query()->updateOrCreate(
+                ['platform' => $platform],
+                ['is_enabled' => in_array($platform, $selectedPlatforms, true)]
+            );
+        }
+
+        return redirect()
+            ->route('admin.social-connections.index')
+            ->with('success', 'Las redes activas del panel fueron actualizadas.');
     }
 
     public function redirectMeta(Request $request): RedirectResponse
@@ -209,52 +250,74 @@ class SocialConnectionController extends Controller
 
     private function platformPreparation(): array
     {
+        return array_values($this->platformCatalog());
+    }
+
+    private function platformCatalog(): array
+    {
         return [
-            [
-                'name' => 'Meta',
-                'networks' => ['Facebook', 'Instagram', 'Threads'],
+            'facebook' => [
+                'name' => 'Facebook',
+                'family' => 'Meta',
+                'networks' => ['Facebook'],
                 'status' => $this->hasRequiredConfig([
                     'services.meta.app_id',
                     'services.meta.client_secret',
                     'services.meta.redirect',
                 ]),
-                'description' => 'Una sola integracion base para Facebook Page, Instagram profesional y Threads.',
+                'description' => 'Usa la conexion Meta y la pagina seleccionada para publicar en Facebook.',
                 'redirect' => config('services.meta.redirect'),
                 'keys' => ['META_APP_ID', 'META_APP_SECRET', 'META_CONFIG_ID', 'META_REDIRECT_URI'],
             ],
-            [
+            'instagram' => [
+                'name' => 'Instagram',
+                'family' => 'Meta',
+                'networks' => ['Instagram'],
+                'status' => $this->hasRequiredConfig([
+                    'services.meta.app_id',
+                    'services.meta.client_secret',
+                    'services.meta.redirect',
+                ]),
+                'description' => 'Comparte la misma conexion de Meta, pero necesita Instagram profesional enlazado.',
+                'redirect' => config('services.meta.redirect'),
+                'keys' => ['META_APP_ID', 'META_APP_SECRET', 'META_CONFIG_ID', 'META_REDIRECT_URI'],
+            ],
+            'linkedin' => [
                 'name' => 'LinkedIn',
+                'family' => 'LinkedIn',
                 'networks' => ['LinkedIn'],
                 'status' => $this->hasRequiredConfig([
                     'services.linkedin.client_id',
                     'services.linkedin.client_secret',
                     'services.linkedin.redirect',
                 ]),
-                'description' => 'Preparado para conectar cuenta personal y luego ampliar a pagina de empresa.',
+                'description' => 'Preparado para conectar cuenta personal y publicar desde el panel.',
                 'redirect' => config('services.linkedin.redirect'),
                 'keys' => ['LINKEDIN_CLIENT_ID', 'LINKEDIN_CLIENT_SECRET', 'LINKEDIN_REDIRECT_URI'],
             ],
-            [
+            'tiktok' => [
                 'name' => 'TikTok',
+                'family' => 'TikTok',
                 'networks' => ['TikTok'],
                 'status' => $this->hasRequiredConfig([
                     'services.tiktok.client_key',
                     'services.tiktok.client_secret',
                     'services.tiktok.redirect',
                 ]),
-                'description' => 'Se deja listo el espacio de configuracion para conectar la app cuando el dominio ya este publicado.',
+                'description' => 'Queda preparado para conectar la app cuando ya tengas el dominio final aprobado.',
                 'redirect' => config('services.tiktok.redirect'),
                 'keys' => ['TIKTOK_CLIENT_KEY', 'TIKTOK_CLIENT_SECRET', 'TIKTOK_REDIRECT_URI'],
             ],
-            [
+            'x' => [
                 'name' => 'X',
+                'family' => 'X',
                 'networks' => ['X'],
                 'status' => $this->hasRequiredConfig([
                     'services.x.client_id',
                     'services.x.client_secret',
                     'services.x.redirect',
                 ]),
-                'description' => 'Configuracion reservada para una futura integracion si la estrategia y el costo de API lo justifican.',
+                'description' => 'Configuracion reservada para futura integracion si luego te interesa.',
                 'redirect' => config('services.x.redirect'),
                 'keys' => ['X_CLIENT_ID', 'X_CLIENT_SECRET', 'X_REDIRECT_URI'],
             ],

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SocialPlatformConnection;
 use App\Models\SocialPost;
+use App\Models\SocialPlatformPreference;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -16,10 +18,23 @@ class SocialPostController extends Controller
 {
     public function index(): View
     {
+        SocialPlatformPreference::syncDefaults();
+
+        $platformOptions = SocialPlatformPreference::enabledPlatformOptions();
+        if ($platformOptions === []) {
+            $platformOptions = SocialPost::availablePlatforms();
+        }
+
         $posts = SocialPost::query()
             ->latest('publish_at')
             ->latest()
             ->paginate(12);
+
+        $linkedInConnection = SocialPlatformConnection::query()
+            ->where('platform', SocialPlatformConnection::PLATFORM_LINKEDIN)
+            ->where('status', 'connected')
+            ->latest()
+            ->first();
 
         $stats = [
             'total' => SocialPost::count(),
@@ -32,7 +47,8 @@ class SocialPostController extends Controller
         return view('admin.social-posts.index', [
             'posts' => $posts,
             'stats' => $stats,
-            'platformOptions' => SocialPost::availablePlatforms(),
+            'linkedInConnection' => $linkedInConnection,
+            'platformOptions' => $platformOptions,
             'statusOptions' => [
                 SocialPost::STATUS_DRAFT => SocialPost::availableStatuses()[SocialPost::STATUS_DRAFT],
                 SocialPost::STATUS_APPROVED => SocialPost::availableStatuses()[SocialPost::STATUS_APPROVED],
@@ -42,12 +58,19 @@ class SocialPostController extends Controller
 
     public function create(): View
     {
+        SocialPlatformPreference::syncDefaults();
+
+        $platformOptions = SocialPlatformPreference::enabledPlatformOptions();
+        if ($platformOptions === []) {
+            $platformOptions = SocialPost::availablePlatforms();
+        }
+
         return view('admin.social-posts.create', [
             'post' => new SocialPost([
-                'platforms' => ['linkedin', 'facebook'],
+                'platforms' => array_keys(array_slice($platformOptions, 0, 3, true)),
                 'status' => SocialPost::STATUS_DRAFT,
             ]),
-            'platformOptions' => SocialPost::availablePlatforms(),
+            'platformOptions' => $platformOptions,
             'statusOptions' => [
                 SocialPost::STATUS_DRAFT => 'Guardar como borrador',
                 SocialPost::STATUS_APPROVED => 'Dejar aprobada',
@@ -83,11 +106,18 @@ class SocialPostController extends Controller
 
     public function edit(SocialPost $socialPost): View
     {
+        SocialPlatformPreference::syncDefaults();
+
+        $platformOptions = SocialPlatformPreference::enabledPlatformOptions();
+        if ($platformOptions === []) {
+            $platformOptions = SocialPost::availablePlatforms();
+        }
+
         $socialPost->load(['logs' => fn ($query) => $query->latest()->take(8)]);
 
         return view('admin.social-posts.edit', [
             'post' => $socialPost,
-            'platformOptions' => SocialPost::availablePlatforms(),
+            'platformOptions' => $platformOptions,
             'statusOptions' => [
                 SocialPost::STATUS_DRAFT => 'Guardar como borrador',
                 SocialPost::STATUS_APPROVED => 'Dejar aprobada',
@@ -225,6 +255,102 @@ class SocialPostController extends Controller
         return redirect()
             ->route('admin.social-posts.index')
             ->with('success', 'La publicacion quedo marcada como publicada.');
+    }
+
+    public function publishToLinkedIn(Request $request, SocialPost $socialPost): RedirectResponse
+    {
+        if (!in_array(SocialPlatformConnection::PLATFORM_LINKEDIN, $socialPost->platforms ?? [], true)) {
+            return redirect()
+                ->route('admin.social-posts.index')
+                ->with('error', 'Esta publicacion no tiene LinkedIn dentro de sus redes objetivo.');
+        }
+
+        $connection = SocialPlatformConnection::query()
+            ->where('platform', SocialPlatformConnection::PLATFORM_LINKEDIN)
+            ->where('status', 'connected')
+            ->latest()
+            ->first();
+
+        if ($connection === null) {
+            return redirect()
+                ->route('admin.social-posts.index')
+                ->with('error', 'Primero conecta una cuenta de LinkedIn desde el modulo de conexiones.');
+        }
+
+        try {
+            $authorUrn = 'urn:li:person:' . $connection->provider_user_id;
+
+            $response = Http::timeout(45)
+                ->withToken((string) $connection->access_token)
+                ->withHeaders([
+                    'Content-Type' => 'application/json',
+                    'Linkedin-Version' => (string) config('services.linkedin.version', '202511'),
+                    'X-Restli-Protocol-Version' => '2.0.0',
+                ])
+                ->post('https://api.linkedin.com/rest/posts', [
+                    'author' => $authorUrn,
+                    'commentary' => trim((string) $socialPost->content),
+                    'visibility' => 'PUBLIC',
+                    'distribution' => [
+                        'feedDistribution' => 'MAIN_FEED',
+                        'targetEntities' => [],
+                        'thirdPartyDistributionChannels' => [],
+                    ],
+                    'lifecycleState' => 'PUBLISHED',
+                    'isReshareDisabledByAuthor' => false,
+                ]);
+
+            if ($response->failed()) {
+                $message = $response->json('message')
+                    ?? $response->json('error.message')
+                    ?? $response->body()
+                    ?? 'LinkedIn rechazo la solicitud de publicacion.';
+
+                throw new RuntimeException($message);
+            }
+
+            $socialPost->update([
+                'status' => SocialPost::STATUS_PUBLISHED,
+                'published_at' => now(),
+                'ready_at' => $socialPost->ready_at ?? now(),
+                'last_error' => null,
+                'updated_by' => $request->user()?->id,
+            ]);
+
+            $socialPost->logs()->create([
+                'platform' => SocialPlatformConnection::PLATFORM_LINKEDIN,
+                'status' => 'published',
+                'message' => 'La publicacion fue enviada correctamente a LinkedIn.',
+                'payload' => [
+                    'author' => $authorUrn,
+                    'linkedin_post_id' => $response->header('x-restli-id'),
+                    'response' => $response->json(),
+                ],
+            ]);
+
+            return redirect()
+                ->route('admin.social-posts.index')
+                ->with('success', 'La publicacion fue enviada a LinkedIn correctamente.');
+        } catch (\Throwable $exception) {
+            $socialPost->update([
+                'status' => SocialPost::STATUS_FAILED,
+                'last_error' => $exception->getMessage(),
+                'updated_by' => $request->user()?->id,
+            ]);
+
+            $socialPost->logs()->create([
+                'platform' => SocialPlatformConnection::PLATFORM_LINKEDIN,
+                'status' => 'failed',
+                'message' => 'Fallo el envio real a LinkedIn.',
+                'payload' => [
+                    'error' => $exception->getMessage(),
+                ],
+            ]);
+
+            return redirect()
+                ->route('admin.social-posts.index')
+                ->with('error', 'No fue posible publicar en LinkedIn: ' . $exception->getMessage());
+        }
     }
 
     private function validatedData(Request $request): array

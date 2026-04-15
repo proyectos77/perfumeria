@@ -1,0 +1,85 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paper" x1="128" y1="82" x2="942" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#F4FAFF"/>
+    </linearGradient>
+    <linearGradient id="spot" x1="677" y1="202" x2="982" y2="634" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F57C00"/>
+      <stop offset="1" stop-color="#26C6DA"/>
+    </linearGradient>
+    <linearGradient id="dark" x1="666" y1="84" x2="979" y2="1016" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#032152"/>
+      <stop offset="1" stop-color="#001233"/>
+    </linearGradient>
+    <filter id="soft" x="0" y="0" width="1080" height="1080" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="32" flood-color="#00112D" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#paper)"/>
+  <circle cx="876" cy="230" r="170" fill="#F57C00" fill-opacity="0.12"/>
+  <circle cx="160" cy="980" r="130" fill="#26C6DA" fill-opacity="0.12"/>
+
+  <rect x="70" y="70" width="940" height="940" rx="44" fill="#FFFFFF" fill-opacity="0.74"/>
+  <rect x="650" y="70" width="360" height="940" rx="44" fill="url(#dark)"/>
+
+  <rect x="118" y="122" width="212" height="52" rx="26" fill="#001F4D"/>
+  <text x="224" y="155" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="1.2">OFERTA DEL MES</text>
+
+  <text x="118" y="276" fill="#051C48" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="800">
+    <tspan x="118" dy="0">Auditoria</tspan>
+    <tspan x="118" dy="84">web gratis</tspan>
+  </text>
+
+  <text x="118" y="420" fill="#45607F" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="500">
+    <tspan x="118" dy="0">Reviso si tu pagina transmite confianza,</tspan>
+    <tspan x="118" dy="40">carga rapido y lleva al cliente a contactarte.</tspan>
+  </text>
+
+  <g filter="url(#soft)">
+    <rect x="118" y="500" width="444" height="316" rx="32" fill="#F8FBFF"/>
+  </g>
+
+  <g>
+    <circle cx="163" cy="562" r="20" fill="#F57C00"/>
+    <text x="163" y="570" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">1</text>
+    <text x="205" y="570" fill="#102C5B" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Version movil</text>
+
+    <circle cx="163" cy="644" r="20" fill="#26C6DA"/>
+    <text x="163" y="652" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">2</text>
+    <text x="205" y="652" fill="#102C5B" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Claridad del mensaje</text>
+
+    <circle cx="163" cy="726" r="20" fill="#F57C00"/>
+    <text x="163" y="734" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">3</text>
+    <text x="205" y="734" fill="#102C5B" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Llamado a la accion</text>
+  </g>
+
+  <rect x="118" y="860" width="430" height="88" rx="25" fill="#001F4D"/>
+  <text x="333" y="912" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800">Escribeme por WhatsApp</text>
+
+  <g filter="url(#soft)">
+    <rect x="716" y="178" width="230" height="470" rx="36" fill="#F5F8FF"/>
+    <rect x="738" y="212" width="186" height="18" rx="9" fill="#D6E0F3"/>
+    <rect x="750" y="258" width="162" height="126" rx="26" fill="url(#spot)"/>
+    <text x="831" y="318" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Tu sitio</text>
+    <text x="831" y="348" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">puede verse</text>
+    <text x="831" y="378" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">asi de claro</text>
+    <rect x="750" y="420" width="162" height="18" rx="9" fill="#C8D8F0"/>
+    <rect x="750" y="452" width="140" height="18" rx="9" fill="#C8D8F0"/>
+    <rect x="750" y="484" width="160" height="18" rx="9" fill="#C8D8F0"/>
+    <rect x="750" y="530" width="150" height="40" rx="20" fill="#001F4D"/>
+    <text x="825" y="555" text-anchor="middle" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Solicitar propuesta</text>
+  </g>
+
+  <text x="716" y="724" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="800">
+    <tspan x="716" dy="0">Haz que tu</tspan>
+    <tspan x="716" dy="60">negocio se vea</tspan>
+    <tspan x="716" dy="60">mas serio</tspan>
+  </text>
+
+  <text x="716" y="934" fill="#B9D8FF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500">
+    <tspan x="716" dy="0">CREAR SYSTEM</tspan>
+    <tspan x="716" dy="34">paginas web para negocios</tspan>
+  </text>
+</svg>

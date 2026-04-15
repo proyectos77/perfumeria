@@ -12,15 +12,24 @@
                 </p>
             </div>
 
-            <a href="{{ route('admin.social-posts.create') }}" class="btn btn-primary rounded-pill px-4 fw-semibold">
-                <i class="bi bi-plus-circle me-2"></i>Nueva publicacion
-            </a>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="{{ route('admin.social-templates.index') }}" class="btn btn-outline-light rounded-pill px-4 fw-semibold">
+                    <i class="bi bi-palette-fill me-2"></i>Crear desde diseno
+                </a>
+                <a href="{{ route('admin.social-posts.create') }}" class="btn btn-primary rounded-pill px-4 fw-semibold">
+                    <i class="bi bi-plus-circle me-2"></i>Nueva publicacion
+                </a>
+            </div>
         </div>
 
         @include('admin.partials.navigation')
 
         @if (session('success'))
             <div class="alert social-admin-alert mb-4">{{ session('success') }}</div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert social-admin-alert social-admin-alert--danger mb-4">{{ session('error') }}</div>
         @endif
 
         <div class="row g-3 mb-4">
@@ -64,15 +73,25 @@
         <div class="social-info-panel mb-4">
             <div>
                 <span class="social-pill">Estado de esta fase</span>
-                <h2>La conexion externa todavia no esta activa</h2>
-                <p>
-                    Este modulo ya te deja administrar el contenido y la programacion interna. La salida real a Meta, LinkedIn o un integrador como n8n se conecta en la siguiente fase.
-                </p>
+                @if($linkedInConnection)
+                    <h2>LinkedIn ya esta conectado para publicacion real</h2>
+                    <p>
+                        Ya puedes enviar publicaciones a LinkedIn directamente desde este panel. Gemini sigue siendo opcional: solo se necesita si quieres generar o mejorar el texto con IA antes de publicar.
+                    </p>
+                @else
+                    <h2>La conexion externa todavia no esta activa</h2>
+                    <p>
+                        Este modulo ya te deja administrar el contenido y la programacion interna. La salida real a LinkedIn se habilita apenas conectes una cuenta desde el modulo de conexiones.
+                    </p>
+                @endif
             </div>
             <div class="social-info-panel__legend">
                 <div><strong>Borrador:</strong> contenido en construccion.</div>
                 <div><strong>Programada:</strong> aprobada con fecha futura.</div>
-                <div><strong>Lista:</strong> ya cumplio fecha y puede salir al integrador.</div>
+                <div><strong>Lista:</strong> ya cumplio fecha y puede salir a publicacion.</div>
+                @if($linkedInConnection)
+                    <div><strong>LinkedIn:</strong> cuenta activa {{ $linkedInConnection->account_name }}.</div>
+                @endif
             </div>
         </div>
 
@@ -128,12 +147,25 @@
                                         <a href="{{ route('admin.social-posts.edit', $post) }}" class="btn btn-outline-light btn-sm rounded-pill px-3">
                                             Editar
                                         </a>
+                                        @if($linkedInConnection && in_array('linkedin', $post->platforms ?? [], true) && $post->status !== \App\Models\SocialPost::STATUS_PUBLISHED)
+                                            <form action="{{ route('admin.social-posts.publish-linkedin', $post) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-primary btn-sm rounded-pill px-3"
+                                                    onclick="return confirm('Publicar esta pieza en LinkedIn ahora?');"
+                                                >
+                                                    Publicar en LinkedIn
+                                                </button>
+                                            </form>
+                                        @endif
                                         @if($post->status !== \App\Models\SocialPost::STATUS_PUBLISHED)
                                             <form action="{{ route('admin.social-posts.publish', $post) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('PATCH')
                                                 <button type="submit" class="btn btn-success btn-sm rounded-pill px-3">
-                                                    Marcar publicada
+                                                    Marcar publicada manual
                                                 </button>
                                             </form>
                                         @endif
@@ -226,6 +258,12 @@
         background: rgba(4, 120, 87, 0.14);
         color: #d1fae5;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+    }
+
+    .social-admin-alert--danger {
+        border-color: rgba(248, 113, 113, 0.2);
+        background: rgba(127, 29, 29, 0.22);
+        color: #fee2e2;
     }
 
     .admin-switcher .btn {

@@ -27,7 +27,7 @@ return new class extends Migration
             $table->text('meta_page_access_token')->nullable();
             $table->string('meta_instagram_account_id')->nullable();
             $table->string('meta_instagram_username')->nullable();
-            $table->json('payload')->nullable();
+            $table->longText('payload')->nullable();
             $table->foreignId('connected_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
 

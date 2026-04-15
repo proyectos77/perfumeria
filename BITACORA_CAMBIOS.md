@@ -374,6 +374,62 @@ Habilitar generacion asistida por IA dentro del formulario de publicaciones soci
 3. Se limpiaron y recompilaron las vistas con `php artisan view:clear` y `php artisan view:cache`.
 4. Se limpio configuracion con `php artisan config:clear`.
 
+## Registro 2026-03-25
+
+### Objetivo
+Corregir el fallo de almacenamiento que impedia guardar la conexion OAuth de LinkedIn en la tabla `social_platform_connections`.
+
+### Cambios realizados
+
+1. Se detecto que el campo `payload` estaba definido como `json`, mientras el modelo `App\Models\SocialPlatformConnection` lo estaba guardando con cast `encrypted:array`.
+2. Se corrigio la migracion base `2026_03_24_140000_create_social_platform_connections_table.php` para que `payload` se cree como `longText` en instalaciones nuevas.
+3. Se agrego la migracion `2026_03_25_130000_alter_social_platform_connections_payload_to_longtext.php` para convertir `payload` a `LONGTEXT` en entornos ya creados.
+4. Se aplico la migracion real para que el login de LinkedIn pueda persistir la conexion sin error SQL.
+
+### Archivos afectados
+
+- `database/migrations/2026_03_24_140000_create_social_platform_connections_table.php`
+- `database/migrations/2026_03_25_130000_alter_social_platform_connections_payload_to_longtext.php`
+- `BITACORA_CAMBIOS.md`
+
+### Validacion
+
+1. Se validaron ambas migraciones con `php -l`.
+2. Se verifico el cambio con `php artisan migrate --pretend`.
+3. Se ejecuto la migracion real con `php artisan migrate`.
+
+## Registro 2026-03-25
+
+### Objetivo
+Habilitar la publicacion real en LinkedIn desde el panel social, aprovechando la conexion OAuth ya guardada y sin depender obligatoriamente de Gemini para publicar.
+
+### Cambios realizados
+
+1. Se amplio `App\Http\Controllers\SocialPostController` para detectar una conexion activa de LinkedIn dentro del listado del panel y exponer el nuevo flujo de envio real.
+2. Se implemento el metodo `publishToLinkedIn` para tomar una publicacion del panel, validar que incluya LinkedIn entre sus redes objetivo y enviarla al endpoint oficial `rest/posts` de LinkedIn.
+3. Se agrego manejo de exito y error dentro del mismo flujo, actualizando el estado de la publicacion, `published_at`, `last_error` y los registros de trazabilidad en `social_publish_logs`.
+4. Se agrego la ruta protegida `admin.social-posts.publish-linkedin` en `routes/web.php`.
+5. Se actualizo `resources/views/admin/social-posts/index.blade.php` para mostrar cuando LinkedIn ya esta conectado, habilitar el boton `Publicar en LinkedIn` y separar esa salida real del marcado manual.
+6. Se aclaro en la interfaz que `GOOGLE_GEMINI_API_KEY` solo es necesaria para generar o mejorar textos con IA, no para ejecutar la publicacion real en LinkedIn.
+7. Se amplio `config/services.php`, `.env` y `.env.example` con `LINKEDIN_API_VERSION` para controlar de forma centralizada la version del API REST usada al publicar.
+
+### Archivos afectados
+
+- `app/Http/Controllers/SocialPostController.php`
+- `resources/views/admin/social-posts/index.blade.php`
+- `routes/web.php`
+- `config/services.php`
+- `.env`
+- `.env.example`
+- `BITACORA_CAMBIOS.md`
+
+### Validacion
+
+1. Se valido `app/Http/Controllers/SocialPostController.php` con `php -l`.
+2. Se verificaron las rutas del modulo con `php artisan route:list --name=social-posts`.
+3. Se limpiaron y recompilaron vistas con `php artisan view:clear` y `php artisan view:cache`.
+4. Se limpio configuracion con `php artisan config:clear`.
+
 ## Mejoras de arquitectura detectadas
 
 1. El proyecto ya tiene una base visual compartida, pero todavia conviene convertir mas bloques repetidos en componentes Blade reutilizables.
