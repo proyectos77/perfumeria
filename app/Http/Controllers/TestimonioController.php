@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Models\Testimonio;
 
@@ -24,12 +25,16 @@ class TestimonioController extends Controller
 
     public function home()
     {
-        // $testimonios = Testimonio::latest()->take(8)->get();
-        // return view('home', compact('testimonios'));
-
         $testimoniosDestacados = Testimonio::latest()->take(4)->get();
         $testimoniosRestantes = Testimonio::latest()->skip(8)->paginate(8); // para modal
-        return view('home', compact('testimoniosDestacados', 'testimoniosRestantes'));
+        $featuredProjects = Project::query()
+            ->published()
+            ->featured()
+            ->ordered()
+            ->take(8)
+            ->get();
+
+        return view('home', compact('testimoniosDestacados', 'testimoniosRestantes', 'featuredProjects'));
     }
 
 }

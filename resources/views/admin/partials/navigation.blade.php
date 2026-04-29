@@ -2,6 +2,21 @@
     <a href="{{ route('admin.contactos') }}" class="btn {{ request()->routeIs('admin.contactos') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
         <i class="bi bi-grid-1x2-fill me-2"></i>Dashboard
     </a>
+    <a href="{{ route('admin.site-settings.edit') }}" class="btn {{ request()->routeIs('admin.site-settings.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
+        <i class="bi bi-sliders me-2"></i>Sitio web
+    </a>
+    <a href="{{ route('admin.projects.index') }}" class="btn {{ request()->routeIs('admin.projects.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
+        <i class="bi bi-kanban-fill me-2"></i>Proyectos
+    </a>
+    <a href="{{ route('admin.categorias.index') }}" class="btn {{ request()->routeIs('admin.categorias.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
+        <i class="bi bi-tags-fill me-2"></i>Categorias
+    </a>
+    <a href="{{ route('admin.productos.index') }}" class="btn {{ request()->routeIs('admin.productos.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
+        <i class="bi bi-bag-heart-fill me-2"></i>Productos
+    </a>
+    <a href="{{ route('admin.pedidos.index') }}" class="btn {{ request()->routeIs('admin.pedidos.*') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
+        <i class="bi bi-receipt-cutoff me-2"></i>Pedidos
+    </a>
     <a href="{{ route('admin.contactos.listado') }}" class="btn {{ request()->routeIs('admin.contactos.listado') ? 'btn-primary' : 'btn-outline-primary' }} fw-semibold px-4">
         <i class="bi bi-envelope-paper me-2"></i>Ver listado
     </a>

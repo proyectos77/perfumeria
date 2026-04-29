@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Throwable;
 use Illuminate\Http\Request;
 use App\Models\Contacto;
+use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactoRecibido;
@@ -19,6 +20,8 @@ class ContactoController extends Controller
 
     public function enviar(Request $request)
     {
+        $settings = SiteSetting::current();
+
         $request->validate([
             'nombre' => 'required',
             'correo' => 'required|email',
@@ -37,7 +40,7 @@ class ContactoController extends Controller
                 new ContactoRecibido($request->nombre, $request->mensaje)
             );
 
-            Mail::to(config('mail.admin_address'))->send(
+            Mail::to($settings->admin_notification_email ?: config('mail.admin_address'))->send(
                 new NuevoContacto($request->nombre, $request->correo, $request->mensaje)
             );
         } catch (Throwable $exception) {
@@ -48,6 +51,6 @@ class ContactoController extends Controller
         }
 
         return redirect()->route('contacto')
-            ->with('success', 'Recibimos tu mensaje correctamente. Nuestro equipo te respondera muy pronto.');
+            ->with('success', 'Recibimos tu solicitud correctamente. Revisaremos el contexto y te responderemos para continuar la conversación inicial.');
     }
 }

@@ -2,8 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\CategoriaController as AdminCategoriaController;
+use App\Http\Controllers\Admin\PedidoController as AdminPedidoController;
+use App\Http\Controllers\Admin\ProductoController as AdminProductoController;
+use App\Http\Controllers\AdminProjectController;
+use App\Http\Controllers\AdminSiteSettingController;
+use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\SocialConnectionController;
 use App\Http\Controllers\SocialPostController;
 use App\Http\Controllers\SocialTemplateController;
@@ -44,6 +51,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/social-templates', [SocialTemplateController::class, 'index'])->name('admin.social-templates.index');
     Route::get('/admin/social-templates/{template}', [SocialTemplateController::class, 'show'])->name('admin.social-templates.show');
     Route::post('/admin/social-templates/{template}/draft', [SocialTemplateController::class, 'storeDraft'])->name('admin.social-templates.store-draft');
+    Route::get('/admin/site-settings', [AdminSiteSettingController::class, 'edit'])->name('admin.site-settings.edit');
+    Route::put('/admin/site-settings', [AdminSiteSettingController::class, 'update'])->name('admin.site-settings.update');
+    Route::get('/admin/projects', [AdminProjectController::class, 'index'])->name('admin.projects.index');
+    Route::get('/admin/projects/create', [AdminProjectController::class, 'create'])->name('admin.projects.create');
+    Route::post('/admin/projects', [AdminProjectController::class, 'store'])->name('admin.projects.store');
+    Route::get('/admin/projects/{project}/edit', [AdminProjectController::class, 'edit'])->name('admin.projects.edit');
+    Route::put('/admin/projects/{project}', [AdminProjectController::class, 'update'])->name('admin.projects.update');
+    Route::delete('/admin/projects/{project}', [AdminProjectController::class, 'destroy'])->name('admin.projects.destroy');
+
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('categorias', AdminCategoriaController::class)->except(['show']);
+        Route::resource('productos', AdminProductoController::class)->except(['show']);
+        Route::get('pedidos', [AdminPedidoController::class, 'index'])->name('pedidos.index');
+        Route::get('pedidos/{pedido}', [AdminPedidoController::class, 'show'])->name('pedidos.show');
+        Route::patch('pedidos/{pedido}', [AdminPedidoController::class, 'update'])->name('pedidos.update');
+    });
 });
 
 
@@ -69,10 +92,16 @@ Route::get('/terminos', function () {
     return view('terminos');
 })->name('terminos');
 
+Route::view('/apolo', 'apolo')->name('apolo');
+
 
 //ruta de testimonios usuarios
 Route::post('/testimonios', [TestimonioController::class, 'store'])->name('testimonios.store');
 Route::get('/', [TestimonioController::class, 'home'])->name('home');
+Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo.index');
+Route::get('/catalogo/{producto}', [CatalogoController::class, 'show'])->name('catalogo.show');
+Route::post('/pedidos', [PedidoController::class, 'store'])->name('pedidos.store');
+Route::get('/pedidos/{pedido}/gracias', [PedidoController::class, 'gracias'])->name('pedidos.gracias');
 
 
 Route::view('/terminos-y-condiciones', 'terminos')->name('terminos');

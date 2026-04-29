@@ -1,20 +1,40 @@
+@php
+    $serviceLinks = [
+        ['label' => 'Gestión de proyectos', 'fragment' => 'gestion-proyectos-tecnologicos'],
+        ['label' => 'Soluciones y automatización', 'fragment' => 'soluciones-digitales-automatizacion'],
+        ['label' => 'Gestión documental', 'fragment' => 'gestion-documental'],
+        ['label' => 'Implementación SGDEA', 'fragment' => 'implementacion-sgdea-crear-system'],
+        ['label' => 'Acompañamiento y soporte', 'fragment' => 'acompanamiento-soporte'],
+    ];
+
+    $primaryLinks = [
+        ['label' => 'Inicio', 'route' => 'home'],
+        ['label' => 'Catalogo', 'route' => 'catalogo.index'],
+        ['label' => 'Contacto', 'route' => 'contacto'],
+        ['label' => 'Quiénes somos', 'route' => 'quienessomos'],
+    ];
+
+    $isAdminRoute = request()->routeIs('admin.*', 'dashboard');
+    $isServicesRoute = request()->routeIs('servicios');
+@endphp
+
 <header class="site-header" role="banner" data-site-header>
-    <nav class="navbar navbar-expand-lg navbar-dark site-navbar" role="navigation" aria-label="Menu principal del sitio">
+    <nav class="navbar navbar-expand-lg navbar-dark site-navbar" role="navigation" aria-label="Menú principal del sitio">
         <div class="container-xl site-navbar__shell">
             <a class="navbar-brand site-navbar__brand d-flex align-items-center gap-3" href="{{ route('home') }}">
                 <img
-                    src="{{ asset('images/logo-crear-system-4.png') }}"
-                    alt="Logo de Crear System"
+                    src="{{ $siteSettings->assetUrl($siteSettings->logo_path) }}"
+                    alt="Logo de {{ $siteSettings->site_name }}"
                     height="64"
                     class="site-navbar__logo"
                 >
                 <div class="site-navbar__brand-copy d-flex flex-column text-white">
-                    <span class="site-navbar__brand-name">Crear System</span>
-                    <small class="site-navbar__tagline">Desarrollo web, software y automatizacion para hacer crecer tu negocio</small>
+                    <span class="site-navbar__brand-name">{{ $siteSettings->site_name }}</span>
+                    <small class="site-navbar__tagline">{{ $siteSettings->site_tagline }}</small>
                 </div>
             </a>
 
-            <button class="navbar-toggler site-navbar__toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menu principal">
+            <button class="navbar-toggler site-navbar__toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú principal">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -22,57 +42,53 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 site-navbar__menu">
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('admin.*') ? 'active' : '' }}" href="{{ route('admin.contactos') }}">
+                            <a class="nav-link {{ $isAdminRoute ? 'active' : '' }}" href="{{ route('admin.contactos') }}"{{ $isAdminRoute ? ' aria-current=page' : '' }}>
                                 <strong>Panel</strong>
                             </a>
                         </li>
                     @endauth
 
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
-                            <strong>Inicio</strong>
-                        </a>
-                    </li>
+                    @foreach($primaryLinks as $link)
+                        @php
+                            $isCurrent = request()->routeIs($link['route']);
+                        @endphp
+                        <li class="nav-item">
+                            <a class="nav-link {{ $isCurrent ? 'active' : '' }}" href="{{ route($link['route']) }}"{{ $isCurrent ? ' aria-current=page' : '' }}>
+                                <strong>{{ $link['label'] }}</strong>
+                            </a>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle fw-semibold {{ request()->routeIs('servicios') ? 'active' : '' }}"
-                           href="#"
-                           id="navbarServicios"
-                           role="button"
-                           data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Servicios
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn" aria-labelledby="navbarServicios">
-                            <li><a class="dropdown-item" href="{{ route('servicios') }}#desarrollo-web">Desarrollo web</a></li>
-                            <li><a class="dropdown-item" href="{{ route('servicios') }}#mantenimiento-software">Mantenimiento</a></li>
-                            <li><a class="dropdown-item" href="{{ route('servicios') }}#consultoria-ti">Consultoria TI</a></li>
-                            <li><a class="dropdown-item" href="{{ route('servicios') }}#software-medida">Software a medida</a></li>
-                            <li><a class="dropdown-item" href="{{ route('servicios') }}#integraciones-api">Integraciones API</a></li>
-                            <li><a class="dropdown-item" href="{{ route('servicios') }}#automatizacion-procesos">Automatizacion</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('contacto') ? 'active' : '' }}" href="{{ route('contacto') }}">
-                            <strong>Contacto</strong>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('quienessomos') ? 'active' : '' }}" href="{{ route('quienessomos') }}">
-                            <strong>Quienes somos</strong>
-                        </a>
-                    </li>
+                        @if($link['route'] === 'home')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fw-semibold {{ $isServicesRoute ? 'active' : '' }}"
+                                   href="#"
+                                   id="navbarServicios"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false"{{ $isServicesRoute ? ' aria-current=page' : '' }}>
+                                    Servicios
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn" aria-labelledby="navbarServicios">
+                                    @foreach($serviceLinks as $serviceLink)
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('servicios') }}#{{ $serviceLink['fragment'] }}">
+                                                {{ $serviceLink['label'] }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
 
                 <div class="site-navbar__actions ms-lg-4">
                     @auth
-                        <ul class="navbar-nav align-items-lg-center flex-row site-navbar__auth">
-                            @php
-                                $nuevos = \App\Models\Contacto::whereDate('created_at', \Carbon\Carbon::today())->count();
-                            @endphp
+                        @php
+                            $nuevos = \App\Models\Contacto::whereDate('created_at', \Carbon\Carbon::today())->count();
+                        @endphp
 
+                        <ul class="navbar-nav align-items-lg-center flex-row site-navbar__auth">
                             <li class="nav-item">
                                 <div class="site-navbar__notification position-relative" role="button" aria-label="Notificaciones nuevas">
                                     <i class="bi bi-bell text-white"></i>
@@ -93,7 +109,7 @@
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <button type="submit" class="dropdown-item">Cerrar sesion</button>
+                                            <button type="submit" class="dropdown-item">Cerrar sesión</button>
                                         </form>
                                     </li>
                                 </ul>
@@ -101,9 +117,9 @@
                         </ul>
                     @endauth
 
-                    @unless(request()->routeIs('admin.*', 'dashboard'))
-                        <a href="{{ route('contacto') }}" class="btn btn-warning site-navbar__cta">
-                            <i class="bi bi-chat-dots me-2"></i>Solicitar asesoria
+                    @unless($isAdminRoute)
+                        <a href="{{ route('catalogo.index') }}" class="btn btn-warning site-navbar__cta">
+                            <i class="bi bi-bag-heart me-2"></i>Ver perfumes
                         </a>
                     @endunless
                 </div>

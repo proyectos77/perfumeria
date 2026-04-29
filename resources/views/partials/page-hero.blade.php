@@ -1,5 +1,6 @@
 @php
     $heroImage = $image ?? 'images/home/imagen-home1.png';
+    $heroImageUrl = isset($siteSettings) ? $siteSettings->assetUrl($heroImage) : asset($heroImage);
     $heroBadge = $badge ?? null;
     $heroTitle = $title ?? '';
     $heroDescription = $description ?? '';
@@ -9,7 +10,7 @@
 @endphp
 
 <header class="page-hero {{ $heroClass }}">
-    <div class="page-hero__media" style="background-image: url('{{ asset($heroImage) }}');"></div>
+    <div class="page-hero__media" style="background-image: url('{{ $heroImageUrl }}');"></div>
     <div class="page-hero__overlay"></div>
     <div class="page-hero__ornament page-hero__ornament--top"></div>
     <div class="page-hero__ornament page-hero__ornament--bottom"></div>
@@ -41,8 +42,7 @@
                         @foreach($heroActions as $action)
                             <a
                                 href="{{ $action['href'] }}"
-                                class="{{ $action['class'] ?? 'btn btn-warning btn-lg px-5 fw-bold shadow-lg' }}"
-                                @if(!empty($action['target'])) target="{{ $action['target'] }}" @endif
+                                class="{{ $action['class'] ?? 'btn btn-warning btn-lg px-5 fw-bold shadow-lg' }}"{{ !empty($action['target']) ? ' target=' . '"' . $action['target'] . '"' : '' }}
                             >
                                 @if(!empty($action['icon']))
                                     <i class="{{ $action['icon'] }} me-2"></i>

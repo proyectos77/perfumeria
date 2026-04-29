@@ -79,4 +79,9 @@ return [
         'model' => env('GOOGLE_GEMINI_MODEL', 'gemini-2.0-flash'),
     ],
 
+    'apolo' => [
+        'url' => env('APOLO_URL', env('APP_URL') . '/register'),
+        'register_url' => env('APOLO_REGISTER_URL', env('APOLO_URL', env('APP_URL') . '/register')),
+    ],
+
 ];
