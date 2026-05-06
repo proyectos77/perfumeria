@@ -31,8 +31,8 @@
                                         <small class="text-muted">{{ $detalle->producto->categoria->nombre }}</small>
                                     </td>
                                     <td>{{ $detalle->cantidad }}</td>
-                                    <td>${{ number_format($detalle->precio, 2) }}</td>
-                                    <td>${{ number_format($detalle->precio * $detalle->cantidad, 2) }}</td>
+                                    <td>{{ number_format($detalle->precio, 0, ',', '.') }} COP</td>
+                                    <td>{{ number_format($detalle->precio * $detalle->cantidad, 0, ',', '.') }} COP</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -43,22 +43,52 @@
                 <div class="card border-0 shadow-lg rounded-4">
                     <div class="card-body p-4">
                         <h2 class="h4 fw-bold mb-3">Resumen</h2>
+                        <div class="mb-3">
+                            <p class="mb-1 text-muted">Cliente</p>
+                            <strong>{{ $pedido->nombreCompleto() }}</strong>
+                            <small class="d-block text-muted">{{ $pedido->telefono }} · {{ $pedido->correo }}</small>
+                        </div>
+                        <div class="mb-3">
+                            <p class="mb-1 text-muted">Entrega</p>
+                            <strong>{{ $pedido->tipoEntregaLabel() }}</strong>
+                            @if($pedido->direccion)
+                                <small class="d-block text-muted">{{ $pedido->direccion }}</small>
+                            @endif
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Subtotal</span>
+                                <strong>{{ number_format($pedido->subtotal, 0, ',', '.') }} COP</strong>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Envio</span>
+                                <strong>{{ number_format($pedido->costo_envio, 0, ',', '.') }} COP</strong>
+                            </div>
+                        </div>
                         <p class="mb-1 text-muted">Total</p>
-                        <p class="display-6 fw-bold">${{ number_format($pedido->total, 2) }}</p>
+                        <p class="display-6 fw-bold">{{ number_format($pedido->total, 0, ',', '.') }} COP</p>
+                        <p class="small text-muted">Medio de pago: {{ str_replace('_', ' ', $pedido->medio_pago) }}</p>
 
                         <form action="{{ route('admin.pedidos.update', $pedido) }}" method="POST">
                             @csrf
                             @method('PATCH')
                             <label class="form-label fw-semibold">Estado</label>
                             <select name="estado" class="form-select">
-                                <option value="pendiente" @selected($pedido->estado === 'pendiente')>Pendiente</option>
-                                <option value="confirmado" @selected($pedido->estado === 'confirmado')>Confirmado</option>
-                                <option value="cancelado" @selected($pedido->estado === 'cancelado')>Cancelado</option>
+                                @foreach(\App\Models\Pedido::estadosAdmin() as $estado => $label)
+                                    <option value="{{ $estado }}" @selected($pedido->estado === $estado)>{{ $label }}</option>
+                                @endforeach
                             </select>
                             <button class="btn btn-primary rounded-pill w-100 mt-3 fw-bold">Actualizar estado</button>
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="card border-0 shadow-lg rounded-4 mt-4">
+            <div class="card-body p-4">
+                <h2 class="h4 fw-bold mb-4">Flujo del pedido</h2>
+                @include('pedidos.partials.timeline', ['pedido' => $pedido])
             </div>
         </div>
     </div>

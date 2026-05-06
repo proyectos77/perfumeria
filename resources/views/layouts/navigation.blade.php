@@ -1,40 +1,34 @@
 @php
-    $serviceLinks = [
-        ['label' => 'Gestión de proyectos', 'fragment' => 'gestion-proyectos-tecnologicos'],
-        ['label' => 'Soluciones y automatización', 'fragment' => 'soluciones-digitales-automatizacion'],
-        ['label' => 'Gestión documental', 'fragment' => 'gestion-documental'],
-        ['label' => 'Implementación SGDEA', 'fragment' => 'implementacion-sgdea-crear-system'],
-        ['label' => 'Acompañamiento y soporte', 'fragment' => 'acompanamiento-soporte'],
-    ];
-
     $primaryLinks = [
         ['label' => 'Inicio', 'route' => 'home'],
-        ['label' => 'Catalogo', 'route' => 'catalogo.index'],
+        ['label' => 'Catálogo', 'route' => 'catalogo.index'],
+        ['label' => 'Quiénes Somos', 'route' => 'quienes-somos'],
         ['label' => 'Contacto', 'route' => 'contacto'],
-        ['label' => 'Quiénes somos', 'route' => 'quienessomos'],
     ];
 
     $isAdminRoute = request()->routeIs('admin.*', 'dashboard');
-    $isServicesRoute = request()->routeIs('servicios');
+    $pedidosNuevos = auth()->check()
+        ? \App\Models\Pedido::query()->whereNull('visto_admin_at')->count()
+        : 0;
+    $ultimosPedidos = auth()->check()
+        ? \App\Models\Pedido::query()->latest()->take(5)->get()
+        : collect();
 @endphp
 
 <header class="site-header" role="banner" data-site-header>
-    <nav class="navbar navbar-expand-lg navbar-dark site-navbar" role="navigation" aria-label="Menú principal del sitio">
+    <nav class="navbar navbar-expand-lg site-navbar" role="navigation" aria-label="Menu principal del sitio">
         <div class="container-xl site-navbar__shell">
             <a class="navbar-brand site-navbar__brand d-flex align-items-center gap-3" href="{{ route('home') }}">
-                <img
-                    src="{{ $siteSettings->assetUrl($siteSettings->logo_path) }}"
-                    alt="Logo de {{ $siteSettings->site_name }}"
-                    height="64"
-                    class="site-navbar__logo"
-                >
-                <div class="site-navbar__brand-copy d-flex flex-column text-white">
-                    <span class="site-navbar__brand-name">{{ $siteSettings->site_name }}</span>
-                    <small class="site-navbar__tagline">{{ $siteSettings->site_tagline }}</small>
+                <span class="site-navbar__logo-frame">
+                    <img src="{{ asset('images/logo-pagina.png') }}" alt="Logo de PERFUMERY J & P" class="site-navbar__logo">
+                </span>
+                <div class="site-navbar__brand-copy d-flex flex-column">
+                    <span class="site-navbar__brand-name">PERFUMERY J &amp; P</span>
+                    <small class="site-navbar__tagline">Fragancias seleccionadas</small>
                 </div>
             </a>
 
-            <button class="navbar-toggler site-navbar__toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú principal">
+            <button class="navbar-toggler site-navbar__toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menu principal">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -42,7 +36,7 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 site-navbar__menu">
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link {{ $isAdminRoute ? 'active' : '' }}" href="{{ route('admin.contactos') }}"{{ $isAdminRoute ? ' aria-current=page' : '' }}>
+                            <a class="nav-link {{ $isAdminRoute ? 'active' : '' }}" href="{{ route('admin.productos.index') }}"{{ $isAdminRoute ? ' aria-current=page' : '' }}>
                                 <strong>Panel</strong>
                             </a>
                         </li>
@@ -57,49 +51,38 @@
                                 <strong>{{ $link['label'] }}</strong>
                             </a>
                         </li>
-
-                        @if($link['route'] === 'home')
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle fw-semibold {{ $isServicesRoute ? 'active' : '' }}"
-                                   href="#"
-                                   id="navbarServicios"
-                                   role="button"
-                                   data-bs-toggle="dropdown"
-                                   aria-expanded="false"{{ $isServicesRoute ? ' aria-current=page' : '' }}>
-                                    Servicios
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn" aria-labelledby="navbarServicios">
-                                    @foreach($serviceLinks as $serviceLink)
-                                        <li>
-                                            <a class="dropdown-item" href="{{ route('servicios') }}#{{ $serviceLink['fragment'] }}">
-                                                {{ $serviceLink['label'] }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @endif
                     @endforeach
                 </ul>
 
                 <div class="site-navbar__actions ms-lg-4">
                     @auth
-                        @php
-                            $nuevos = \App\Models\Contacto::whereDate('created_at', \Carbon\Carbon::today())->count();
-                        @endphp
-
                         <ul class="navbar-nav align-items-lg-center flex-row site-navbar__auth">
-                            <li class="nav-item">
-                                <div class="site-navbar__notification position-relative" role="button" aria-label="Notificaciones nuevas">
-                                    <i class="bi bi-bell text-white"></i>
-                                    @if($nuevos > 0)
-                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" aria-label="{{ $nuevos }} notificaciones nuevas">
-                                            {{ $nuevos }}
+                            <li class="nav-item dropdown me-2">
+                                <a class="nav-link position-relative" href="#" id="pedidoBellDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Pedidos nuevos">
+                                    <i class="bi bi-bell-fill"></i>
+                                    @if($pedidosNuevos > 0)
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+                                            {{ $pedidosNuevos }}
                                         </span>
                                     @endif
-                                </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end order-bell-menu" aria-labelledby="pedidoBellDropdown">
+                                    <li class="dropdown-header">Pedidos recientes</li>
+                                    @forelse($ultimosPedidos as $pedidoNav)
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.pedidos.show', $pedidoNav) }}">
+                                                <strong>#{{ $pedidoNav->id }}</strong>
+                                                <span>{{ $pedidoNav->nombreCompleto() ?: 'Cliente pendiente' }}</span>
+                                                <small>{{ $pedidoNav->estadoLabel() }}</small>
+                                            </a>
+                                        </li>
+                                    @empty
+                                        <li><span class="dropdown-item-text text-muted">Sin pedidos aun</span></li>
+                                    @endforelse
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item fw-bold" href="{{ route('admin.pedidos.index') }}">Ver todos los pedidos</a></li>
+                                </ul>
                             </li>
-
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="usuarioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }}
@@ -119,7 +102,7 @@
 
                     @unless($isAdminRoute)
                         <a href="{{ route('catalogo.index') }}" class="btn btn-warning site-navbar__cta">
-                            <i class="bi bi-bag-heart me-2"></i>Ver perfumes
+                            <i class="bi bi-bag-heart me-2"></i>Comprar
                         </a>
                     @endunless
                 </div>

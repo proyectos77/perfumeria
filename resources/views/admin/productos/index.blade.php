@@ -43,7 +43,17 @@
                                     </div>
                                 </td>
                                 <td>{{ $producto->categoria->nombre }}</td>
-                                <td>${{ number_format($producto->precio, 2) }}</td>
+                                <td>
+                                    @if($producto->descuento > 0)
+                                        <div>
+                                            <small class="admin-price-old">{{ $producto->getPrecioFormato() }}</small>
+                                            <span style="background: #dc3545; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem;">-{{ $producto->descuento }}%</span>
+                                            <div class="admin-price-main">{{ $producto->getPrecioConDescuentoFormato() }}</div>
+                                        </div>
+                                    @else
+                                        <span class="admin-price-main">{{ $producto->getPrecioFormato() }}</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <span class="badge rounded-pill {{ $producto->stock > 0 ? 'text-bg-success' : 'text-bg-danger' }}">
                                         {{ $producto->stock }} unidades

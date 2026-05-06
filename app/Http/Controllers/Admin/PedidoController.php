@@ -16,6 +16,7 @@ class PedidoController extends Controller
         return view('admin.pedidos.index', [
             'pedidos' => Pedido::query()
                 ->withCount('detalles')
+                ->orderByRaw('visto_admin_at IS NOT NULL')
                 ->latest()
                 ->paginate(12),
         ]);
@@ -23,8 +24,15 @@ class PedidoController extends Controller
 
     public function show(Pedido $pedido): View
     {
+        if (is_null($pedido->visto_admin_at)) {
+            $pedido->forceFill(['visto_admin_at' => now()])->save();
+        }
+
         return view('admin.pedidos.show', [
-            'pedido' => $pedido->load('detalles.producto.categoria'),
+            'pedido' => $pedido->load([
+                'detalles.producto.categoria',
+                'estados' => fn ($query) => $query->oldest(),
+            ]),
         ]);
     }
 
@@ -32,13 +40,18 @@ class PedidoController extends Controller
     {
         $data = $request->validate([
             'estado' => ['required', Rule::in([
-                Pedido::ESTADO_PENDIENTE,
+                Pedido::ESTADO_COMPRADO,
                 Pedido::ESTADO_CONFIRMADO,
+                Pedido::ESTADO_ENVIADO,
+                Pedido::ESTADO_ENTREGADO,
                 Pedido::ESTADO_CANCELADO,
             ])],
         ]);
 
-        $pedido->update($data);
+        if ($pedido->estado !== $data['estado']) {
+            $pedido->update($data);
+            $pedido->registrarEstado($data['estado'], Pedido::estadosAdmin()[$data['estado']] ?? null);
+        }
 
         return back()->with('success', 'Estado del pedido actualizado correctamente.');
     }
